@@ -1,0 +1,10 @@
+# ninja log v5
+18	561	6939502846929493	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/baspar.dir/lib3.cpp.obj	df82d8b7eaec66f7
+4	1190	6939502853164997	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/baspar.dir/lib1.cpp.obj	76fce9f0aebaeade
+11	1228	6939502853544977	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/baspar.dir/lib2.cpp.obj	4619746bc5027a06
+24	1408	6939502855364943	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/baspar.dir/lib4.cpp.obj	8cdac7be7755f970
+1409	1475	6939502856064971	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/lib/baspar.lib	276d476961dc6ad0
+31	2008	6939502861335351	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/gui.dir/gui_signal_module.cpp.obj	37d1a2525788f10a
+2009	2060	6939502861935382	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/lib/gui.lib	d8323970fcd9d24
+37	2119	6939502862435352	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/graphdebug1.dir/g1.cpp.obj	339c644344ae31b
+2119	2353	6939502864235359	D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/Debug/graphdebug1.exe	139b25e4aa1c730

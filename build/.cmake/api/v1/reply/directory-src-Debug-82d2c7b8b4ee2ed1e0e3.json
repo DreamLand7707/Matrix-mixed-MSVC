@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin",
+		"source" : "src"
+	}
+}

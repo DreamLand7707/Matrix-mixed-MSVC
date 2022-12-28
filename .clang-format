@@ -1,0 +1,56 @@
+﻿# 语言: None, Cpp, Java, JavaScript, ObjC, Proto, TableGen, TextProto
+Language: Cpp
+BasedOnStyle: LLVM
+
+# 访问说明符(public、private等)的偏移
+AccessModifierOffset: -3
+
+# 开括号(开圆括号、开尖括号、开方括号)后的对齐: Align, DontAlign, AlwaysBreak(总是在开括号后换行)
+AlignAfterOpenBracket: Align
+
+# 对齐数组列
+AlignArrayOfStructures: None
+
+AlignOperands: Align
+
+BreakBeforeBinaryOperators: None
+
+PackConstructorInitializers: CurrentLine
+
+ColumnLimit: 0
+# 缩进宽度
+IndentWidth: 4
+# 在大括号前换行
+BreakBeforeBraces: Allman
+
+# 大括号换行，只有当BreakBeforeBraces设置为Custom时才有效，设置其他配置则下面不生效
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: true
+  AfterControlStatement: Always
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: false
+  AfterStruct: true
+  AfterUnion: false
+  AfterExternBlock: false
+  BeforeCatch: false
+  BeforeElse: false
+  BeforeLambdaBody: false
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+
+BreakInheritanceList: BeforeColon
+BreakConstructorInitializers: BeforeColon
+
+# 连续空行的最大数量
+MaxEmptyLinesToKeep: 4
+
+# 命名空间的缩进
+NamespaceIndentation: All
+# 标准
+Standard: c++20

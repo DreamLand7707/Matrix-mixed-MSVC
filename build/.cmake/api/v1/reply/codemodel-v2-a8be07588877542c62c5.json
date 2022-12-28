@@ -1,0 +1,171 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin",
+					"jsonFile" : "directory-src-Debug-82d2c7b8b4ee2ed1e0e3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						0,
+						7
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin",
+					"jsonFile" : "directory-test-Debug-8e32b0d35d8f1b350880.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						1,
+						2,
+						3
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph",
+					"jsonFile" : "directory-testgraph-Debug-7b4cd05f2c5785c9a0f1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "testgraph",
+					"targetIndexes" : 
+					[
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					],
+					"name" : "matrixs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 1,
+					"id" : "baspar::@7a3e2e0fd8980361e3e7",
+					"jsonFile" : "target-baspar-Debug-759cb0df787adc47cd9c.json",
+					"name" : "baspar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug1::@ab396d1bff1a321938e0",
+					"jsonFile" : "target-cppdebug1-Debug-5e660ac90eac3f89d2f1.json",
+					"name" : "cppdebug1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug2::@ab396d1bff1a321938e0",
+					"jsonFile" : "target-cppdebug2-Debug-43573c956ec1621b0315.json",
+					"name" : "cppdebug2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug3::@ab396d1bff1a321938e0",
+					"jsonFile" : "target-cppdebug3-Debug-3d3e0d3072fdf5bd1cc8.json",
+					"name" : "cppdebug3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug1::@dfd507c989c1e815ef58",
+					"jsonFile" : "target-graphdebug1-Debug-5fa4744b7d560e7d4e20.json",
+					"name" : "graphdebug1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug2::@dfd507c989c1e815ef58",
+					"jsonFile" : "target-graphdebug2-Debug-a35d6e58b8500b35b71d.json",
+					"name" : "graphdebug2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug3::@dfd507c989c1e815ef58",
+					"jsonFile" : "target-graphdebug3-Debug-602e9911ca2783187134.json",
+					"name" : "graphdebug3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "gui::@7a3e2e0fd8980361e3e7",
+					"jsonFile" : "target-gui-Debug-788cd950e62c661a0b51.json",
+					"name" : "gui",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/build",
+		"source" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

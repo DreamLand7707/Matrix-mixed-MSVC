@@ -1,0 +1,16 @@
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/build/CMakeFiles/edit_cache.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/build/CMakeFiles/rebuild_cache.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/baspar.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/gui.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/edit_cache.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/rebuild_cache.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/cppdebug1.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/cppdebug2.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/cppdebug3.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/edit_cache.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/rebuild_cache.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/graphdebug1.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/graphdebug2.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/graphdebug3.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/edit_cache.dir
+D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/rebuild_cache.dir
