@@ -288,10 +288,10 @@ drl::input_box_module::message_type drl::input_box_module::inited()
     return message_type();
 }
 
-// drl::input_box_module::message_type drl::input_box_module::effect(const message_type &mess)
-// {
-//     ;
-// }
+drl::input_box_module::message_type drl::input_box_module::effect(const message_type &mess)
+{
+    ;
+}
 
 #pragma endregion input_box
 

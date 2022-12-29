@@ -4,7 +4,6 @@
 #include <string>
 #include <utility>
 
-
 int main(void)
 {
     using namespace drl;
