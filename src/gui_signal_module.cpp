@@ -4,7 +4,6 @@
 #include <easyx.h>
 
 _TOSTREAM drl::gui_signal::tcout(_TCOUT.rdbuf());
-using drl::message_class;
 
 drl::button_module::label_str_type_ drl::gui_signal::system_message_label = _T("#s");
 
@@ -20,10 +19,14 @@ const drl::input_box_module::label_num_type_ drl::input_box_module::no_message =
 const drl::input_box_module::label_str_type_ drl::input_box_module::module_basic = _T("input_box");
 const drl::input_box_module::label_str_type_ drl::input_box_module::selected = _T(" selected");
 
+const drl::output_box_module::label_num_type_ drl::output_box_module::no_message = 0;
+const drl::output_box_module::label_str_type_ drl::output_box_module::module_basic = _T("output_box");
+
 #define graflu FlushBatchDraw()
 #pragma region signal
 
-std::ostream &drl::operator<<(std::ostream &out, drl::gui_signal rhs)
+std::ostream &
+drl::operator<<(std::ostream &out, drl::gui_signal rhs)
 {
     rhs.print();
     return out;
@@ -166,7 +169,7 @@ bool drl::button_module::_condition(const message_type &mess)
         }
         if (mess.target_use)
         {
-            if ((drl::button_module::module_basic + id) != mess.sign.target)
+            if (id != mess.sign.target)
                 return false;
         }
         return true;
@@ -178,7 +181,7 @@ bool drl::button_module::_condition(const message_type &mess)
 drl::button_module::message_type drl::button_module::effect(const message_type &mess)
 {
     drl::gui_signal res(drl::button_module::no_message, drl::button_module::module_basic + id);
-    res.kind = drl::gui_signal::system_message;
+    res.kind = drl::gui_signal::effect_message;
     res.make_sence = false;
     if (mess.form() == drl::gui_signal::mess_base::system_message)
     {
@@ -208,7 +211,7 @@ drl::button_module::message_type drl::button_module::effect(const message_type &
                     mode = 2;
                     change_color(style.color[2]);
                     make_text(style.text_color[2]);
-                    graflu;
+                    flush();
                     return send_message_context_down;
                 }
             }
@@ -230,6 +233,7 @@ drl::button_module::message_type drl::button_module::effect(const message_type &
                     change_color(style.color[0]);
                     make_text(style.text_color[0]);
                 }
+                flush();
                 return send_message_context_up;
             }
         }
@@ -238,7 +242,7 @@ drl::button_module::message_type drl::button_module::effect(const message_type &
     {
         res = drl::user_fun_reg(this, &mess);
     }
-    graflu;
+    flush();
     return res;
 }
 #pragma endregion button
@@ -270,7 +274,7 @@ bool drl::input_box_module::_condition(const message_type &mess)
             }
             if (mess.target_use)
             {
-                if ((drl::button_module::module_basic + id) != mess.sign.target)
+                if (id != mess.sign.target)
                     return false;
             }
             return true;
@@ -286,15 +290,15 @@ drl::input_box_module::message_type drl::input_box_module::inited()
 {
     change_color(style.fill_color[0], style.line_color[0]);
     make_text(style.text_color[0]);
-    graflu;
+    flush();
     return message_type();
 }
 
 drl::input_box_module::message_type drl::input_box_module::effect(const message_type &mess)
 {
-    message_type res(no_message, drl::input_box_module::module_basic + id);
+    message_type res(no_message, module_basic + id);
     res.make_sence = false;
-    res.kind = drl::gui_signal::system_message;
+    res.kind = drl::gui_signal::effect_message;
     if (mess.kind == drl::gui_signal::system_message)
     {
         if (message_class(mess.sys().message) == EX_MOUSE)
@@ -329,7 +333,7 @@ drl::input_box_module::message_type drl::input_box_module::effect(const message_
                     mode = 2;
                     change_color(style.fill_color[2], style.line_color[2]);
                     make_text(style.text_color[2], modec);
-                    graflu;
+                    flush();
                     return send_message_context;
                 }
             }
@@ -378,10 +382,97 @@ drl::input_box_module::message_type drl::input_box_module::effect(const message_
     {
         res = drl::user_fun_reg(this, &mess);
     }
-    graflu;
+    flush();
     return res;
 }
 
 #pragma endregion input_box
+
+#pragma region output_box
+
+drl::output_box_module::message_type drl::output_box_module::inited()
+{
+    change_color(style.fill_color[0], style.line_color[0]);
+    make_text(style.text_color[0]);
+    flush();
+    return message_type();
+}
+
+bool drl::output_box_module::_condition(const message_type &mess)
+{
+    if (mess.make_sence)
+    {
+        if ((message_class(mess.sys().message) == EX_MOUSE) ||
+            (mess.kind == message_type::effect_message))
+        {
+            if ((message_class(mess.sys().message) == EX_KEY) && (mode != 2))
+            {
+                return false;
+            }
+            if (sys_type_filter_use && mess.mess_type_use)
+            {
+                if (std::find(sys_type_filter.begin(), sys_type_filter.end(), mess.sign.mess_type) == sys_type_filter.end())
+                    return false;
+            }
+            if (source_filter_use)
+            {
+                if (std::find(source_filter.begin(), source_filter.end(),
+                              mess_detail(mess.sign.source)) == source_filter.end())
+                    return false;
+            }
+            if (mess.target_use)
+            {
+                if (id != mess.sign.target)
+                    return false;
+            }
+            return true;
+        }
+        else
+            return false;
+    }
+    else
+        return false;
+}
+
+drl::output_box_module::message_type drl::output_box_module::effect(const message_type &mess)
+{
+    message_type res(no_message, module_basic + id);
+    res.make_sence = false;
+    res.kind = drl::gui_signal::effect_message;
+    if (mess.kind == drl::gui_signal::system_message)
+    {
+        if (message_class(mess.sys().message) == EX_MOUSE)
+        {
+            if (mode == 0)
+            {
+                if (mess.sys().x >= style.coord.left && mess.sys().x <= style.coord.right &&
+                    mess.sys().y >= style.coord.top && mess.sys().y <= style.coord.bottom)
+                {
+                    mode = 1;
+                    change_color(style.fill_color[1], style.line_color[1]);
+                    make_text(style.text_color[1]);
+                }
+            }
+            else if (mode == 1)
+            {
+                if (!(mess.sys().x >= style.coord.left && mess.sys().x <= style.coord.right &&
+                      mess.sys().y >= style.coord.top && mess.sys().y <= style.coord.bottom))
+                {
+                    mode = 0;
+                    change_color(style.fill_color[0], style.line_color[0]);
+                    make_text(style.text_color[0]);
+                }
+            }
+        }
+    }
+    else if (mess.kind == drl::gui_signal::effect_message)
+    {
+        res = drl::user_fun_reg(this, &mess);
+    }
+    flush();
+    return res;
+}
+
+#pragma endregion output_box
 
 #pragma endregion module
