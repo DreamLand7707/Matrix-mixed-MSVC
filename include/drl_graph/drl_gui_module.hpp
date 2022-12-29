@@ -65,7 +65,7 @@ namespace drl
         bool virtual _condition(const message_type &);
 
      public:
-        struct botton_style
+        struct button_style
         {
             RECT coord;
             int ellipsewidth;
@@ -111,7 +111,7 @@ namespace drl
               send_message_context_down(send_message_type, module_basic + id_ + down),
               send_message_context_up(send_message_type, module_basic + id_ + up) { gui_module::id = id_; }
 
-        button_module(botton_style sty) : style(sty) {}
+        button_module(button_style sty) : style(sty) {}
         void virtual change_id(const _TSTRING &new_id, bool change = true)
         {
             id = new_id;
@@ -358,7 +358,7 @@ namespace drl
     {
         try
         {
-            return user_fun_reg().at(std::make_pair(a->sign.mess_type, a->sign.source))(lhs, a);
+            return user_fun_reg().at(std::make_pair(a->sign.mess_type, mess_detail(a->sign.source)))(lhs, a);
         }
         catch (...)
         {

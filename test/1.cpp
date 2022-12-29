@@ -3,10 +3,11 @@
 #include <iostream>
 #include <limits>
 #include <map>
+#include <numbers>
 #include <regex>
 #include <string>
-#include <numbers>
 #include <vector>
+
 using std::cout;
 using std::endl;
 long double factorial(long double x);
@@ -24,107 +25,117 @@ struct value_exp
     short kind;
     value_exp(size_t pos_, size_t stack_pos_l_, size_t stack_pos_r_,
               bool value_aval_, bool stack_aval_l_, bool stack_aval_r_, long double val_, short kind_)
-        : pos(pos_), stack_pos_l(stack_pos_l_), stack_pos_r(stack_pos_r_), value_aval(value_aval_),
-          stack_aval_l(stack_aval_l_), stack_aval_r(stack_aval_r_), val(val_), kind(kind_) {}
+        : pos(pos_),
+          stack_pos_l(stack_pos_l_),
+          stack_pos_r(stack_pos_r_),
+          value_aval(value_aval_),
+          stack_aval_l(stack_aval_l_),
+          stack_aval_r(stack_aval_r_),
+          val(val_),
+          kind(kind_) {}
 };
 namespace
 {
     const std::map<std::string, std::string> messages{
-        {"quit_message",                "#QUIT"                           },
-        {"variable_use_error_message",  "undefined variable!"             },
-        {"variable_name_error_message", "illegal variable name!"          },
-        {"command_use_error_message",   "wrong usage"                     },
-        {"command_name_error",          "there is no command"             },
-        {"function/Variable wrong",     "wrong function or wrong variable"}
-    };
+        {"quit_message", "#QUIT"},
+        {"variable_use_error_message", "undefined variable!"},
+        {"variable_name_error_message", "illegal variable name!"},
+        {"command_use_error_message", "wrong usage"},
+        {"command_name_error", "there is no command"},
+        {"function/Variable wrong", "wrong function or wrong variable"}};
     const std::map<std::string, short> commands{
-        {"#SET",  1},
-        {"#DEF",  1},
-        {"#DEL",  2},
-        {"#VAR",  3},
+        {"#SET", 1},
+        {"#DEF", 1},
+        {"#DEL", 2},
+        {"#VAR", 3},
         {"#HELP", 4},
-        {"#H",    4},
+        {"#H", 4},
         {"#FUNS", 5},
-        {"#FIX",  6},
-        {"#SCI",  7},
-        {"#DFU",  8},
-        {"#CLS",  9},
-        {"#set",  1},
-        {"#def",  1},
-        {"#del",  2},
-        {"#var",  3},
+        {"#FIX", 6},
+        {"#SCI", 7},
+        {"#DFU", 8},
+        {"#CLS", 9},
+        {"#set", 1},
+        {"#def", 1},
+        {"#del", 2},
+        {"#var", 3},
         {"#help", 4},
-        {"#h",    4},
+        {"#h", 4},
         {"#funs", 5},
-        {"#fix",  6},
-        {"#sci",  7},
-        {"#dfu",  8},
-        {"#cls",  9},
-        {"-SET",  1},
-        {"-DEF",  1},
-        {"-DEL",  2},
-        {"-VAR",  3},
+        {"#fix", 6},
+        {"#sci", 7},
+        {"#dfu", 8},
+        {"#cls", 9},
+        {"-SET", 1},
+        {"-DEF", 1},
+        {"-DEL", 2},
+        {"-VAR", 3},
         {"-HELP", 4},
-        {"-H",    4},
+        {"-H", 4},
         {"-FUNS", 5},
-        {"-FIX",  6},
-        {"-SCI",  7},
-        {"-DFU",  8},
-        {"-CLS",  9},
-        {"-set",  1},
-        {"-def",  1},
-        {"-del",  2},
-        {"-var",  3},
+        {"-FIX", 6},
+        {"-SCI", 7},
+        {"-DFU", 8},
+        {"-CLS", 9},
+        {"-set", 1},
+        {"-def", 1},
+        {"-del", 2},
+        {"-var", 3},
         {"-help", 4},
-        {"-h",    4},
+        {"-h", 4},
         {"-funs", 5},
-        {"-fix",  6},
-        {"-sci",  7},
-        {"-dfu",  8},
-        {"-cls",  9}
-    };
+        {"-fix", 6},
+        {"-sci", 7},
+        {"-dfu", 8},
+        {"-cls", 9}};
     static std::vector<value_exp> stack_of_oper;
     static std::vector<long double> stack_of_value;
-}
+} // namespace
 const char command_head = '#';
 const char command_head_2 = '-';
 std::map<std::string, long double> &variables()
 {
     static std::map<std::string, long double> vars{
-        {"ans",    0.0l                               },
-        {"PI",     std::numbers::pi_v<long double>    },
-        {"E",      std::numbers::e_v<long double>     },
-        {"EGAMMA", std::numbers::egamma_v<long double>}
-    };
+        {"ans", 0.0l},
+        {"PI", std::numbers::pi_v<long double>},
+        {"E", std::numbers::e_v<long double>},
+        {"EGAMMA", std::numbers::egamma_v<long double>}};
     return vars;
 }
 const std::map<std::string, long double (*)(long double)> &functions()
 {
     static const std::map<std::string, long double (*)(long double)> fun{
-        {"sin",  std::sin  },
-        {"cos",  std::cos  },
-        {"tan",  std::tan  },
-        {"abs",  std::abs  },
-        {"asin", std::asin },
-        {"acos", std::acos },
-        {"atan", std::atan },
-        {"lg",   std::log10},
-        {"ln",   std::log  },
-        {"log2", std::log2 },
-        {"sinh", std::sinh },
-        {"cosh", std::cosh },
-        {"tanh", std::tanh }
-    };
+        {"sin", std::sin},
+        {"cos", std::cos},
+        {"tan", std::tan},
+        {"abs", std::abs},
+        {"asin", std::asin},
+        {"acos", std::acos},
+        {"atan", std::atan},
+        {"lg", std::log10},
+        {"ln", std::log},
+        {"log2", std::log2},
+        {"sinh", std::sinh},
+        {"cosh", std::cosh},
+        {"tanh", std::tanh}};
     return fun;
 }
-int main(void)
+int main(int argc, char *argv[])
 {
     std::string message;
-    cout << "CALCULATOR V0.4";
+    if (argc == 1)
+    {
+        cout << "CALCULATOR V0.4";
+    }
     for (unsigned long long i = 0ull; message != messages.at("quit_message"); i++)
     {
-        cout << "\n[COM] ";
-        std::getline(std::cin, message);
+        if (argc == 1)
+        {
+            cout << "\n[COM] ";
+            std::getline(std::cin, message);
+        }
+        else
+            message = argv[1];
         if (message[0] != command_head && message[0] != command_head_2)
         {
             try
@@ -140,6 +151,8 @@ int main(void)
         {
             do_command(message);
         }
+        if (argc != 1)
+            break;
     }
 }
 long double factorial(long double x)
