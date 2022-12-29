@@ -167,7 +167,7 @@ rule CXX_EXECUTABLE_LINKER__graphdebug3_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -S"D:\Project\VSCode\Project Test\Matrix-mixed-MSVC" -B"D:\Project\VSCode\Project Test\Matrix-mixed-MSVC\build"
+  command = C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -SD:\Project\VSCode\Project_Test\Matrix-mixed-MSVC -BD:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\build
   description = Re-running CMake...
   generator = 1
 

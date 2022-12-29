@@ -1,4 +1,4 @@
-# Install script for directory: D:/Project/VSCode/Project Test/Matrix-mixed-MSVC
+# Install script for directory: D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,9 +34,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin/cmake_install.cmake")
-  include("D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin/cmake_install.cmake")
-  include("D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testgraph/cmake_install.cmake")
+  include("D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin/cmake_install.cmake")
+  include("D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin/cmake_install.cmake")
+  include("D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph/cmake_install.cmake")
 
 endif()
 
@@ -48,5 +48,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

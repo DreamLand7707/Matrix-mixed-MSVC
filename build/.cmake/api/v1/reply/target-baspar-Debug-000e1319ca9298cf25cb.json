@@ -12,7 +12,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/lib/baspar.lib"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/lib/baspar.lib"
 		}
 	],
 	"backtrace" : 1,
@@ -146,7 +146,7 @@
 			[
 				{
 					"backtrace" : 10,
-					"path" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/src/../include"
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include"
 				}
 			],
 			"language" : "CXX",
@@ -167,12 +167,12 @@
 			]
 		}
 	],
-	"id" : "baspar::@7a3e2e0fd8980361e3e7",
+	"id" : "baspar::@fbd4ab375b392918fb6a",
 	"name" : "baspar",
 	"nameOnDisk" : "baspar.lib",
 	"paths" : 
 	{
-		"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin",
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin",
 		"source" : "src"
 	},
 	"sourceGroups" : 

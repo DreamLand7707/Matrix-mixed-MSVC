@@ -1,7 +1,8 @@
-﻿#include <conio.h>
-#include <easyx.h>
-#include <graphics.h>
+﻿#include "coord.h"
+#include <iostream>
+
 int main(void)
 {
-    
+    std::cout << "Hello world!" << std::endl;
+    initgraph(640, 480);
 }

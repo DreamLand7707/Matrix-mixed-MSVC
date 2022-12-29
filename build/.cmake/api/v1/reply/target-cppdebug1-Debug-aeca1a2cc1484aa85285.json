@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/Debug/cppdebug3.exe"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug1.exe"
 		},
 		{
-			"path" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/Debug/cppdebug3.pdb"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug1.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -29,19 +29,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 14,
+				"line" : 12,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 26,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 27,
+				"line" : 17,
 				"parent" : 0
 			}
 		]
@@ -62,7 +62,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/test/../include"
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/test/../include"
 				},
 				{
 					"backtrace" : 3,
@@ -88,10 +88,10 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "baspar::@7a3e2e0fd8980361e3e7"
+			"id" : "baspar::@fbd4ab375b392918fb6a"
 		}
 	],
-	"id" : "cppdebug3::@ab396d1bff1a321938e0",
+	"id" : "cppdebug1::@44afef7806525cc4badc",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -106,7 +106,7 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "\"D:\\Project\\VSCode\\Project Test\\Matrix-mixed-MSVC\\lib\\baspar.lib\"",
+				"fragment" : "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\lib\\baspar.lib",
 				"role" : "libraries"
 			},
 			{
@@ -116,11 +116,11 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "cppdebug3",
-	"nameOnDisk" : "cppdebug3.exe",
+	"name" : "cppdebug1",
+	"nameOnDisk" : "cppdebug1.exe",
 	"paths" : 
 	{
-		"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/testbin",
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin",
 		"source" : "test"
 	},
 	"sourceGroups" : 
@@ -138,7 +138,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/3.cpp",
+			"path" : "test/1.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

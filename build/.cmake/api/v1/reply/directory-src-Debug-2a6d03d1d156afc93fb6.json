@@ -8,7 +8,7 @@
 	"installers" : [],
 	"paths" : 
 	{
-		"build" : "D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/bin/basbin",
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin",
 		"source" : "src"
 	}
 }

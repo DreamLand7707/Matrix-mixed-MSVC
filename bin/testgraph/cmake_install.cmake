@@ -1,4 +1,4 @@
-# Install script for directory: D:/Project/VSCode/Project Test/Matrix-mixed-MSVC/testgraph
+# Install script for directory: D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
