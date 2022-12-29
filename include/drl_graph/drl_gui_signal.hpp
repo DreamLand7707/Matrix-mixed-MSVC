@@ -78,13 +78,18 @@ namespace drl
      public:
 #pragma region
         gui_signal()
-            : kind(mess_base::system_message), sign({}), make_sence(false), mess_type_use(false), target_use(false)
-        {
-        }
+            : kind(mess_base::system_message),
+              sign({}),
+              make_sence(false),
+              mess_type_use(false),
+              target_use(false)
+        {}
         gui_signal(ExMessage sys_mes_, label_str_type source_,
                    label_num_type mess_type_ = label_num_type(), label_str_type target_ = label_str_type(),
                    bool mess_type_use_ = true, bool target_use_ = false)
-            : make_sence(true), mess_type_use(mess_type_use_), target_use(target_use_)
+            : make_sence(true),
+              mess_type_use(mess_type_use_),
+              target_use(target_use_)
         {
             sign.sys_mes = sys_mes_;
             sign.mess_type = mess_type_;
@@ -95,7 +100,9 @@ namespace drl
         gui_signal(label_num_type mess_type_, label_str_type source_,
                    label_str_type target_ = label_str_type(),
                    bool mess_type_use_ = true, bool target_use_ = false)
-            : make_sence(true), mess_type_use(mess_type_use_), target_use(target_use_)
+            : make_sence(true),
+              mess_type_use(mess_type_use_),
+              target_use(target_use_)
         {
             sign.mess_type = mess_type_;
             sign.source = source_;
@@ -103,7 +110,9 @@ namespace drl
             kind = mess_base::effect_message;
         }
         gui_signal(ExMessage sys_mes_)
-            : make_sence(true), mess_type_use(false), target_use(false)
+            : make_sence(true),
+              mess_type_use(false),
+              target_use(false)
         {
             sign.sys_mes = sys_mes_;
             sign.mess_type = 0;
@@ -174,11 +183,13 @@ namespace drl
     inline void system_fun_reg(const std::function<bool(gui_signal)> &lhs,
                                const std::function<gui_signal(gui_signal)> &rhs)
     {
-        auto c = [=](gui_signal p) -> gui_signal {
+        auto c = [=](gui_signal p) -> gui_signal
+        {
             if (lhs(p))
             {
                 return rhs(p);
-            } else
+            }
+            else
                 return gui_signal();
         };
         system_fun_reg().push_back(c);

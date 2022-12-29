@@ -111,9 +111,7 @@ namespace drl
               send_message_context_down(send_message_type, module_basic + id_ + down),
               send_message_context_up(send_message_type, module_basic + id_ + up) { gui_module::id = id_; }
 
-        button_module(botton_style sty) : style(sty)
-        {
-        }
+        button_module(botton_style sty) : style(sty) {}
         void virtual change_id(const _TSTRING &new_id, bool change = true)
         {
             id = new_id;

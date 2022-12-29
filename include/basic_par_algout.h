@@ -25,15 +25,18 @@ class strmatr : public std::string, public matr::paramatr
  public:
     strmatr(void);
     strmatr(std::string const &str, matr::paramatr const &pama = matr::empty_paramatr)
-        : std::string(str), paramatr(pama)
+        : std::string(str),
+          paramatr(pama)
     {
     }
     strmatr(const char *str, matr::paramatr const &pama = matr::empty_paramatr)
-        : std::string(str), paramatr(pama)
+        : std::string(str),
+          paramatr(pama)
     {
     }
     strmatr(const strmatr &stma)
-        : std::string((std::string &)stma), paramatr((matr::paramatr &)stma)
+        : std::string((std::string &)stma),
+          paramatr((matr::paramatr &)stma)
     {
     }
     auto operator[](int x) -> decltype(matr::paramatr::operator[](x))
@@ -70,7 +73,7 @@ namespace matr
         using matrix::matrix;
         ~matrix_temp() {}
     };
-}   // namespace matr
+} // namespace matr
 
 class O_partmatr : private matr::matrix_temp, private matr::paramatr
 {
@@ -79,11 +82,13 @@ class O_partmatr : private matr::matrix_temp, private matr::paramatr
     // int add_counts = 1;
  public:
     O_partmatr(void)
-        : matrix_temp(0, matr_tag::SP), paramatr()
+        : matrix_temp(0, matr_tag::SP),
+          paramatr()
     {
     }
     O_partmatr(drl::matrix const &ma, matr::paramatr const &pama = matr::empty_paramatr)
-        : matrix_temp(ma), paramatr(pama)
+        : matrix_temp(ma),
+          paramatr(pama)
     {
     }
     O_partmatr(O_partmatr const &Optma)

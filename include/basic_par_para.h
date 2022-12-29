@@ -37,10 +37,11 @@ namespace matr
     extern drl::matrix empty_paramatr_1165;
     class paramatr : public drl::matrix
     {
-    private:
+     private:
         std::string name;
         std::string path = def_path;
-    public:
+
+     public:
         static std::string def_name_1122;
         static std::string def_name_1165;
         static std::string def_path;
@@ -84,6 +85,6 @@ namespace matr
        粒子寿命             发光              是否瞬间生成
        模式(colorblock:0,文件:1,混合:2)
         */
-}   // namespace matr
+} // namespace matr
 
 #endif
