@@ -22,19 +22,24 @@ int main(void)
                          LIGHTBLUE, LIGHTMAGENTA, LIGHTCYAN, RED, BLUE, YELLOW, _T("OK2"), _T("微软雅黑"));
     drl::button_module C(250, 550, 450, 650, 30, 30, 50,
                          LIGHTRED, LIGHTMAGENTA, LIGHTBLUE, GREEN, DARKGRAY, YELLOW, _T("QUIT"), _T("微软雅黑"));
+    drl::input_box_module D(250, 700, 650, 750, 30, 3, 0xAAAAAA, 0x555555, 0x111111,
+                            LIGHTRED, LIGHTRED, LIGHTRED, LIGHTBLUE, WHITE, WHITE, _T("微软雅黑"));
     RECT text_area = {600, 100, 800, 200};
     RECT text_area_2 = {600, 200, 800, 300};
     A.change_id(_T(" Basic"));
     B.change_id(_T(" Basic_2"));
     C.change_id(_T(" QUIT"));
+    D.change_id(_T(" #1"));
     A.change_target(drl::button_module::module_basic + A.id);
     int t = 0, l = 0;
     A.inited();
     B.inited();
     C.inited();
+    D.inited();
     drl::system_fun_reg<drl::button_module>(&A, &drl::button_module::condition, &drl::button_module::effect);
     drl::system_fun_reg<drl::button_module>(&B, &drl::button_module::condition, &drl::button_module::effect);
     drl::system_fun_reg<drl::button_module>(&C, &drl::button_module::condition, &drl::button_module::effect);
+    drl::system_fun_reg<drl::input_box_module>(&D, &drl::input_box_module::condition, &drl::input_box_module::effect);
     drl::user_fun_reg().insert(
         make_pair(
             make_pair(1, A.send_message_context_down.sign.source),
@@ -49,7 +54,7 @@ int main(void)
     ExMessage temp1;
     while (1)
     {
-        lk = peekmessage(&temp1, EM_MOUSE);
+        lk = peekmessage(&temp1, EM_MOUSE | EM_KEY);
         clearrectangle(text_area_2.left, text_area_2.top, text_area_2.right, text_area_2.bottom);
         settextstyle(50, 0, _T("微软雅黑"));
         settextcolor(LIGHTBLUE);

@@ -188,7 +188,48 @@ namespace drl // 线性运算主要部分
 
                          linestyle_ ref_line_style_x_ = linestyle_::SOLID,
                          linestyle_ ref_line_style_y_ = linestyle_::SOLID)
-                : linecolor(linecolor_), linewidth(linewidth_), linestyle(linestyle__), pointcolor(pointcolor_), pointsize(pointsize_), pointstyle(pointstyle_), scale_line_style_x(scale_line_style_x_), scale_line_style_y(scale_line_style_y_), main_scale_line_style_x(main_scale_line_style_x_), main_scale_line_style_y(main_scale_line_style_y_), num_of_x(num_of_x_), num_of_y(num_of_y_), point_density(point_density_), xnum_density(xnum_density_), ynum_density(ynum_density_), x_scaleplace_density(x_scaleplace_density_), y_scaleplace_density(y_scaleplace_density_), frame_width(frame_width_), x_scaleplate_width(x_scaleplate_width_), x_main_scaleplate_width(x_main_scaleplate_width_), y_scaleplate_width(y_scaleplate_width_), y_main_scaleplate_width(y_main_scaleplate_width_), frame_color(frame_color_), scaleplate_color(scaleplate_color_), bkcolor(bkcolor_), colorxtext(colorxtext_), colorytext(colorytext_), colortitle(colortitle_), colorxnum(colorxnum_), colorynum(colorynum_), color_main_x_scaleplace(color_main_x_scaleplace_), color_main_y_scaleplace(color_main_y_scaleplace_), lougfont(lougfont_), point_line_width(point_line_width_), line_ref_x(ref_of_x), line_ref_y(ref_of_y), color_line_ref_x(color_ref_x), color_line_ref_y(color_ref_y), line_ref_x_width(line_ref_x_width_), line_ref_y_width(line_ref_Y_width), ref_line_style_x(ref_line_style_x_), ref_line_style_y(ref_line_style_y_)
+                : linecolor(linecolor_),
+                  linewidth(linewidth_),
+                  linestyle(linestyle__),
+                  pointcolor(pointcolor_),
+                  pointsize(pointsize_),
+                  pointstyle(pointstyle_),
+                  scale_line_style_x(scale_line_style_x_),
+                  scale_line_style_y(scale_line_style_y_),
+                  main_scale_line_style_x(main_scale_line_style_x_),
+                  main_scale_line_style_y(main_scale_line_style_y_),
+                  num_of_x(num_of_x_),
+                  num_of_y(num_of_y_),
+                  point_density(point_density_),
+                  xnum_density(xnum_density_),
+                  ynum_density(ynum_density_),
+                  x_scaleplace_density(x_scaleplace_density_),
+                  y_scaleplace_density(y_scaleplace_density_),
+                  frame_width(frame_width_),
+                  x_scaleplate_width(x_scaleplate_width_),
+                  x_main_scaleplate_width(x_main_scaleplate_width_),
+                  y_scaleplate_width(y_scaleplate_width_),
+                  y_main_scaleplate_width(y_main_scaleplate_width_),
+                  frame_color(frame_color_),
+                  scaleplate_color(scaleplate_color_),
+                  bkcolor(bkcolor_),
+                  colorxtext(colorxtext_),
+                  colorytext(colorytext_),
+                  colortitle(colortitle_),
+                  colorxnum(colorxnum_),
+                  colorynum(colorynum_),
+                  color_main_x_scaleplace(color_main_x_scaleplace_),
+                  color_main_y_scaleplace(color_main_y_scaleplace_),
+                  lougfont(lougfont_),
+                  point_line_width(point_line_width_),
+                  line_ref_x(ref_of_x),
+                  line_ref_y(ref_of_y),
+                  color_line_ref_x(color_ref_x),
+                  color_line_ref_y(color_ref_y),
+                  line_ref_x_width(line_ref_x_width_),
+                  line_ref_y_width(line_ref_Y_width),
+                  ref_line_style_x(ref_line_style_x_),
+                  ref_line_style_y(ref_line_style_y_)
             {
             }
         };
@@ -212,7 +253,14 @@ namespace drl // 线性运算主要部分
                        const bool &xde = true, const bool &yde = true, int pres_ = 3,
                        const double x_ratio_ = 1.1, const double y_ratio_ = 1.1,
                        decltype(std::ios::floatfield) output_ = std::ios::fixed)
-                : x_minmax(l), y_minmax(r), xdefaulted(xde), ydefaulted(yde), x_ratio(x_ratio_), y_ratio(y_ratio_), pres(pres_), output(output_)
+                : x_minmax(l),
+                  y_minmax(r),
+                  xdefaulted(xde),
+                  ydefaulted(yde),
+                  x_ratio(x_ratio_),
+                  y_ratio(y_ratio_),
+                  pres(pres_),
+                  output(output_)
             {
             }
         };
@@ -248,7 +296,25 @@ namespace drl // 线性运算主要部分
                      bool clipd = true, bool clip_detailed = false,
                      bool polard = false, bool part_graphd = false,
                      bool x_ref = true, bool y_ref = true)
-                : title(titled), axis(axised), mess_x(mess_xd), mess_y(mess_yd), x_(x_d), y_(y_d), x_num(x_numd), y_num(y_numd), point_(point_d), draw_line_(draw_line_d), clear_all(clear_alld), x_main_scale(x_main_scaled), y_main_scale(y_main_scaled), clip(clipd), clip_detail(clip_detailed), polar(polard), part_graph(part_graphd), x_ref_line(x_ref), y_ref_line(y_ref)
+                : title(titled),
+                  axis(axised),
+                  mess_x(mess_xd),
+                  mess_y(mess_yd),
+                  x_(x_d),
+                  y_(y_d),
+                  x_num(x_numd),
+                  y_num(y_numd),
+                  point_(point_d),
+                  draw_line_(draw_line_d),
+                  clear_all(clear_alld),
+                  x_main_scale(x_main_scaled),
+                  y_main_scale(y_main_scaled),
+                  clip(clipd),
+                  clip_detail(clip_detailed),
+                  polar(polard),
+                  part_graph(part_graphd),
+                  x_ref_line(x_ref),
+                  y_ref_line(y_ref)
             {
             }
         };
@@ -706,13 +772,15 @@ namespace drl // 线性运算主要部分
                     if (i % graph_style.point_density == 0 || i == distan - 1)
                         switch (graph_style.pointstyle)
                         {
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::SOLID: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::SOLID:
+                        {
                             solidcircle(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
                                         int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2),
                                         graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLE: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLE:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             circle(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -720,7 +788,8 @@ namespace drl // 线性运算主要部分
                                    graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIA: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIA:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             POINT s[3]{};
@@ -733,7 +802,8 @@ namespace drl // 线性运算主要部分
                             polygon(s, 3);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARE: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARE:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             rectangle(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -742,7 +812,8 @@ namespace drl // 线性运算主要部分
                                       int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2) + graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::CROSS: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::CROSS:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             line(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -756,7 +827,8 @@ namespace drl // 线性运算主要部分
                                  int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2) + graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLECROSS: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLECROSS:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             line(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -772,7 +844,8 @@ namespace drl // 线性运算主要部分
                                    graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARECROSS: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARECROSS:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             line(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -789,7 +862,8 @@ namespace drl // 线性运算主要部分
                                       int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2) + graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIACROSS: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIACROSS:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             int x0 = int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -808,7 +882,8 @@ namespace drl // 线性运算主要部分
                             line(x0, y0, x0 + size, y0 + size);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::Star: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::Star:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             int x0 = int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -819,7 +894,8 @@ namespace drl // 线性运算主要部分
                             line(x0, y0 + size, x0, y0 - size);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::Nazi: {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::Nazi:
+                        {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             int x0 = int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -999,7 +1075,8 @@ namespace drl // 线性运算主要部分
         for (auto i = x_ele.first; i != x_ele.second; i++)
             points.push_back(std::make_pair(*i, *((y_ele.first) + int(i - x_ele.first))));
         static auto sort_fun = [](const std::pair<typename _x::value_type, typename _x::value_type> &l,
-                                  const std::pair<typename _y::value_type, typename _y::value_type> &r) {
+                                  const std::pair<typename _y::value_type, typename _y::value_type> &r)
+        {
             return l.first < r.first;
         };
         std::sort(points.begin(), points.end(), sort_fun);
@@ -1136,7 +1213,8 @@ namespace drl // 线性运算主要部分
                std::pair<std::pair<typename _x::value_type, typename _x::value_type>,
                          std::pair<typename _x::value_type, short>>
                    r)
-            -> bool {
+            -> bool
+        {
             return pow(l.second.first, 2) < pow(r.second.first, 2);
         };
         auto c = std::max_element(Rs.begin(), Rs.end(), square_fun);
@@ -1269,20 +1347,21 @@ namespace drl // 多次运算部分
 } // namespace drl
 #endif
 
-
-
-inline BYTE message_class(USHORT mess)
+namespace drl
 {
-    if (mess >= 0x200)
-        return EX_MOUSE;
-    if (mess < 0x100)
-        return EX_WINDOW;
-    if (mess == WM_CHAR)
-        return EX_CHAR;
-    if (mess == WM_KEYDOWN || mess == WM_KEYUP)
-        return EX_KEY;
-    return 0;
-}
+    inline BYTE message_class(USHORT mess)
+    {
+        if (mess >= 0x200)
+            return EX_MOUSE;
+        if (mess < 0x100)
+            return EX_WINDOW;
+        if (mess == WM_CHAR)
+            return EX_CHAR;
+        if (mess == WM_KEYDOWN || mess == WM_KEYUP)
+            return EX_KEY;
+        return 0;
+    }
+} // namespace drl
 
 #pragma endregion
 #endif

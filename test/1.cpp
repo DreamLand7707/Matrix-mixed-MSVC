@@ -3,7 +3,5 @@
 #include <windows.h>
 int main(void)
 {
-    std::cout << "Hello world!" << std::endl;
-    getchar();
-    return 0;
+    int p = (2 > 3) ? 4 : 5;
 }

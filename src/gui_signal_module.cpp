@@ -4,6 +4,7 @@
 #include <easyx.h>
 
 _TOSTREAM drl::gui_signal::tcout(_TCOUT.rdbuf());
+using drl::message_class;
 
 drl::button_module::label_str_type_ drl::gui_signal::system_message_label = _T("#s");
 
@@ -17,6 +18,7 @@ const drl::button_module::label_str_type_ drl::button_module::up = _T(" up");
 const drl::input_box_module::label_num_type_ drl::input_box_module::send_message_type = 1;
 const drl::input_box_module::label_num_type_ drl::input_box_module::no_message = 0;
 const drl::input_box_module::label_str_type_ drl::input_box_module::module_basic = _T("input_box");
+const drl::input_box_module::label_str_type_ drl::input_box_module::selected = _T(" selected");
 
 #define graflu FlushBatchDraw()
 #pragma region signal
@@ -290,7 +292,94 @@ drl::input_box_module::message_type drl::input_box_module::inited()
 
 drl::input_box_module::message_type drl::input_box_module::effect(const message_type &mess)
 {
-    ;
+    message_type res(no_message, drl::input_box_module::module_basic + id);
+    res.make_sence = false;
+    res.kind = drl::gui_signal::system_message;
+    if (mess.kind == drl::gui_signal::system_message)
+    {
+        if (message_class(mess.sys().message) == EX_MOUSE)
+        {
+            if (mode == 0)
+            {
+                if (mess.sys().x >= style.coord.left && mess.sys().x <= style.coord.right &&
+                    mess.sys().y >= style.coord.top && mess.sys().y <= style.coord.bottom)
+                {
+                    mode = 1;
+                    change_color(style.fill_color[1], style.line_color[1]);
+                    make_text(style.text_color[1]);
+                }
+            }
+            else if (mode == 1)
+            {
+                if (!(mess.sys().x >= style.coord.left && mess.sys().x <= style.coord.right &&
+                      mess.sys().y >= style.coord.top && mess.sys().y <= style.coord.bottom))
+                {
+                    mode = 0;
+                    change_color(style.fill_color[0], style.line_color[0]);
+                    make_text(style.text_color[0]);
+                }
+                else if (mess.sys().message == WM_LBUTTONDOWN)
+                {
+                    static unsigned char modec;
+                    settextstyle(style.text_size, 0, get_font().c_str());
+                    modec = (textwidth(input_string.c_str()) >
+                             (style.coord.right - style.coord.left - 2 * style.line_width))
+                                ? 0
+                                : 1;
+                    mode = 2;
+                    change_color(style.fill_color[2], style.line_color[2]);
+                    make_text(style.text_color[2], modec);
+                    graflu;
+                    return send_message_context;
+                }
+            }
+            else if (mode == 2)
+            {
+                if (!(mess.sys().x >= style.coord.left && mess.sys().x <= style.coord.right &&
+                      mess.sys().y >= style.coord.top && mess.sys().y <= style.coord.bottom) &&
+                    mess.sys().message == WM_LBUTTONDOWN)
+                {
+                    mode = 0;
+                    change_color(style.fill_color[0], style.line_color[0]);
+                    make_text(style.text_color[0]);
+                }
+            }
+        }
+        else if (message_class(mess.sys().message) == EX_KEY)
+        {
+            if (mode == 2 && mess.sys().message == WM_KEYDOWN)
+            {
+                static BYTE code;
+                static unsigned char modec;
+                mode = 2;
+                code = mess.sys().vkcode;
+                if (code >= 0x30 && code <= 0x39)
+                    input_string.push_back(code - 0x30 + L'0');
+                else if (code >= 0x60 && code <= 0x69)
+                    input_string.push_back(code - 0x60 + L'0');
+                else if (code == 0xBE || code == 0x6E)
+                    input_string.push_back(L'.');
+                else if (code == VK_BACK)
+                {
+                    if (input_string.size())
+                        input_string.pop_back();
+                }
+                settextstyle(style.text_size, 0, get_font().c_str());
+                modec = (textwidth(input_string.c_str()) >
+                         (style.coord.right - style.coord.left - 2 * style.line_width))
+                            ? 0
+                            : 1;
+                change_color(style.fill_color[2], style.line_color[2]);
+                make_text(style.text_color[2], modec);
+            }
+        }
+    }
+    else if (mess.kind == drl::gui_signal::effect_message)
+    {
+        res = drl::user_fun_reg(this, &mess);
+    }
+    graflu;
+    return res;
 }
 
 #pragma endregion input_box

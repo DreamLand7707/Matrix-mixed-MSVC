@@ -171,6 +171,11 @@ namespace drl
         _TSTRING font;
         message_type send_message_context;
 
+        const static label_num_type_ send_message_type;
+        const static label_num_type_ no_message;
+        const static label_str_type_ module_basic;
+        const static label_str_type_ selected;
+
         message_type virtual effect(const message_type &);
         message_type virtual inited();
         input_box_module(int left_, int top_, int right_, int bottom_,
@@ -186,7 +191,11 @@ namespace drl
                      {color4, color5, color6},
                      {color7, color8, color9}}),
               input_string(),
-              font(font_) { gui_module::id = id_; }
+              font(font_),
+              send_message_context(send_message_type, module_basic + id_ + selected)
+        {
+            gui_module::id = id_;
+        }
         input_box_module(input_box_style sty) : style(sty) {}
         _TSTRING virtual get_font()
         {
@@ -222,6 +231,12 @@ namespace drl
         }
         void make_text(COLORREF color, int l = 1)
         { // l == 1则靠左 l == 0则靠右
+            static RECT coord_text = {
+                style.coord.left + style.line_width,
+                style.coord.top + style.line_width,
+                style.coord.right - style.line_width,
+                style.coord.bottom - style.line_width,
+            };
             if (l)
                 l = DT_LEFT | DT_WORD_ELLIPSIS;
             else
@@ -229,12 +244,8 @@ namespace drl
             setbkmode(TRANSPARENT);
             settextcolor(color);
             settextstyle(style.text_size, 0, get_font().c_str());
-            drawtext(input_string.c_str(), &(style.coord),
-                     l | DT_VCENTER | DT_SINGLELINE);
+            drawtext(input_string.c_str(), &coord_text, l | DT_VCENTER | DT_SINGLELINE);
         }
-        const static label_num_type_ send_message_type;
-        const static label_num_type_ no_message;
-        const static label_str_type_ module_basic;
     };
 #pragma region
     inline std::map<
