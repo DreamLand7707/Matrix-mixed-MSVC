@@ -140,6 +140,8 @@ namespace drl
         {
             send_message_context_down.sign.target = new_target;
             send_message_context_down.target_use = true;
+            send_message_context_up.sign.target = new_target;
+            send_message_context_up.target_use = true;
         }
         void change_color(COLORREF color)
         {

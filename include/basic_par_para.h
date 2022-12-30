@@ -50,7 +50,7 @@ namespace matr
         paramatr(const TCHAR *str, drl::matrix const &ma = empty_paramatr);
         paramatr(const paramatr &);
         virtual ~paramatr() {}
-        virtual bool print() const;
+        virtual bool print_t() const;
         void parname(const TCHAR *name = _T(""));
         void pathname(const TCHAR *name = _T(""));
         void check(void);
@@ -76,15 +76,14 @@ namespace matr
     /*
         & 用于存储标准参数
         ^ t_start(d)          t_end(d)          CPT(i)             delta(d)
-        ? 起始参数             结束参数           每tick计算次数        计算间隔
+        ? 起始参数             结束参数           每tick计算次数      计算间隔
         ^ CPerf(i)            Tolf(i)           time(d)            direct(b)
-        ? .每个file的指令数目   .一共有的文件数目    .完全生成的时间
-       生成方向(true代表t_start -> t_end,false为反) ^ Ver(i)              R(d)
-       G(d)               B(d) ? 游戏版本             红                绿 蓝 ^
-       life(d)             light(i)          instant(b)         mode(i) ?
-       粒子寿命             发光              是否瞬间生成
-       模式(colorblock:0,文件:1,混合:2)
-        */
+        ? .每个file的指令数目   .一共有的文件数目    .完全生成的时间     生成方向(true代表t_start -> t_end,false为反)
+        ^ Ver(i)              R(d)               G(d)               B(d)
+        ? 游戏版本             红                绿                  蓝
+        ^life(d)             light(i)          instant(b)         mode(i) ?
+        粒子寿命             发光              是否瞬间生成           模式(colorblock:0,文件:1,混合:2)
+    */
 } // namespace matr
 
 #endif

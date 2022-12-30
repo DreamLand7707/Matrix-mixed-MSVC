@@ -44,7 +44,7 @@ class strmatr : public _TSTRING, public matr::paramatr
         return matr::paramatr::operator[](x);
     }
     bool operator==(const strmatr &stma) { return (_TSTRING)(*this) == (_TSTRING)(stma); }
-    void print(void)
+    bool print_t(void) const
     {
         _TCOUT << _T("**********") << std::endl;
         _TCOUT << _T("command:") << std::endl
@@ -52,6 +52,7 @@ class strmatr : public _TSTRING, public matr::paramatr
         _TCOUT << _T("paras:") << std::endl;
         matr::paramatr::print();
         _TCOUT << _T("**********") << std::endl;
+        return true;
     }
 };
 

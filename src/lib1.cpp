@@ -68,7 +68,7 @@ namespace matr
         else
             path = name;
     }
-    bool paramatr::print() const
+    bool paramatr::print_t() const
     {
         using _TCOUT;
         using std::endl;
