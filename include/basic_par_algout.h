@@ -101,9 +101,9 @@ class O_partmatr : private matr::matrix_temp, private matr::paramatr
     {
         ((matrix &)(matrix_temp &)(*this)).operator=(A);
     }
-    void assign_para(const drl::matrix &B)
+    void assign_para(const paramatr &B)
     {
-        ((matrix &)(paramatr &)(*this)).operator=(B);
+        ((paramatr &)(*this)).operator=(B);
     }
     strmatr const linear(void);
     strmatr const quadhet(double x = 10.0, int mode = 1);

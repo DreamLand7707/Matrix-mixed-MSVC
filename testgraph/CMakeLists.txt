@@ -15,7 +15,7 @@ add_definitions(-D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING)
 add_definitions(-D_UNICODE)
 add_definitions(-DUNICODE)
 
-add_definitions(-D_DEBUG)
+# add_definitions(-D_DEBUG)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_C_STANDARD 17)
 

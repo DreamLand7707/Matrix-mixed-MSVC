@@ -347,7 +347,7 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\rebuild_cach
 build cmake_object_order_depends_target_graphdebug1: phony || cmake_object_order_depends_target_baspar cmake_object_order_depends_target_gui
 
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug1.dir\g1.cpp.obj: CXX_COMPILER__graphdebug1_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\g1.cpp || cmake_object_order_depends_target_graphdebug1
-  DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_DEBUG -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
+  DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
   INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug1.dir
@@ -385,7 +385,7 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\graphdebug1.exe: C
 build cmake_object_order_depends_target_graphdebug2: phony || cmake_object_order_depends_target_baspar
 
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug2.dir\g2.cpp.obj: CXX_COMPILER__graphdebug2_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\g2.cpp || cmake_object_order_depends_target_graphdebug2
-  DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_DEBUG -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
+  DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
   INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug2.dir
@@ -423,7 +423,7 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\graphdebug2.exe: C
 build cmake_object_order_depends_target_graphdebug3: phony || cmake_object_order_depends_target_baspar
 
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug3.dir\g3.cpp.obj: CXX_COMPILER__graphdebug3_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\g3.cpp || cmake_object_order_depends_target_graphdebug3
-  DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_DEBUG -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
+  DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
   INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug3.dir

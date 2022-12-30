@@ -78,12 +78,6 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 18,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
 				"line" : 13,
 				"parent" : 0
 			},
@@ -143,33 +137,29 @@
 				},
 				{
 					"backtrace" : 9,
-					"define" : "_DEBUG"
-				},
-				{
-					"backtrace" : 10,
 					"define" : "_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING"
 				},
 				{
-					"backtrace" : 11,
+					"backtrace" : 10,
 					"define" : "_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 11,
 					"define" : "_UNICODE"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include/drl_graph"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 12,
 					"path" : "E:/VisualStudio/VC/Auxiliary/VS/include"
 				}
 			],
