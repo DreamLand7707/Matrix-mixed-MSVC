@@ -1,6 +1,6 @@
 ﻿//? basic_par_para.h库文件
 #include "../include/basic_par_para.h"
-#define thma                ((drl::matrix &)(*this))
+#define thma ((drl::matrix &)(*this))
 #define par_def_name_change 1130
 namespace matr
 {
@@ -12,11 +12,11 @@ namespace matr
                                      0.0},
                                     4, 4);
 
-    std::string paramatr::def_name_1122 = "endRod";
-    std::string paramatr::def_name_1165 = "end_rod";
-    std::string paramatr::def_path = "../mcfunctions";
+    _TSTRING paramatr::def_name_1122 = _T("endRod");
+    _TSTRING paramatr::def_name_1165 = _T("end_rod");
+    _TSTRING paramatr::def_path = _T("../mcfunctions");
 
-    paramatr::paramatr(drl::matrix const &ma, const char *str) : drl::matrix(ma)
+    paramatr::paramatr(drl::matrix const &ma, const TCHAR *str) : drl::matrix(ma)
     {
         check();
         thma[1][0] = thma[0][2];
@@ -25,7 +25,7 @@ namespace matr
         // if ((int)((thma[0][1] - thma[0][0]) / thma[0][3]) % (int)thma[1][0]
         // != 0)
         //     thma[1][1]++;
-        if (str == nullptr || ::strlen(str) == 0)
+        if (str == nullptr || ::wcslen(str) == 0)
             if (thma[2][0] < par_def_name_change)
                 name = def_name_1122;
             else
@@ -33,13 +33,13 @@ namespace matr
         else
             name = str;
     }
-    paramatr::paramatr(const char *str, drl::matrix const &ma) : drl::matrix(ma)
+    paramatr::paramatr(const TCHAR *str, drl::matrix const &ma) : drl::matrix(ma)
     {
         check();
         thma[1][0] = thma[0][2];
         thma[1][2] = thma[1][1] =
             ::ceil((::abt(thma[0][1] - thma[0][0]) / thma[0][3]) / thma[0][2]);
-        if (str == nullptr || ::strlen(str) == 0)
+        if (str == nullptr || ::wcslen(str) == 0)
             if (thma[2][0] < par_def_name_change)
                 name = def_name_1122;
             else
@@ -51,9 +51,9 @@ namespace matr
     {
         name = pama.name;
     }
-    void paramatr::parname(const char *name)
+    void paramatr::parname(const TCHAR *name)
     {
-        if (name == nullptr || ::strlen(name) == 0)
+        if (name == nullptr || ::wcslen(name) == 0)
             if (thma[2][0] < par_def_name_change)
                 paramatr::name = def_name_1122;
             else
@@ -61,19 +61,19 @@ namespace matr
         else
             paramatr::name = name;
     }
-    void paramatr::pathname(const char *name)
+    void paramatr::pathname(const TCHAR *name)
     {
-        if (name == nullptr || ::strlen(name) == 0)
+        if (name == nullptr || ::wcslen(name) == 0)
             path = def_path;
         else
             path = name;
     }
     bool paramatr::print() const
     {
-        using std::cout;
+        using _TCOUT;
         using std::endl;
         printf("Game version:%.f\n", thma[2][0]);
-        cout << "The present particle is: " << name << endl;
+        _TCOUT << "The present particle is: " << name << endl;
         printf("t: %.3f ~ %.3f : %.3f : %.3f for %c in %.2f ticks\n",
                thma[0][0], thma[0][1], thma[0][2], thma[0][3],
                ((int)thma[1][3]) ? '+' : '-', thma[1][2]);
@@ -86,20 +86,24 @@ namespace matr
     }
     void paramatr::check(void)
     {
-        if (thma.size(1) == 4 && thma.size(2) == 4) {
+        if (thma.size(1) == 4 && thma.size(2) == 4)
+        {
             if (thma[0][0] >= thma[0][1] &&
-                fabs(thma[0][0] - thma[0][1]) < drl::matrix::matr_error) {
+                fabs(thma[0][0] - thma[0][1]) < drl::matrix::matr_error)
+            {
                 thma[0][0] = 1;
                 thma[0][1] = 10;
-            }   //? 参数大小判断
-            if (thma[0][2] <= 0 || thma[0][3] <= 0) {
+            } //? 参数大小判断
+            if (thma[0][2] <= 0 || thma[0][3] <= 0)
+            {
                 thma[0][2] = 10;
                 thma[0][3] = 0.1;
-            }   //? 正负判断
+            } //? 正负判断
             else
-                thma[0][2] = ::round(thma[0][2]);   //? 取整
+                thma[0][2] = ::round(thma[0][2]); //? 取整
 
-            if (thma[0][1] - thma[0][0] < thma[0][3]) {
+            if (thma[0][1] - thma[0][0] < thma[0][3])
+            {
                 thma[0][0] = 1;
                 thma[0][1] = 10;
                 thma[0][2] = 10;
@@ -132,9 +136,10 @@ namespace matr
 
             if (thma[3][3] != 0 || thma[3][3] != 1 || thma[3][3] != 2)
                 thma[3][3] = 0;
-        } else
+        }
+        else
             thma = empty_paramatr;
     }
-}
+} // namespace matr
 #undef thma
 #undef par_def_name_change

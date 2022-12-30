@@ -99,7 +99,7 @@ namespace drl
                       int ellipseheight_, int text_size_,
                       COLORREF color1, COLORREF color2, COLORREF color3,
                       COLORREF color4, COLORREF color5, COLORREF color6, _TSTRING label_name_,
-                      _TSTRING font_, label_str_type_ id_ = {})
+                      label_str_type_ id_ = {}, _TSTRING font_ = {})
             : style({{left_, top_, right_, bottom_},
                      ellipsewidth_,
                      ellipseheight_,
@@ -125,6 +125,16 @@ namespace drl
         {
             FlushBatchDraw(style.coord.left, style.coord.top,
                            style.coord.right, style.coord.bottom);
+        }
+        void change_text(_TSTRING text = _T(""), bool with_gra = true)
+        {
+            label_name = text;
+            if (with_gra)
+            {
+                change_color(style.color[mode]);
+                make_text(style.text_color[mode]);
+            }
+            flush();
         }
         void change_target(const _TSTRING &new_target)
         {
@@ -179,7 +189,7 @@ namespace drl
                          COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
                          COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
                          COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
-                         _TSTRING font_, label_str_type_ id_ = {})
+                         label_str_type_ id_ = {}, _TSTRING font_ = {})
             : style({{left_, top_, right_, bottom_},
                      text_size_,
                      line_width_,
@@ -235,12 +245,12 @@ namespace drl
         }
         void make_text(COLORREF color, int l = 1)
         { // l == 1则靠左 l == 0则靠右
-            static RECT coord_text = {
+            static RECT coord_text;
+            coord_text = {
                 style.coord.left + style.line_width,
                 style.coord.top + style.line_width,
                 style.coord.right - style.line_width,
-                style.coord.bottom - style.line_width,
-            };
+                style.coord.bottom - style.line_width};
             if (l)
                 l = DT_LEFT | DT_WORD_ELLIPSIS;
             else
@@ -281,7 +291,7 @@ namespace drl
                           COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
                           COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
                           COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
-                          _TSTRING font_, label_str_type_ id_ = {})
+                          label_str_type_ id_ = {}, _TSTRING font_ = {})
             : style({{left_, top_, right_, bottom_},
                      text_size_,
                      line_width_,
@@ -329,7 +339,8 @@ namespace drl
         }
         void make_text(COLORREF color)
         { // l == 1则靠左 l == 0则靠右
-            static RECT coord_text = {
+            static RECT coord_text;
+            coord_text = {
                 style.coord.left + style.line_width,
                 style.coord.top + style.line_width,
                 style.coord.right - style.line_width,

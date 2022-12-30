@@ -38,23 +38,23 @@ namespace matr
     class paramatr : public drl::matrix
     {
      private:
-        std::string name;
-        std::string path = def_path;
+        _TSTRING name;
+        _TSTRING path = def_path;
 
      public:
-        static std::string def_name_1122;
-        static std::string def_name_1165;
-        static std::string def_path;
+        static _TSTRING def_name_1122;
+        static _TSTRING def_name_1165;
+        static _TSTRING def_path;
 
-        paramatr(drl::matrix const &ma = empty_paramatr, const char *str = "");
-        paramatr(const char *str, drl::matrix const &ma = empty_paramatr);
+        paramatr(drl::matrix const &ma = empty_paramatr, const TCHAR *str = _T(""));
+        paramatr(const TCHAR *str, drl::matrix const &ma = empty_paramatr);
         paramatr(const paramatr &);
         virtual ~paramatr() {}
         virtual bool print() const;
-        void parname(const char *name = "");
-        void pathname(const char *name = "");
+        void parname(const TCHAR *name = _T(""));
+        void pathname(const TCHAR *name = _T(""));
         void check(void);
-        const std::string &par_name(void)
+        const _TSTRING &par_name(void)
         {
             return name;
         }

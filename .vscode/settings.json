@@ -84,13 +84,15 @@
         "source_location": "cpp",
         "xtr1common": "cpp",
     },
+    "clangd.arguments": [
+        "--header-insertion=never"
+    ],
     "clangd.fallbackFlags": [
         "-std=c++20",
         "-DUNICODE",
         "-D_UNICODE"
     ],
     "lldb.displayFormat": "auto",
-    "lldb.showDisassembly": "always",
     "lldb.dereferencePointers": true,
     "lldb.consoleMode": "commands"
 }

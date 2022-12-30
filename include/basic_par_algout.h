@@ -18,24 +18,24 @@ typedef O_partmatr Omatr;
 
 */
 
-class strmatr : public std::string, public matr::paramatr
+class strmatr : public _TSTRING, public matr::paramatr
 {
  private:
     //?
  public:
-    strmatr(void);
-    strmatr(std::string const &str, matr::paramatr const &pama = matr::empty_paramatr)
-        : std::string(str),
+    strmatr(void){};
+    strmatr(_TSTRING const &str, matr::paramatr const &pama = matr::empty_paramatr)
+        : _TSTRING(str),
           paramatr(pama)
     {
     }
-    strmatr(const char *str, matr::paramatr const &pama = matr::empty_paramatr)
-        : std::string(str),
+    strmatr(const TCHAR *str, matr::paramatr const &pama = matr::empty_paramatr)
+        : _TSTRING(str),
           paramatr(pama)
     {
     }
     strmatr(const strmatr &stma)
-        : std::string((std::string &)stma),
+        : _TSTRING((_TSTRING &)stma),
           paramatr((matr::paramatr &)stma)
     {
     }
@@ -43,15 +43,15 @@ class strmatr : public std::string, public matr::paramatr
     {
         return matr::paramatr::operator[](x);
     }
-    bool operator==(const strmatr &stma) { return (std::string)(*this) == (std::string)(stma); }
+    bool operator==(const strmatr &stma) { return (_TSTRING)(*this) == (_TSTRING)(stma); }
     void print(void)
     {
-        std::cout << "**********" << std::endl;
-        std::cout << "command:" << std::endl
-                  << *((std::string *)this) << std::endl;
-        std::cout << "paras:" << std::endl;
+        _TCOUT << _T("**********") << std::endl;
+        _TCOUT << _T("command:") << std::endl
+               << *((_TSTRING *)this) << std::endl;
+        _TCOUT << _T("paras:") << std::endl;
         matr::paramatr::print();
-        std::cout << "**********" << std::endl;
+        _TCOUT << _T("**********") << std::endl;
     }
 };
 
@@ -83,7 +83,7 @@ class O_partmatr : private matr::matrix_temp, private matr::paramatr
  public:
     O_partmatr(void)
         : matrix_temp(0, matr_tag::SP),
-          paramatr()
+          paramatr(matr::empty_paramatr)
     {
     }
     O_partmatr(drl::matrix const &ma, matr::paramatr const &pama = matr::empty_paramatr)
@@ -96,6 +96,14 @@ class O_partmatr : private matr::matrix_temp, private matr::paramatr
     {
     }
     ~O_partmatr() {}
+    void assign_point(const drl::matrix &A)
+    {
+        ((matrix &)(matrix_temp &)(*this)).operator=(A);
+    }
+    void assign_para(const drl::matrix &B)
+    {
+        ((matrix &)(paramatr &)(*this)).operator=(B);
+    }
     strmatr const linear(void);
     strmatr const quadhet(double x = 10.0, int mode = 1);
     strmatr const quadthr(double dig = 0, bool x = false);

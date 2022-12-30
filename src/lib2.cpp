@@ -13,41 +13,44 @@ drl::matrix const O_partmatr::I_2(2, matr_tag::I);
    life(d)             light(i)          instant(b)         mode(i) ? 粒子寿命
    发光              是否瞬间生成          模式(colorblock:0,文件:1,混合:2)
 */
-#define _PARAS     ((::matrix &)(matr::paramatr &)(*this))
-#define _POINTS    ((::matrix &)(matr::matrix_temp &)(*this))
+#define _PARAS ((::matrix &)(matr::paramatr &)(*this))
+#define _POINTS ((::matrix &)(matr::matrix_temp &)(*this))
 #define MAX_COUNTS 512
 #define ERR_CK       \
     if (ans.iserr()) \
     return O_str::WRONG
-static char *_str = new char[MAX_COUNTS];   //? 一个全局字符串
+static TCHAR *_str = new TCHAR[MAX_COUNTS]; //? 一个全局字符串
 
 namespace O_str
 {
-    std::string WRONG("O_str.WRONG");
-    std::string EMPTY("O_str.EMPTY");
-}
+    _TSTRING WRONG(_T("O_str.WRONG"));
+    _TSTRING EMPTY(_T("O_str.EMPTY"));
+} // namespace O_str
 
 namespace
 {
     matrix solved(matrix A, double x = 1, double y = 1, double z = 0)
     {
-        while (A.size(2) > 1) {
+        while (A.size(2) > 1)
+        {
             A.rsim(0, A.size(2) - 1, x, y, z, true);
             A.rdel(0);
         }
         return A;
     }
-}
+} // namespace
 
 strmatr const Omatr::linear(void)
 {
-    using std::string;
     if (!(_POINTS.size(1) >= 2 && _POINTS.size(2) >= 3))
         return O_str::WRONG;
-    switch ((int)(_PARAS[3][3])) {
-    case 0: {   //? 即colorblock模式
+    switch ((int)(_PARAS[3][3]))
+    {
+    case 0:
+    { //? 即colorblock模式
         int b = (int)(_PARAS[2][0]);
-        if (b == 1122) {
+        if (b == 1122)
+        {
             //? 行只选前两行的前三个数字
             ::matrix left(2, 3), right(2, 2, 1.0);
 
@@ -70,18 +73,18 @@ strmatr const Omatr::linear(void)
                 // particleex tickparameter <颗粒名> <x> <y> <z> <红> <绿> <蓝>
                 // <透明度> <亮度> <vx> <vy> <vz> <tStart> <tEnd> <表达式>
                 // [计算间隔] [CPT] [寿命] [速度表达式] [计算间隔] [组] [参数]
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f x=%.3f*t+%.3f;y=%.3f*t+%.3f;z=%.3f*t+%.3f %.3f %.f %.f",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f x= %.3f *t+ %.3f;y= %.3f *t+ %.3f;z= %.3f *t+ %.3f %.3f %.f %.f"),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[3][1], _PARAS[0][0],
                     _PARAS[0][1], funs[0][0], funs[1][0], funs[0][1],
                     funs[1][1], funs[0][2], funs[1][2], _PARAS[0][3],
                     _PARAS[0][2], _PARAS[3][0]);
             else
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f x=%.3f*t+%.3f;y=%.3f*t+%.3f;z=%.3f*t+%.3f %.3f %.f %.f",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f x= %.3f *t+ %.3f;y= %.3f *t+ %.3f;z= %.3f *t+ %.3f %.3f %.f %.f"),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[3][1], _PARAS[0][1],
                     _PARAS[0][0], funs[0][0], funs[1][0], funs[0][1],
@@ -90,7 +93,9 @@ strmatr const Omatr::linear(void)
             strmatr stma(_str, (paramatr &)(*this));
             return stma;
             //
-        } else if (b == 1165) {
+        }
+        else if (b == 1165)
+        {
             //? 行只选前两行的前三个数字
             ::matrix left(2, 3), right(2, 2, 1.0);
 
@@ -113,17 +118,17 @@ strmatr const Omatr::linear(void)
                 // /particleex tickparameter <颗粒> <坐标> <颜色> <速度> <begin>
                 // <end> <表达式> [计算间隔] [CPT] [寿命] [速度表达式]
                 // [计算间隔] [组]
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f \"x=%.3f*t+%.3f;y=%.3f*t+%.3f;z=%.3f*t+%.3f\" %.3f %.f %.f",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f \"x= %.3f *t+ %.3f;y= %.3f *t+ %.3f;z= %.3f *t+ %.3f\" %.3f %.f %.f"),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[0][0], _PARAS[0][1],
                     funs[0][0], funs[1][0], funs[0][1], funs[1][1], funs[0][2],
                     funs[1][2], _PARAS[0][3], _PARAS[0][2], _PARAS[3][0]);
             else
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f \"x=%.3f*t+%.3f;y=%.3f*t+%.3f;z=%.3f*t+%.3f\" %.3f %.f %.f",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f \"x= %.3f *t+ %.3f;y= %.3f *t+ %.3f;z= %.3f *t+ %.3f\" %.3f %.f %.f"),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[0][1], _PARAS[0][0],
                     funs[0][0], funs[1][0], funs[0][1], funs[1][1], funs[0][2],
@@ -132,11 +137,13 @@ strmatr const Omatr::linear(void)
             strmatr stma(_str, (paramatr &)(*this));
             return stma;
             //
-        } else
+        }
+        else
             return O_str::WRONG;
     }
     case 1:
-    case 2: {
+    case 2:
+    {
         return O_str::WRONG;
     }
     default:
@@ -146,13 +153,15 @@ strmatr const Omatr::linear(void)
 
 strmatr const Omatr::quadhet(double y, int mode)
 {
-    using std::string;
     if (!(_POINTS.size(1) >= 2 && _POINTS.size(2) >= 3))
         return O_str::WRONG;
-    switch ((int)(_PARAS[3][3])) {
-    case 0: {   //? 即colorblock模式
+    switch ((int)(_PARAS[3][3]))
+    {
+    case 0:
+    { //? 即colorblock模式
         int b = (int)(_PARAS[2][0]);
-        if (b == 1122) {
+        if (b == 1122)
+        {
             // mode=1为x抛物线 mode=2为y抛物线 mode=3为z抛物线
             if (mode < 0)
                 mode = 0;
@@ -165,9 +174,11 @@ strmatr const Omatr::quadhet(double y, int mode)
             double x = (_POINTS[0][mode] + _POINTS[1][mode]) / 2 - y;
             // mode切换
             ::matrix funs[3];
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 3; i++)
+            {
                 ::matrix left(2, 1), right(2, 2);
-                if (i == mode) {
+                if (i == mode)
+                {
                     left[0][0] = _POINTS[0][i] - x;
                     left[1][0] = _POINTS[1][i] - x;
                     right[0][0] = _PARAS[0][0] * _PARAS[0][0];
@@ -182,7 +193,9 @@ strmatr const Omatr::quadhet(double y, int mode)
 
                     funs[i].rsim(0, 1, x, true);
                     funs[i].rdel(0);
-                } else {
+                }
+                else
+                {
                     left[0][0] = _POINTS[0][i];
                     left[1][0] = _POINTS[1][i];
                     right[0][0] = _PARAS[0][0];
@@ -203,21 +216,22 @@ strmatr const Omatr::quadhet(double y, int mode)
             // <透明度> <亮度> <vx> <vy> <vz> <tStart> <tEnd> <表达式>
             // [计算间隔] [CPT] [寿命] [速度表达式] [计算间隔] [组] [参数]
             if (_PARAS[1][3])
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f ",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f "),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[3][1], _PARAS[0][0],
                     _PARAS[0][1]);
             else
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f ",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f "),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[3][1], _PARAS[0][1],
                     _PARAS[0][0]);
-            char c;
-            for (int i = 0; i < 3; i++) {
+            TCHAR c;
+            for (int i = 0; i < 3; i++)
+            {
                 {
                     if (i == 0)
                         c = 'x';
@@ -226,24 +240,29 @@ strmatr const Omatr::quadhet(double y, int mode)
                     else
                         c = 'z';
                 }
-                if (i == mode) {
-                    sprintf(_str + ::strlen(_str), "%c=%.3f*t^2+%.3f*t+%.3f", c,
-                            funs[i][0][0], funs[i][1][0], x);
-                } else {
-                    sprintf(_str + ::strlen(_str), "%c=%.3f*t+%.3f", c,
-                            funs[i][0][0], funs[i][1][0]);
+                if (i == mode)
+                {
+                    _stprintf(_str + ::wcslen(_str), _T("%c= %.3f *t^2+ %.3f *t+ %.3f"), c,
+                              funs[i][0][0], funs[i][1][0], x);
+                }
+                else
+                {
+                    _stprintf(_str + ::wcslen(_str), _T("%c= %.3f *t+ %.3f"), c,
+                              funs[i][0][0], funs[i][1][0]);
                 }
                 if (i != 2)
-                    sprintf(_str + ::strlen(_str), ";");
+                    _stprintf(_str + ::wcslen(_str), _T(";"));
                 else
                     continue;
             }
-            sprintf(_str + ::strlen(_str), " %.3f %.f %.f", _PARAS[0][3],
-                    _PARAS[0][2], _PARAS[3][0]);
+            _stprintf(_str + ::wcslen(_str), _T(" %.3f %.f %.f"), _PARAS[0][3],
+                      _PARAS[0][2], _PARAS[3][0]);
 
             strmatr stma(_str, (paramatr &)(*this));
             return stma;
-        } else if (b == 1165) {
+        }
+        else if (b == 1165)
+        {
             // mode=1为x抛物线 mode=2为y抛物线 mode=3为z抛物线
             if (mode < 0)
                 mode = 0;
@@ -256,9 +275,11 @@ strmatr const Omatr::quadhet(double y, int mode)
             double x = (_POINTS[0][mode] + _POINTS[1][mode]) / 2 - y;
             // mode切换
             ::matrix funs[3];
-            for (int i = 0; i < 3; i++) {
+            for (int i = 0; i < 3; i++)
+            {
                 ::matrix left(2, 1), right(2, 2);
-                if (i == mode) {
+                if (i == mode)
+                {
                     left[0][0] = _POINTS[0][i] - x;
                     left[1][0] = _POINTS[1][i] - x;
                     right[0][0] = _PARAS[0][0] * _PARAS[0][0];
@@ -273,7 +294,9 @@ strmatr const Omatr::quadhet(double y, int mode)
 
                     funs[i].rsim(0, 1, x, true);
                     funs[i].rdel(0);
-                } else {
+                }
+                else
+                {
                     left[0][0] = _POINTS[0][i];
                     left[1][0] = _POINTS[1][i];
                     right[0][0] = _PARAS[0][0];
@@ -293,21 +316,22 @@ strmatr const Omatr::quadhet(double y, int mode)
             // /particleex tickparameter <颗粒> <坐标> <颜色> <速度> <begin>
             // <end> <表达式> [计算间隔] [CPT] [寿命]
             if (_PARAS[1][3])
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f ",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f "),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[0][0],
                     _PARAS[0][1]);
             else
-                sprintf(
+                _stprintf(
                     _str,
-                    "particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f ",
+                    _T("particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.3f 0 0 0 %.3f %.3f "),
                     matr::paramatr::par_name().c_str(), _PARAS[2][1],
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[0][1],
                     _PARAS[0][0]);
-            char c;
-            for (int i = 0; i < 3; i++) {
+            TCHAR c;
+            for (int i = 0; i < 3; i++)
+            {
                 {
                     if (i == 0)
                         c = 'x';
@@ -317,30 +341,36 @@ strmatr const Omatr::quadhet(double y, int mode)
                         c = 'z';
                 }
                 if (i == 0)
-                    sprintf(_str + ::strlen(_str), "\"");
-                if (i == mode) {
-                    sprintf(_str + ::strlen(_str), "%c=%.3f*t^2+%.3f*t+%.3f", c,
-                            funs[i][0][0], funs[i][1][0], x);
-                } else {
-                    sprintf(_str + ::strlen(_str), "%c=%.3f*t+%.3f", c,
-                            funs[i][0][0], funs[i][1][0]);
+                    _stprintf(_str + ::wcslen(_str), _T("\""));
+                if (i == mode)
+                {
+                    _stprintf(_str + ::wcslen(_str), _T("%c= %.3f *t^2+ %.3f *t+ %.3f"), c,
+                              funs[i][0][0], funs[i][1][0], x);
+                }
+                else
+                {
+                    _stprintf(_str + ::wcslen(_str), _T("%c= %.3f *t+ %.3f"), c,
+                              funs[i][0][0], funs[i][1][0]);
                 }
                 if (i != 2)
-                    sprintf(_str + ::strlen(_str), ";");
+                    _stprintf(_str + ::wcslen(_str), _T(";"));
                 else
-                    sprintf(_str + ::strlen(_str), "\"");
+                    _stprintf(_str + ::wcslen(_str), _T("\""));
             }
-            sprintf(_str + ::strlen(_str), " %.3f %.f %.f", _PARAS[0][3],
-                    _PARAS[0][2], _PARAS[3][0]);
+            _stprintf(_str + ::wcslen(_str), _T(" %.3f %.f %.f"), _PARAS[0][3],
+                      _PARAS[0][2], _PARAS[3][0]);
 
             strmatr stma(_str, (paramatr &)(*this));
             return stma;
-        } else {
+        }
+        else
+        {
             return O_str::WRONG;
         }
     }
     case 1:
-    case 2: {
+    case 2:
+    {
         return O_str::WRONG;
     }
     default:
@@ -353,10 +383,13 @@ strmatr const Omatr::quadthr(double dig, bool x)
     using namespace std;
     if (!(_POINTS.size(1) >= 3 && _POINTS.size(2) >= 3))
         return O_str::WRONG;
-    switch ((int)(_PARAS[3][3])) {
-    case 0: {   //? 即colorblock模式
+    switch ((int)(_PARAS[3][3]))
+    {
+    case 0:
+    { //? 即colorblock模式
         int b = (int)(_PARAS[2][0]);
-        if (b == 1122 || b == 1165) {
+        if (b == 1122 || b == 1165)
+        {
             if (fabs(((_POINTS[1][1] - _POINTS[0][1]) *
                       (_POINTS[2][0] - _POINTS[1][0])) -
                      ((_POINTS[2][1] - _POINTS[1][1]) *
@@ -384,7 +417,8 @@ strmatr const Omatr::quadthr(double dig, bool x)
             right.trans(2, 3, 0.0);
 
             for (int i = 0; i < 2; i++)
-                for (int j = 0; j < 3; j++) {
+                for (int j = 0; j < 3; j++)
+                {
                     if (i == 0)
                         right[i][j] = bas_z[j][0];
                     else
@@ -413,7 +447,8 @@ strmatr const Omatr::quadthr(double dig, bool x)
             right.trans(3, 2, 0.0);
 
             for (int i = 0; i < 2; i++)
-                for (int j = 0; j < 3; j++) {
+                for (int j = 0; j < 3; j++)
+                {
                     left[j][i] = _POINTS[i + 1][j] - _POINTS[0][j];
                     if (i == 0)
                         right[j][i] = bas_x[j][0];
@@ -473,7 +508,7 @@ strmatr const Omatr::quadthr(double dig, bool x)
                     else
                         left[j][i] = bas_z[j][0];
             double temp2[] = {A_T[0][0], A_T[0][1], 0, A_T[1][0], A_T[1][1],
-                              0,         0,         0, 1};
+                              0, 0, 0, 1};
             right.trans(3, 3, temp2, 9);
 
             ans = left * right;
@@ -507,10 +542,11 @@ strmatr const Omatr::quadthr(double dig, bool x)
             ans = xmima / right;
             ans = solved(ans);
 
-            if (b == 1122) {
-                sprintf(
+            if (b == 1122)
+            {
+                _stprintf(
                     _str,
-                    "/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f %.f 0 0 0 %.3f %.3f x=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;y=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;z=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f %f %.f %.f",
+                    _T("/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f %.f 0 0 0 %.3f %.3f x= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f;y= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f;z= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f %f %.f %.f"),
                     paramatr::par_name().c_str(), _PARAS[2][1], _PARAS[2][2],
                     _PARAS[2][3], (double)1, _PARAS[3][1], _PARAS[0][0],
                     _PARAS[0][1], parafun_fin[0][0], ans[0][0], ans[1][0],
@@ -520,10 +556,12 @@ strmatr const Omatr::quadthr(double dig, bool x)
                     ans[0][0], ans[1][0], parafun_fin[2][1], ans[0][0],
                     ans[1][0], parafun_fin[2][2], _PARAS[0][3], _PARAS[0][2],
                     _PARAS[3][0]);
-            } else {
-                sprintf(
+            }
+            else
+            {
+                _stprintf(
                     _str,
-                    "/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f \"x=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;y=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;z=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f\" %f %.f %.f",
+                    _T("/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f \"x= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f;y= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f;z= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f\" %f %.f %.f"),
                     paramatr::par_name().c_str(), _PARAS[2][1], _PARAS[2][2],
                     _PARAS[2][3], (double)1, _PARAS[0][0], _PARAS[0][1],
                     parafun_fin[0][0], ans[0][0], ans[1][0], parafun_fin[0][1],
@@ -550,7 +588,8 @@ strmatr const Omatr::quadthr(double dig, bool x)
             strmatr stma(_str, (paramatr &)(*this));
             return stma;
             */
-        } else
+        }
+        else
             return O_str::WRONG;
     }
     case 1:

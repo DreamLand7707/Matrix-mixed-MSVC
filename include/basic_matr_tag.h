@@ -1,4 +1,4 @@
-﻿//头文件basic_matr_class.h的特殊符号定义
+﻿// 头文件basic_matr_class.h的特殊符号定义
 #include <cassert>
 #include <ccomplex>
 #include <cctype>
@@ -9,6 +9,7 @@
 #include <climits>
 #include <clocale>
 #include <cmath>
+#include <tchar.h>
 // #include <conio.h>
 #include <algorithm>
 #include <array>
@@ -49,31 +50,52 @@
 #include <utility>
 #include <vector>
 
+#ifdef UNICODE
+using _TSTRING = std::wstring;
+using _TOSTRINGSTREAM = std::wostringstream;
+using _TISTRINGSTREAM = std::wistringstream;
+using _TSTRINGSTREAM = std::wstringstream;
+using _TOSTREAM = std::wostream;
+#define _TO_TSTRING std::to_wstring
+#define _TCOUT std::wcout
+#define TEXTD CF_UNICODETEXT
+#else
+using _TSTRING = std::string;
+using _TOSTRINGSTREAM = std::ostringstream;
+using _TISTRINGSTREAM = std::istringstream;
+using _TSTRINGSTREAM = std::stringstream;
+using _TOSTREAM = std::ostream;
+#define _TCOUT std::cout
+#define _TO_TSTRING std::to_string
+#define TEXTD CF_TEXT
+#endif
+
+
 #ifndef basic_matr_tag
-    #define basic_matr_tag 1
+#define basic_matr_tag 1
 
-    #ifndef _TM
-        #ifndef _PM
-            #ifndef _IM
-                #ifndef _IN
-                    #ifndef _Er
-                        #ifndef _RAN
-                            #ifndef _IRAN
+#ifndef _TM
+#ifndef _PM
+#ifndef _IM
+#ifndef _IN
+#ifndef _Er
+#ifndef _RAN
+#ifndef _IRAN
 
-                                #define _TM   matr_tag::T
-                                #define _PM   matr_tag::P
-                                #define _IM   matr_tag::I
-                                #define _IN   matr_tag::II
-                                #define _Er   matr_tag::Err
-                                #define _RAN  matr_tag::RAN
-                                #define _IRAN matr_tag::IRAN
+#define _TM matr_tag::T
+#define _PM matr_tag::P
+#define _IM matr_tag::I
+#define _IN matr_tag::II
+#define _Er matr_tag::Err
+#define _RAN matr_tag::RAN
+#define _IRAN matr_tag::IRAN
 
-                            #endif
-                        #endif
-                    #endif
-                #endif
-            #endif
-        #endif
-    #endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
+#endif
 
 #endif
