@@ -242,7 +242,7 @@ strmatr const Omatr::quadhet(double y, int mode)
                 }
                 if (i == mode)
                 {
-                    _stprintf(_str + ::wcslen(_str), _T("%c= %.3f*t^2+%.3f*t+%.3f"), c,
+                    _stprintf(_str + ::wcslen(_str), _T("%c=%.3f*t^2+%.3f*t+%.3f"), c,
                               funs[i][0][0], funs[i][1][0], x);
                 }
                 else
@@ -546,7 +546,7 @@ strmatr const Omatr::quadthr(double dig, bool x)
             {
                 _stprintf(
                     _str,
-                    _T("/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f %.f 0 0 0 %.3f %.3f x= %f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;y=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;z=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f %f %.f %.f"),
+                    _T("/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f %.f 0 0 0 %.3f %.3f x=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;y=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;z=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f %f %.f %.f"),
                     paramatr::par_name().c_str(), _PARAS[2][1], _PARAS[2][2],
                     _PARAS[2][3], (double)1, _PARAS[3][1], _PARAS[0][0],
                     _PARAS[0][1], parafun_fin[0][0], ans[0][0], ans[1][0],
