@@ -132,11 +132,15 @@ namespace drl
         {
             return sign.sys_mes;
         }
-        const label_num_type &alab() const
+        const label_str_type &source() const
+        {
+            return sign.source;
+        }
+        const label_num_type &mes_type() const
         {
             return sign.mess_type;
         }
-        const label_str_type &blab() const
+        const label_str_type &target() const
         {
             return sign.target;
         }
@@ -149,6 +153,62 @@ namespace drl
                 sign.mess_type = label_num_type();
                 sign.target = label_str_type();
             }
+        }
+        gui_signal &add_source_word(const _TSTRING &word)
+        {
+            sign.source += (_T(" ") + word);
+            return *this;
+        }
+        gui_signal &del_source_word(_TSTRING &deld)
+        {
+            auto c = sign.source.find_last_of(_T(' '));
+            if (c != _TSTRING::npos)
+            {
+                deld.assign(sign.source, c);
+                sign.source.erase(sign.source.find_last_of(_T(' ')), _TSTRING::npos);
+            }
+            else
+            {
+                deld.assign(_T(""));
+            }
+            return *this;
+        }
+        _TSTRING exac_word(unsigned long long num) const
+        {
+            _TSTRING rec = _T("");
+            unsigned long long temp1 = 0;
+            _TSTRING::size_type l = 0;
+            _TSTRING::size_type temp2 = _TSTRING::npos, temp3 = _TSTRING::npos;
+            for (; l < sign.source.size(); l++)
+            {
+                if (temp1 == num - 1)
+                    temp2 = l;
+                if (temp1 == num)
+                    temp3 = l;
+                if (sign.source[l] == _T(' '))
+                    temp1++;
+            }
+            if (temp2 != _TSTRING::npos)
+            {
+                rec.assign(sign.source, temp2, temp3 - temp2 - 1);
+            }
+
+            return rec;
+        }
+        _TSTRING exac_word(unsigned long long l, unsigned long long r) const
+        {
+            _TSTRING rec;
+            _TSTRING temp;
+            rec = exac_word(l);
+            for (auto i = l + 1; i <= r; i++)
+            {
+                temp = exac_word(i);
+                if (temp.size())
+                    rec += (_T(" ") + temp);
+                else
+                    break;
+            }
+            return rec;
         }
 #if can_concept
         template <class T = label_num_type, class U = label_str_type>

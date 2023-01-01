@@ -23,9 +23,10 @@ namespace drl
         {
             return id_in;
         }
-        void virtual change_id(const _TSTRING &new_id, bool change = true)
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
         {
             id_in = module_basic + new_id;
+            return *this;
         }
 
      protected:
@@ -143,6 +144,7 @@ namespace drl
                 drl::system_fun_reg<button_module>(this, &button_module::condition, &button_module::effect, &button_module::inited, group);
             }
         }
+
         button_module(int left_, int top_, int right_, int bottom_, int ellipsewidth_,
                       int ellipseheight_, int text_size_,
                       COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
@@ -153,6 +155,7 @@ namespace drl
                             fill_color1, fill_color2, fill_color3,
                             text_color1, text_color2, text_color3, label_name_,
                             id_, font_, group, regist) {}
+
         button_module(int left_, int top_, int right_, int bottom_, int ellipsewidth_,
                       int ellipseheight_, int text_size_,
                       COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
@@ -164,7 +167,7 @@ namespace drl
                             text_color1, text_color2, text_color3, label_name_,
                             id_, font_, group, regist) {}
         button_module(button_style sty) : style(sty) {}
-        void virtual change_id(const _TSTRING &new_id, bool change = true)
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
         {
             id_in = module_basic + new_id;
             if (change)
@@ -172,13 +175,15 @@ namespace drl
                 send_message_context_down.sign.source = module_basic + new_id + down;
                 send_message_context_up.sign.source = module_basic + new_id + up;
             }
+            return *this;
         }
-        void virtual flush(void)
+        virtual button_module &flush(void)
         {
             FlushBatchDraw(style.coord.left, style.coord.top,
                            style.coord.right, style.coord.bottom);
+            return *this;
         }
-        void change_text(_TSTRING text = _T(""), bool with_gra = true)
+        button_module &change_text(_TSTRING text = _T(""), bool with_gra = true)
         {
             label_name = text;
             if (with_gra)
@@ -187,27 +192,31 @@ namespace drl
                 make_text(style.text_color[mode]);
             }
             flush();
+            return *this;
         }
-        void change_target(const _TSTRING &new_target)
+        button_module &change_target(const _TSTRING &new_target)
         {
             send_message_context_down.sign.target = new_target;
             send_message_context_down.target_use = true;
             send_message_context_up.sign.target = new_target;
             send_message_context_up.target_use = true;
+            return *this;
         }
-        void change_color(COLORREF color)
+        button_module &change_color(COLORREF color)
         {
             setfillcolor(color);
             solidroundrect(style.coord.left, style.coord.top, style.coord.right,
                            style.coord.bottom, style.ellipsewidth, style.ellipseheight);
+            return *this;
         }
-        void make_text(COLORREF color)
+        button_module &make_text(COLORREF color)
         {
             setbkmode(TRANSPARENT);
             settextcolor(color);
             settextstyle(style.text_size, 0, get_font().c_str());
             drawtext(label_name.c_str(), &(style.coord),
                      DT_CENTER | DT_VCENTER | DT_SINGLELINE | DT_WORD_ELLIPSIS);
+            return *this;
         }
     };
 
@@ -296,18 +305,20 @@ namespace drl
             else
                 return global_font();
         }
-        void virtual change_id(const _TSTRING &new_id, bool change = true)
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
         {
             id_in = module_basic + new_id;
             if (change)
                 send_message_context.sign.source = module_basic + new_id;
+            return *this;
         }
-        void virtual flush(void)
+        virtual input_box_module &flush(void)
         {
             FlushBatchDraw(style.coord.left, style.coord.top,
                            style.coord.right, style.coord.bottom);
+            return *this;
         }
-        void change_text(_TSTRING text = _T(""), bool with_gra = true)
+        input_box_module &change_text(_TSTRING text = _T(""), bool with_gra = true)
         {
             input_string = text;
             if (with_gra)
@@ -316,20 +327,23 @@ namespace drl
                 make_text(style.text_color[mode]);
             }
             flush();
+            return *this;
         }
-        void change_target(const _TSTRING &new_target)
+        input_box_module &change_target(const _TSTRING &new_target)
         {
             send_message_context.sign.target = new_target;
             send_message_context.target_use = true;
+            return *this;
         }
-        void change_color(COLORREF color1, COLORREF color2)
+        input_box_module &change_color(COLORREF color1, COLORREF color2)
         {
             setfillcolor(color1);
             setlinestyle(PS_SOLID, style.line_width);
             setlinecolor(color2);
             fillrectangle(style.coord.left, style.coord.top, style.coord.right, style.coord.bottom);
+            return *this;
         }
-        void make_text(COLORREF color, int l = 1)
+        input_box_module &make_text(COLORREF color, int l = 1)
         { // l == 1则靠左 l == 0则靠右
             static RECT coord_text;
             coord_text = {
@@ -345,6 +359,7 @@ namespace drl
             settextcolor(color);
             settextstyle(style.text_size, 0, get_font().c_str());
             drawtext(input_string.c_str(), &coord_text, l | DT_VCENTER | DT_SINGLELINE);
+            return *this;
         }
     };
 
@@ -426,16 +441,18 @@ namespace drl
             else
                 return global_font();
         }
-        void virtual change_id(const _TSTRING &new_id, bool change = true)
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
         {
             id_in = module_basic + new_id;
+            return *this;
         }
-        void virtual flush(void)
+        virtual output_box_module &flush(void)
         {
             FlushBatchDraw(style.coord.left, style.coord.top,
                            style.coord.right, style.coord.bottom);
+            return *this;
         }
-        void change_text(_TSTRING text = _T(""), bool with_gra = true)
+        output_box_module &change_text(_TSTRING text = _T(""), bool with_gra = true)
         {
             output_string = text;
             if (with_gra)
@@ -444,15 +461,17 @@ namespace drl
                 make_text(style.text_color[mode]);
             }
             flush();
+            return *this;
         }
-        void change_color(COLORREF color1, COLORREF color2)
+        output_box_module &change_color(COLORREF color1, COLORREF color2)
         {
             setfillcolor(color1);
             setlinestyle(PS_SOLID, style.line_width);
             setlinecolor(color2);
             fillrectangle(style.coord.left, style.coord.top, style.coord.right, style.coord.bottom);
+            return *this;
         }
-        void make_text(COLORREF color)
+        output_box_module &make_text(COLORREF color)
         { // l == 1则靠左 l == 0则靠右
             static RECT coord_text;
             coord_text = {
@@ -466,6 +485,7 @@ namespace drl
             settextstyle(style.text_size, 0, get_font().c_str());
             drawtext(output_string.c_str(), &coord_text,
                      DT_LEFT | DT_WORDBREAK | DT_WORD_ELLIPSIS);
+            return *this;
         }
     };
 #pragma region

@@ -1,28 +1,11 @@
 ﻿#include <iostream>
-template <int pp>
-class A
-{
- public:
-    static int p;
-    A() {}
-};
-class B : public A<1>
-{
- public:
-    int k;
-};
-class C : public A<2>
-{
- public:
-    int k;
-};
-template <int pp>
-int A<pp>::p = pp;
+#include <string>
+
 int main(void)
 {
-    C l;
-    B k;
-    k.p = 16;
-    std::cout << l.p << std::endl;
+    using namespace std;
+    string a("HELLOWORLD!");
+    string b(a, a.size() - 5, std::string::npos);
+    std::cout << b;
     return 0;
 }
