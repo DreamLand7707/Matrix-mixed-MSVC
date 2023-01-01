@@ -1,6 +1,6 @@
-﻿#include "basic_par.h"
-#include "drl_graph/drl_gui_module.hpp"
+﻿#include "drl_graph/drl_gui_module.hpp"
 #include "drl_graph/drl_gui_signal.hpp"
+#include "basic_par_algout.h"
 
 int main(int argc, char *argv[])
 {
