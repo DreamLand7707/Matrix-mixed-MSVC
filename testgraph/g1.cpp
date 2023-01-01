@@ -19,107 +19,86 @@ int main(int argc, char *argv[])
     input_box_module point1(100, 100, 600, 175, 50, 5,
                             WHITE, WHITE, WHITE, LIGHTRED, LIGHTBLUE, LIGHTMAGENTA,
                             BLACK, BLACK, BLACK,
-                            _T(" point1"));
+                            _T("point1"));
 
     input_box_module point2(100, 200, 600, 275, 50, 5,
                             WHITE, WHITE, WHITE, LIGHTRED, LIGHTBLUE, LIGHTMAGENTA,
                             BLACK, BLACK, BLACK,
-                            _T(" point2"));
+                            _T("point2"));
 
     input_box_module point3(100, 300, 600, 375, 50, 5,
                             WHITE, WHITE, WHITE, LIGHTRED, LIGHTBLUE, LIGHTMAGENTA,
                             BLACK, BLACK, BLACK,
-                            _T(" point3"));
+                            _T("point3"));
 
     input_box_module RGB1(750, 100, 1000, 175, 50, 5,
                           WHITE, WHITE, WHITE, LIGHTRED, LIGHTBLUE, LIGHTMAGENTA,
                           BLACK, BLACK, BLACK,
-                          _T(" RGB1"));
+                          _T("RGB1"));
 
     input_box_module ARG1(750, 200, 1000, 275, 50, 5,
                           WHITE, WHITE, WHITE, LIGHTRED, LIGHTBLUE, LIGHTMAGENTA,
                           BLACK, BLACK, BLACK,
-                          _T(" ARG1"));
+                          _T("ARG1"));
     input_box_module ARG2(750, 300, 1000, 375, 50, 5,
                           WHITE, WHITE, WHITE, LIGHTRED, LIGHTBLUE, LIGHTMAGENTA,
                           BLACK, BLACK, BLACK,
-                          _T(" ARG2"));
+                          _T("ARG2"));
     input_box_module NAME1(100, 400, 1000, 475, 50, 5,
                            WHITE, WHITE, WHITE, LIGHTRED, LIGHTBLUE, LIGHTMAGENTA,
                            BLACK, BLACK, BLACK,
-                           _T(" NAME1"));
+                           _T("NAME1"));
 
     button_module clear1(625, 100, 625 + 75, 175, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), _T("POINT1"),
-                         _T(" button1"));
+                         _T("button1"));
 
     button_module clear2(625, 200, 625 + 75, 275, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), _T("POINT2"),
-                         _T(" button2"));
+                         _T("button2"));
 
     button_module clear3(625, 300, 625 + 75, 375, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), mode_mes1[0],
-                         _T(" button3"));
+                         _T("button3"));
     button_module get1(1025, 500, 1025 + 75, 575, 10, 10, 25,
                        0xddea89, BGR(0xab896d), BGR(0x0ad55d), 0x00aaaa, BGR(0xffff00), BGR(0x986422), _T("GET"),
-                       _T(" button4"));
+                       _T("button4"));
     button_module switch1(1025, 700, 1175, 775, 10, 10, 25,
                           0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), mode_mes[0],
-                          _T(" button5"), _T("等线"));
+                          _T("button5"), _T("等线"));
     button_module switch2(1025, 800, 1175, 875, 10, 10, 25,
                           0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), mode_mes2[0],
-                          _T(" button8"), _T("等线"));
+                          _T("button8"), _T("等线"));
 
 
     button_module clear4(1025, 100, 1025 + 75, 175, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), _T("RGB"),
-                         _T(" button6"));
+                         _T("button6"));
     button_module clear5(1025, 200, 1025 + 75, 275, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), _T("C_A"),
-                         _T(" button7"));
+                         _T("button7"));
     button_module clear6(1025, 300, 1025 + 75, 375, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), _T("TSE"),
-                         _T(" button8"));
+                         _T("button8"));
     button_module clear7(1125, 500, 1125 + 75, 575, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), _T("CLS"),
-                         _T(" button9"));
+                         _T("button9"));
     button_module clear8(1025, 400, 1025 + 75, 475, 10, 10, 25,
                          0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), 0x000000, BGR(0xffff00), BGR(0xf638a3), _T("NAME"),
-                         _T(" button10"));
+                         _T("button10"));
 
 
     button_module copy1(1025, 600, 1025 + 75, 675, 10, 10, 25,
                         0xddea89, BGR(0xab896d), BGR(0x0ad55d), 0x00aaaa, BGR(0xffff00), BGR(0x986422), _T("COPY"),
-                        _T(" button6"));
+                        _T("button6"));
 
 
     output_box_module command1(100, 500, 1000, 900, 40, 5,
                                0xdddddd, 0xdddddd, 0xdddddd, BGR(0x56adcf), BGR(0x0ad55d), BGR(0x56adcf),
                                BLACK, BLACK, BLACK,
-                               _T(" command1"));
+                               _T("command1"));
     int mode_swit = 0;
     int game_mode = 0;
-
-    point1.inited();
-    point2.inited();
-    point3.inited();
-    ARG1.inited();
-    ARG2.inited();
-    RGB1.inited();
-    NAME1.inited();
-    clear1.inited();
-    clear2.inited();
-    clear3.inited();
-    clear4.inited();
-    clear5.inited();
-    clear6.inited();
-    clear7.inited();
-    clear8.inited();
-    get1.inited();
-    switch1.inited();
-    switch2.inited();
-    command1.inited();
-    copy1.inited();
 
     clear1.change_target(point1.id());
     clear2.change_target(point2.id());
@@ -130,29 +109,8 @@ int main(int argc, char *argv[])
     clear7.change_target(command1.id());
     clear8.change_target(NAME1.id());
     get1.change_target(command1.id());
-    copy1.change_target(_T(" copy_mode"));
-    switch1.change_target(_T(" switch1_mode"));
-    switch2.change_target(_T(" switch2_mode"));
-    system_fun_reg<input_box_module>(&point1, &input_box_module::condition, &input_box_module::effect);
-    system_fun_reg<input_box_module>(&point2, &input_box_module::condition, &input_box_module::effect);
-    system_fun_reg<input_box_module>(&point3, &input_box_module::condition, &input_box_module::effect);
-    system_fun_reg<input_box_module>(&RGB1, &input_box_module::condition, &input_box_module::effect);
-    system_fun_reg<input_box_module>(&ARG1, &input_box_module::condition, &input_box_module::effect);
-    system_fun_reg<input_box_module>(&ARG2, &input_box_module::condition, &input_box_module::effect);
-    system_fun_reg<input_box_module>(&NAME1, &input_box_module::condition, &input_box_module::effect);
-    system_fun_reg<button_module>(&clear1, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&clear2, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&clear3, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&clear4, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&clear5, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&clear6, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&clear7, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&clear8, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&get1, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&switch1, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&switch2, &button_module::condition, &button_module::effect);
-    system_fun_reg<button_module>(&copy1, &button_module::condition, &button_module::effect);
-    system_fun_reg<output_box_module>(&command1, &output_box_module::condition, &output_box_module::effect);
+
+    init_group(1);
 
     matrix point_and_h(3, matr_tag::SP);
     matr::paramatr args(matr::empty_paramatr_1165);
@@ -406,31 +364,31 @@ int main(int argc, char *argv[])
     };
 
     user_fun_reg().insert(make_pair(
-        make_pair(clear1.send_message_type, clear1.send_message_context_down.sign.source),
+        make_pair(clear1.send_message_type, clear1.id()),
         clear1_fun_1));
     user_fun_reg().insert(make_pair(
-        make_pair(clear2.send_message_type, clear2.send_message_context_down.sign.source),
+        make_pair(clear2.send_message_type, clear2.id()),
         clear1_fun_2));
     user_fun_reg().insert(make_pair(
-        make_pair(clear3.send_message_type, clear3.send_message_context_down.sign.source),
+        make_pair(clear3.send_message_type, clear3.id()),
         clear1_fun_3));
     user_fun_reg().insert(make_pair(
-        make_pair(clear4.send_message_type, clear4.send_message_context_down.sign.source),
+        make_pair(clear4.send_message_type, clear4.id()),
         clear1_fun_4));
     user_fun_reg().insert(make_pair(
-        make_pair(clear5.send_message_type, clear5.send_message_context_down.sign.source),
+        make_pair(clear5.send_message_type, clear5.id()),
         clear1_fun_5));
     user_fun_reg().insert(make_pair(
-        make_pair(clear6.send_message_type, clear6.send_message_context_down.sign.source),
+        make_pair(clear6.send_message_type, clear6.id()),
         clear1_fun_6));
     user_fun_reg().insert(make_pair(
-        make_pair(get1.send_message_type, get1.send_message_context_down.sign.source),
+        make_pair(get1.send_message_type, get1.id()),
         get1_fun_1));
     user_fun_reg().insert(make_pair(
-        make_pair(clear7.send_message_type, clear7.send_message_context_down.sign.source),
+        make_pair(clear7.send_message_type, clear7.id()),
         clear1_fun_7));
     user_fun_reg().insert(make_pair(
-        make_pair(clear8.send_message_type, clear8.send_message_context_down.sign.source),
+        make_pair(clear8.send_message_type, clear8.id()),
         clear1_fun_8));
 
     ExMessage sys_mes;
@@ -444,9 +402,10 @@ int main(int argc, char *argv[])
             cur_mes = message_pop_front(true);
             if (cur_mes.make_sence)
             {
-                for (auto cur_sys_fun : system_fun_reg())
+                auto &&fun_use = system_fun_reg(1);
+                for (; fun_use.first != fun_use.second; fun_use.first++)
                 {
-                    res_mes = cur_sys_fun(cur_mes);
+                    res_mes = fun_use.first->second(cur_mes);
                     if (res_mes.make_sence)
                         message_push_back(res_mes);
                     /*additional 1*/

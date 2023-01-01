@@ -175,13 +175,13 @@ namespace drl
     gui_signal message_pop_front(bool save = false) noexcept;
 
     const _TSTRING mess_detail(const _TSTRING &);
-    inline std::vector<std::function<gui_signal(gui_signal)>> &system_fun_reg(void)
+    inline std::multimap<size_t, std::function<gui_signal(gui_signal)>> &system_fun_reg(void)
     {
-        static std::vector<std::function<gui_signal(gui_signal)>> func_ta;
+        static std::multimap<size_t, std::function<gui_signal(gui_signal)>> func_ta;
         return func_ta;
     }
     inline void system_fun_reg(const std::function<bool(gui_signal)> &lhs,
-                               const std::function<gui_signal(gui_signal)> &rhs)
+                               const std::function<gui_signal(gui_signal)> &rhs, size_t pt)
     {
         auto c = [=](gui_signal p) -> gui_signal
         {
@@ -192,7 +192,7 @@ namespace drl
             else
                 return gui_signal();
         };
-        system_fun_reg().push_back(c);
+        system_fun_reg().insert(std::make_pair(pt, c));
     }
 
 

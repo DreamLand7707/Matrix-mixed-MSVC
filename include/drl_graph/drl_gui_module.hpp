@@ -8,6 +8,7 @@
 
 namespace drl
 {
+
     _TSTRING &global_font(void);
     const _TSTRING global_font(const _TSTRING &);
     template <unsigned long long NUMBER>
@@ -54,14 +55,16 @@ namespace drl
         bool sys_type_filter_use;
         bool source_filter_use;
         bool lately_state;
+        unsigned long long group;
         message_type lately_sign;
         std::vector<label_num_type_> sys_type_filter;
         std::vector<label_str_type_> source_filter;
-        gui_module(
-            std::initializer_list<label_num_type_> a = {}, std::initializer_list<label_str_type_> b = {})
+        gui_module(unsigned long long group_ = 0,
+                   std::initializer_list<label_num_type_> a = {}, std::initializer_list<label_str_type_> b = {})
             : sys_type_filter_use(false),
               source_filter_use(false),
               lately_state(false),
+              group(group_),
               lately_sign(),
               sys_type_filter(a),
               source_filter(b) {}
@@ -75,7 +78,12 @@ namespace drl
         message_type virtual effect(const message_type &) = 0;
         message_type virtual inited() = 0;
     };
-
+    template <class T>
+    void system_fun_reg(
+        T *obj,
+        bool (T::*lhs_fp)(const gui_module::message_type &),
+        gui_module::message_type (T::*rhs_fp)(const gui_module::message_type &),
+        gui_module::message_type (T::*init_fp)(), size_t pt);
     class button_module : public gui_module, public gui_module_base<0>
     {
      protected:
@@ -114,23 +122,47 @@ namespace drl
 
         button_module(int left_, int top_, int right_, int bottom_, int ellipsewidth_,
                       int ellipseheight_, int text_size_,
-                      COLORREF color1, COLORREF color2, COLORREF color3,
-                      COLORREF color4, COLORREF color5, COLORREF color6, _TSTRING label_name_,
-                      label_str_type_ id_ = {}, _TSTRING font_ = {})
-            : style({{left_, top_, right_, bottom_},
+                      COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
+                      COLORREF text_color1, COLORREF text_color2, COLORREF text_color3, _TSTRING label_name_,
+                      label_str_type_ id_, _TSTRING font_ = {}, unsigned long long group = 1, bool regist = true)
+            : gui_module(group),
+              style({{left_, top_, right_, bottom_},
                      ellipsewidth_,
                      ellipseheight_,
                      text_size_,
-                     {color1, color2, color3},
-                     {color4, color5, color6}}),
+                     {fill_color1, fill_color2, fill_color3},
+                     {text_color1, text_color2, text_color3}}),
               label_name(label_name_),
               font(font_),
               send_message_context_down(send_message_type, module_basic + id_ + down),
               send_message_context_up(send_message_type, module_basic + id_ + up)
         {
             gui_module_base::id_in = module_basic + id_;
+            if (regist)
+            {
+                drl::system_fun_reg<button_module>(this, &button_module::condition, &button_module::effect, &button_module::inited, group);
+            }
         }
-
+        button_module(int left_, int top_, int right_, int bottom_, int ellipsewidth_,
+                      int ellipseheight_, int text_size_,
+                      COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
+                      COLORREF text_color1, COLORREF text_color2, COLORREF text_color3, _TSTRING label_name_,
+                      label_str_type_ id_, unsigned long long group, bool regist = true, _TSTRING font_ = {})
+            : button_module(left_, top_, right_, bottom_, ellipsewidth_,
+                            ellipseheight_, text_size_,
+                            fill_color1, fill_color2, fill_color3,
+                            text_color1, text_color2, text_color3, label_name_,
+                            id_, font_, group, regist) {}
+        button_module(int left_, int top_, int right_, int bottom_, int ellipsewidth_,
+                      int ellipseheight_, int text_size_,
+                      COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
+                      COLORREF text_color1, COLORREF text_color2, COLORREF text_color3, _TSTRING label_name_,
+                      label_str_type_ id_, bool regist, unsigned long long group = 1, _TSTRING font_ = {})
+            : button_module(left_, top_, right_, bottom_, ellipsewidth_,
+                            ellipseheight_, text_size_,
+                            fill_color1, fill_color2, fill_color3,
+                            text_color1, text_color2, text_color3, label_name_,
+                            id_, font_, group, regist) {}
         button_module(button_style sty) : style(sty) {}
         void virtual change_id(const _TSTRING &new_id, bool change = true)
         {
@@ -185,6 +217,7 @@ namespace drl
         bool virtual _condition(const message_type &);
 
      public:
+        using KKKKK = input_box_module;
         struct input_box_style
         {
             RECT coord;
@@ -211,8 +244,9 @@ namespace drl
                          COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
                          COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
                          COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
-                         label_str_type_ id_ = {}, _TSTRING font_ = {})
-            : style({{left_, top_, right_, bottom_},
+                         label_str_type_ id_, _TSTRING font_ = {}, unsigned long long group = 1, bool regist = true)
+            : gui_module(group),
+              style({{left_, top_, right_, bottom_},
                      text_size_,
                      line_width_,
                      {fill_color1, fill_color2, fill_color3},
@@ -223,8 +257,38 @@ namespace drl
               send_message_context(send_message_type, module_basic + id_ + selected)
         {
             gui_module_base::id_in = module_basic + id_;
+            if (regist)
+            {
+                drl::system_fun_reg<input_box_module>(this, &input_box_module::condition, &input_box_module::effect, &input_box_module::inited, group);
+            }
         }
-        input_box_module(input_box_style sty) : style(sty) {}
+        input_box_module(int left_, int top_, int right_, int bottom_,
+                         int text_size_, int line_width_,
+                         COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
+                         COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
+                         COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
+                         label_str_type_ id_, unsigned long long group, bool regist = true, _TSTRING font_ = {})
+            : input_box_module(left_, top_, right_, bottom_,
+                               text_size_, line_width_,
+                               fill_color1, fill_color2, fill_color3,
+                               line_color1, line_color2, line_color3,
+                               text_color1, text_color2, text_color3,
+                               id_, font_, group, regist) {}
+        input_box_module(int left_, int top_, int right_, int bottom_,
+                         int text_size_, int line_width_,
+                         COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
+                         COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
+                         COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
+                         label_str_type_ id_, bool regist, unsigned long long group = 1, _TSTRING font_ = {})
+            : input_box_module(left_, top_, right_, bottom_,
+                               text_size_, line_width_,
+                               fill_color1, fill_color2, fill_color3,
+                               line_color1, line_color2, line_color3,
+                               text_color1, text_color2, text_color3,
+                               id_, font_, group, regist) {}
+
+        input_box_module(input_box_style sty) : style(sty)
+        {}
         _TSTRING virtual get_font()
         {
             if (font.size())
@@ -313,8 +377,9 @@ namespace drl
                           COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
                           COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
                           COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
-                          label_str_type_ id_ = {}, _TSTRING font_ = {})
-            : style({{left_, top_, right_, bottom_},
+                          label_str_type_ id_, _TSTRING font_ = {}, unsigned long long group = 1, bool regist = true)
+            : gui_module(group),
+              style({{left_, top_, right_, bottom_},
                      text_size_,
                      line_width_,
                      {fill_color1, fill_color2, fill_color3},
@@ -324,7 +389,35 @@ namespace drl
               font(font_)
         {
             gui_module_base::id_in = module_basic + id_;
+            if (regist)
+            {
+                drl::system_fun_reg<output_box_module>(this, &output_box_module::condition, &output_box_module::effect, &output_box_module::inited, group);
+            }
         }
+        output_box_module(int left_, int top_, int right_, int bottom_,
+                          int text_size_, int line_width_,
+                          COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
+                          COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
+                          COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
+                          label_str_type_ id_, unsigned long long group, bool regist = true, _TSTRING font_ = {})
+            : output_box_module(left_, top_, right_, bottom_,
+                                text_size_, line_width_,
+                                fill_color1, fill_color2, fill_color3,
+                                line_color1, line_color2, line_color3,
+                                text_color1, text_color2, text_color3,
+                                id_, font_, group, regist) {}
+        output_box_module(int left_, int top_, int right_, int bottom_,
+                          int text_size_, int line_width_,
+                          COLORREF fill_color1, COLORREF fill_color2, COLORREF fill_color3,
+                          COLORREF line_color1, COLORREF line_color2, COLORREF line_color3,
+                          COLORREF text_color1, COLORREF text_color2, COLORREF text_color3,
+                          label_str_type_ id_, bool regist, unsigned long long group = 1, _TSTRING font_ = {})
+            : output_box_module(left_, top_, right_, bottom_,
+                                text_size_, line_width_,
+                                fill_color1, fill_color2, fill_color3,
+                                line_color1, line_color2, line_color3,
+                                text_color1, text_color2, text_color3,
+                                id_, font_, group, regist) {}
         output_box_module(output_box_style sty) : style(sty) {}
         _TSTRING virtual get_font()
         {
@@ -376,12 +469,12 @@ namespace drl
         }
     };
 #pragma region
-    inline std::map<
+    inline std::multimap<
         std::pair<const label_num_type, const label_str_type>,
         std::function<gui_signal(drl::gui_module *, const drl::gui_signal *)>> &
     user_fun_reg()
     {
-        static std::map<
+        static std::multimap<
             std::pair<const label_num_type, const label_str_type>,
             std::function<gui_signal(drl::gui_module *, const drl::gui_signal *)>>
             fun_tab;
@@ -391,7 +484,22 @@ namespace drl
     {
         try
         {
-            return user_fun_reg().at(std::make_pair(a->sign.mess_type, mess_detail(a->sign.source)))(lhs, a);
+            auto lr = user_fun_reg().equal_range(std::make_pair(a->sign.mess_type, mess_detail(a->sign.source)));
+            if (lr.first == lr.second)
+                return gui_signal();
+            lr.second--;
+            gui_signal res;
+            for (;; lr.first++)
+            {
+                if (lr.first == lr.second)
+                {
+                    res = lr.first->second(lhs, a);
+                    break;
+                }
+                else
+                    lr.first->second(lhs, a);
+            }
+            return res;
         }
         catch (...)
         {
@@ -399,16 +507,69 @@ namespace drl
         }
     }
 
+
+    inline std::multimap<size_t, std::function<gui_module::message_type()>> &inited_fun_reg()
+    {
+        static std::multimap<size_t, std::function<gui_module::message_type()>> init_fun_list;
+        return init_fun_list;
+    }
+    inline void inited_fun_reg(const std::function<gui_module::message_type()> &fun, size_t pt)
+    {
+        inited_fun_reg().insert(std::make_pair(pt, fun));
+    }
     template <class T>
-    inline void system_fun_reg(
-        T *obj, bool (T::*lhs_fp)(const gui_module::message_type &),
-        gui_module::message_type (T::*rhs_fp)(const gui_module::message_type &))
+    void system_fun_reg(
+        T *obj,
+        bool (T::*lhs_fp)(const gui_module::message_type &),
+        gui_module::message_type (T::*rhs_fp)(const gui_module::message_type &),
+        gui_module::message_type (T::*init_fp)(), size_t pt)
     {
         std::function<bool(gui_module::message_type)> lfun(
             std::bind(lhs_fp, obj, std::placeholders::_1));
         std::function<gui_module::message_type(gui_module::message_type)> rfun(
             std::bind(rhs_fp, obj, std::placeholders::_1));
-        system_fun_reg(lfun, rfun);
+        std::function<gui_module::message_type()> initfun(
+            std::bind(init_fp, obj));
+        inited_fun_reg(initfun, pt);
+        system_fun_reg(lfun, rfun, pt);
+    }
+
+    inline std::pair<std::remove_reference<decltype(system_fun_reg())>::type::iterator,
+                     std::remove_reference<decltype(system_fun_reg())>::type::iterator>
+    system_fun_reg(size_t l, size_t r)
+    {
+
+        std::remove_reference<decltype(system_fun_reg())>::type::iterator
+            lhs(system_fun_reg().lower_bound(l)),
+            rhs(system_fun_reg().upper_bound(r));
+        return std::pair(lhs, rhs);
+    }
+    inline std::pair<std::remove_reference<decltype(system_fun_reg())>::type::iterator,
+                     std::remove_reference<decltype(system_fun_reg())>::type::iterator>
+    system_fun_reg(size_t l)
+    {
+
+        std::remove_reference<decltype(system_fun_reg())>::type::iterator
+            lhs(system_fun_reg().lower_bound(l)),
+            rhs(system_fun_reg().upper_bound(l));
+        return std::pair(lhs, rhs);
+    }
+
+    inline void init_group(size_t g1)
+    {
+        std::remove_reference<decltype(inited_fun_reg())>::type::iterator
+            lhs(inited_fun_reg().lower_bound(g1)),
+            rhs(inited_fun_reg().upper_bound(g1));
+        for (; lhs != rhs; lhs++)
+            lhs->second();
+    }
+    inline void init_group(size_t g1, size_t g2)
+    {
+        std::remove_reference<decltype(inited_fun_reg())>::type::iterator
+            lhs(inited_fun_reg().lower_bound(g1)),
+            rhs(inited_fun_reg().upper_bound(g2));
+        for (; lhs != rhs; lhs++)
+            lhs->second();
     }
 #pragma endregion
 } // namespace drl
