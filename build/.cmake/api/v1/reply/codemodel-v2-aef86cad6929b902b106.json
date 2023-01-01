@@ -10,7 +10,8 @@
 					[
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
@@ -32,9 +33,9 @@
 					"source" : "src",
 					"targetIndexes" : 
 					[
-						0,
-						4,
-						8
+						1,
+						5,
+						9
 					]
 				},
 				{
@@ -49,9 +50,9 @@
 					"source" : "test",
 					"targetIndexes" : 
 					[
-						1,
 						2,
-						3
+						3,
+						4
 					]
 				},
 				{
@@ -66,9 +67,24 @@
 					"source" : "testgraph",
 					"targetIndexes" : 
 					[
-						5,
 						6,
-						7
+						7,
+						8
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine",
+					"jsonFile" : "directory-gui_particle_machine-Debug-802b0c03415a5f4603d2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "gui_particle_machine",
+					"targetIndexes" : 
+					[
+						0
 					]
 				}
 			],
@@ -81,7 +97,8 @@
 						0,
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"name" : "matrixs",
 					"targetIndexes" : 
@@ -94,12 +111,20 @@
 						5,
 						6,
 						7,
-						8
+						8,
+						9
 					]
 				}
 			],
 			"targets" : 
 			[
+				{
+					"directoryIndex" : 4,
+					"id" : "GPM1::@128c311e863f8f80474d",
+					"jsonFile" : "target-GPM1-Debug-fb40ceddb8436e38caa4.json",
+					"name" : "GPM1",
+					"projectIndex" : 0
+				},
 				{
 					"directoryIndex" : 1,
 					"id" : "baspar::@fbd4ab375b392918fb6a",

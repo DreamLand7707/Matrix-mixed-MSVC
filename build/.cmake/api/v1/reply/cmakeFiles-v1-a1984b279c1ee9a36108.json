@@ -104,6 +104,9 @@
 		},
 		{
 			"path" : "testgraph/CMakeLists.txt"
+		},
+		{
+			"path" : "gui_particle_machine/CMakeLists.txt"
 		}
 	],
 	"kind" : "cmakeFiles",

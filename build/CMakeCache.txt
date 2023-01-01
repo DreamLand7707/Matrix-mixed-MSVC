@@ -187,13 +187,13 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-matrixs_BINARY_DIR:STATIC=D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph
+matrixs_BINARY_DIR:STATIC=D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine
 
 //Value Computed by CMake
 matrixs_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
-matrixs_SOURCE_DIR:STATIC=D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph
+matrixs_SOURCE_DIR:STATIC=D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/gui_particle_machine
 
 
 ########################
@@ -280,7 +280,7 @@ CMAKE_MT-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=4
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
 //Platform information initialized
 CMAKE_PLATFORM_INFO_INITIALIZED:INTERNAL=1
 //noop for ranlib

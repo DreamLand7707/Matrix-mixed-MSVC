@@ -37,6 +37,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin/cmake_install.cmake")
   include("D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin/cmake_install.cmake")
   include("D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph/cmake_install.cmake")
+  include("D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine/cmake_install.cmake")
 
 endif()
 

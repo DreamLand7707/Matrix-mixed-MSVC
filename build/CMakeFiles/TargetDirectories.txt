@@ -15,3 +15,6 @@ D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/graphd
 D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/graphdebug3.dir
 D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/edit_cache.dir
 D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph/CMakeFiles/rebuild_cache.dir
+D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine/CMakeFiles/GPM1.dir
+D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine/CMakeFiles/edit_cache.dir
+D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine/CMakeFiles/rebuild_cache.dir
