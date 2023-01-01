@@ -173,6 +173,10 @@
 				{
 					"backtrace" : 14,
 					"path" : "E:/VisualStudio/VC/Auxiliary/VS/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/gui_particle_machine/../include/drl_particle"
 				}
 			],
 			"language" : "CXX",
