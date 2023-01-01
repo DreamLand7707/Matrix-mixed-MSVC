@@ -10,6 +10,35 @@ namespace drl
 {
     _TSTRING &global_font(void);
     const _TSTRING global_font(const _TSTRING &);
+    template <unsigned long long NUMBER>
+    class gui_module_base
+    {
+     public:
+        using message_type = drl::gui_signal;
+        using label_num_type_ = drl::label_num_type;
+        using label_str_type_ = drl::label_str_type;
+        const static label_str_type_ module_basic;
+        const label_str_type_ &id(void)
+        {
+            return id_in;
+        }
+        void virtual change_id(const _TSTRING &new_id, bool change = true)
+        {
+            id_in = module_basic + new_id;
+        }
+
+     protected:
+        label_str_type_ id_in;
+    };
+
+    template <unsigned long long NUMBER>
+    const drl::label_str_type gui_module_base<NUMBER>::module_basic = _T("BASIC");
+    template <>
+    const drl::label_str_type drl::gui_module_base<0>::module_basic;
+    template <>
+    const drl::label_str_type drl::gui_module_base<1>::module_basic;
+    template <>
+    const drl::label_str_type drl::gui_module_base<2>::module_basic;
     class gui_module
     {
      public:
@@ -17,6 +46,7 @@ namespace drl
         using label_num_type_ = drl::label_num_type;
         using label_str_type_ = drl::label_str_type;
 
+     protected:
      private:
         bool virtual _condition(const message_type &) = 0;
 
@@ -25,16 +55,14 @@ namespace drl
         bool source_filter_use;
         bool lately_state;
         message_type lately_sign;
-        label_str_type_ id;
         std::vector<label_num_type_> sys_type_filter;
         std::vector<label_str_type_> source_filter;
-        gui_module(label_str_type_ id_ = {},
-                   std::initializer_list<label_num_type_> a = {}, std::initializer_list<label_str_type_> b = {})
+        gui_module(
+            std::initializer_list<label_num_type_> a = {}, std::initializer_list<label_str_type_> b = {})
             : sys_type_filter_use(false),
               source_filter_use(false),
               lately_state(false),
               lately_sign(),
-              id(id_),
               sys_type_filter(a),
               source_filter(b) {}
         bool virtual condition(const message_type &mess)
@@ -43,23 +71,12 @@ namespace drl
             return (lately_state = _condition(mess));
         }
         const message_type &sign() { return lately_sign; }
-        void virtual change_id(const _TSTRING &new_id, bool change = true) { id = new_id; }
         void clear_sign() { lately_sign = message_type(); }
-        void assign(std::vector<label_num_type_> lab_a, label_str_type_ lab_b,
-                    std::vector<label_str_type_> label_rec_b_, bool lab_a_bool,
-                    bool lab_b_bool)
-        {
-            sys_type_filter = lab_a;
-            id = lab_b;
-            source_filter = label_rec_b_;
-            sys_type_filter_use = lab_a_bool;
-            source_filter_use = lab_b_bool;
-        }
         message_type virtual effect(const message_type &) = 0;
         message_type virtual inited() = 0;
     };
 
-    class button_module : public gui_module
+    class button_module : public gui_module, public gui_module_base<0>
     {
      protected:
         bool virtual _condition(const message_type &);
@@ -91,7 +108,7 @@ namespace drl
         }
         const static label_num_type_ send_message_type;
         const static label_num_type_ no_message;
-        const static label_str_type_ module_basic;
+        // const static label_str_type_ module_basic;
         const static label_str_type_ down;
         const static label_str_type_ up;
 
@@ -109,12 +126,15 @@ namespace drl
               label_name(label_name_),
               font(font_),
               send_message_context_down(send_message_type, module_basic + id_ + down),
-              send_message_context_up(send_message_type, module_basic + id_ + up) { gui_module::id = id_; }
+              send_message_context_up(send_message_type, module_basic + id_ + up)
+        {
+            gui_module_base::id_in = module_basic + id_;
+        }
 
         button_module(button_style sty) : style(sty) {}
         void virtual change_id(const _TSTRING &new_id, bool change = true)
         {
-            id = new_id;
+            id_in = module_basic + new_id;
             if (change)
             {
                 send_message_context_down.sign.source = module_basic + new_id + down;
@@ -159,7 +179,7 @@ namespace drl
         }
     };
 
-    class input_box_module : public gui_module
+    class input_box_module : public gui_module, public gui_module_base<1>
     {
      protected:
         bool virtual _condition(const message_type &);
@@ -181,7 +201,7 @@ namespace drl
 
         const static label_num_type_ send_message_type;
         const static label_num_type_ no_message;
-        const static label_str_type_ module_basic;
+        // const static label_str_type_ module_basic;
         const static label_str_type_ selected;
 
         message_type virtual effect(const message_type &);
@@ -202,7 +222,7 @@ namespace drl
               font(font_),
               send_message_context(send_message_type, module_basic + id_ + selected)
         {
-            gui_module::id = id_;
+            gui_module_base::id_in = module_basic + id_;
         }
         input_box_module(input_box_style sty) : style(sty) {}
         _TSTRING virtual get_font()
@@ -214,7 +234,7 @@ namespace drl
         }
         void virtual change_id(const _TSTRING &new_id, bool change = true)
         {
-            id = new_id;
+            id_in = module_basic + new_id;
             if (change)
                 send_message_context.sign.source = module_basic + new_id;
         }
@@ -264,7 +284,7 @@ namespace drl
         }
     };
 
-    class output_box_module : public gui_module
+    class output_box_module : public gui_module, public gui_module_base<2>
     {
      protected:
         bool virtual _condition(const message_type &);
@@ -283,7 +303,7 @@ namespace drl
         _TSTRING output_string;
         _TSTRING font;
         const static label_num_type_ no_message;
-        const static label_str_type_ module_basic;
+        // const static label_str_type_ module_basic;
 
         message_type virtual effect(const message_type &);
         message_type virtual inited();
@@ -303,7 +323,7 @@ namespace drl
               output_string(),
               font(font_)
         {
-            gui_module::id = id_;
+            gui_module_base::id_in = module_basic + id_;
         }
         output_box_module(output_box_style sty) : style(sty) {}
         _TSTRING virtual get_font()
@@ -315,7 +335,7 @@ namespace drl
         }
         void virtual change_id(const _TSTRING &new_id, bool change = true)
         {
-            id = new_id;
+            id_in = module_basic + new_id;
         }
         void virtual flush(void)
         {

@@ -121,15 +121,15 @@ int main(int argc, char *argv[])
     command1.inited();
     copy1.inited();
 
-    clear1.change_target(point1.id);
-    clear2.change_target(point2.id);
-    clear3.change_target(point3.id);
-    clear4.change_target(RGB1.id);
-    clear5.change_target(ARG1.id);
-    clear6.change_target(ARG2.id);
-    clear7.change_target(command1.id);
-    clear8.change_target(NAME1.id);
-    get1.change_target(command1.id);
+    clear1.change_target(point1.id());
+    clear2.change_target(point2.id());
+    clear3.change_target(point3.id());
+    clear4.change_target(RGB1.id());
+    clear5.change_target(ARG1.id());
+    clear6.change_target(ARG2.id());
+    clear7.change_target(command1.id());
+    clear8.change_target(NAME1.id());
+    get1.change_target(command1.id());
     copy1.change_target(_T(" copy_mode"));
     switch1.change_target(_T(" switch1_mode"));
     switch2.change_target(_T(" switch2_mode"));

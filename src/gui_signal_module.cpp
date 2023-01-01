@@ -9,18 +9,23 @@ drl::button_module::label_str_type_ drl::gui_signal::system_message_label = _T("
 
 const drl::button_module::label_num_type_ drl::button_module::send_message_type = 1;
 const drl::button_module::label_num_type_ drl::button_module::no_message = 0;
-const drl::button_module::label_str_type_ drl::button_module::module_basic = _T("button");
-const drl::button_module::label_str_type_ drl::button_module::down = _T("_down");
-const drl::button_module::label_str_type_ drl::button_module::up = _T("_up");
+const drl::button_module::label_str_type_ drl::button_module::down = _T(" down");
+const drl::button_module::label_str_type_ drl::button_module::up = _T(" up");
+
+
+template <>
+const drl::label_str_type drl::gui_module_base<0>::module_basic = _T("button");
+template <>
+const drl::label_str_type drl::gui_module_base<1>::module_basic = _T("input_box");
+template <>
+const drl::label_str_type drl::gui_module_base<2>::module_basic = _T("output_box");
 
 
 const drl::input_box_module::label_num_type_ drl::input_box_module::send_message_type = 1;
 const drl::input_box_module::label_num_type_ drl::input_box_module::no_message = 0;
-const drl::input_box_module::label_str_type_ drl::input_box_module::module_basic = _T("input_box");
-const drl::input_box_module::label_str_type_ drl::input_box_module::selected = _T("_selected");
+const drl::input_box_module::label_str_type_ drl::input_box_module::selected = _T(" selected");
 
 const drl::output_box_module::label_num_type_ drl::output_box_module::no_message = 0;
-const drl::output_box_module::label_str_type_ drl::output_box_module::module_basic = _T("output_box");
 
 #define graflu FlushBatchDraw()
 #pragma region signal
@@ -126,12 +131,10 @@ const _TSTRING drl::mess_detail(const _TSTRING &d)
     {
         static _TSTRINGSTREAM ting;
         ting.clear();
+        static _TSTRING res;
+        res.clear();
         ting.str(d);
-        _TSTRING res, res1;
         ting >> res;
-        ting >> res1;
-        if (res.size() && res1.size())
-            res = res + _T(" ") + res1;
         return res;
     }
     else
@@ -169,7 +172,7 @@ bool drl::button_module::_condition(const message_type &mess)
         }
         if (mess.target_use)
         {
-            if (id != mess.sign.target)
+            if (id() != mess.sign.target)
                 return false;
         }
         return true;
@@ -180,7 +183,7 @@ bool drl::button_module::_condition(const message_type &mess)
 
 drl::button_module::message_type drl::button_module::effect(const message_type &mess)
 {
-    drl::gui_signal res(drl::button_module::no_message, drl::button_module::module_basic + id);
+    drl::gui_signal res(drl::button_module::no_message, id());
     res.kind = drl::gui_signal::effect_message;
     res.make_sence = false;
     if (mess.form() == drl::gui_signal::mess_base::system_message)
@@ -274,7 +277,7 @@ bool drl::input_box_module::_condition(const message_type &mess)
             }
             if (mess.target_use)
             {
-                if (id != mess.sign.target)
+                if (id() != mess.sign.target)
                     return false;
             }
             return true;
@@ -296,7 +299,7 @@ drl::input_box_module::message_type drl::input_box_module::inited()
 
 drl::input_box_module::message_type drl::input_box_module::effect(const message_type &mess)
 {
-    message_type res(no_message, module_basic + id);
+    message_type res(no_message, module_basic + id());
     res.make_sence = false;
     res.kind = drl::gui_signal::effect_message;
     if (mess.kind == drl::gui_signal::system_message)
@@ -601,7 +604,7 @@ bool drl::output_box_module::_condition(const message_type &mess)
             }
             if (mess.target_use)
             {
-                if (id != mess.sign.target)
+                if (id() != mess.sign.target)
                     return false;
             }
             return true;
@@ -615,7 +618,7 @@ bool drl::output_box_module::_condition(const message_type &mess)
 
 drl::output_box_module::message_type drl::output_box_module::effect(const message_type &mess)
 {
-    message_type res(no_message, module_basic + id);
+    message_type res(no_message, module_basic + id());
     res.make_sence = false;
     res.kind = drl::gui_signal::effect_message;
     if (mess.kind == drl::gui_signal::system_message)
