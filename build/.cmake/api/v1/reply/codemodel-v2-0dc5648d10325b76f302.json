@@ -33,7 +33,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						7
+						4,
+						8
 					]
 				},
 				{
@@ -65,9 +66,9 @@
 					"source" : "testgraph",
 					"targetIndexes" : 
 					[
-						4,
 						5,
-						6
+						6,
+						7
 					]
 				}
 			],
@@ -92,7 +93,8 @@
 						4,
 						5,
 						6,
-						7
+						7,
+						8
 					]
 				}
 			],
@@ -101,7 +103,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "baspar::@fbd4ab375b392918fb6a",
-					"jsonFile" : "target-baspar-Debug-000e1319ca9298cf25cb.json",
+					"jsonFile" : "target-baspar-Debug-32cb0a48fd3f2383b795.json",
 					"name" : "baspar",
 					"projectIndex" : 0
 				},
@@ -127,30 +129,37 @@
 					"projectIndex" : 0
 				},
 				{
+					"directoryIndex" : 1,
+					"id" : "drl_casio::@fbd4ab375b392918fb6a",
+					"jsonFile" : "target-drl_casio-Debug-2052cc549ba3f6f288c6.json",
+					"name" : "drl_casio",
+					"projectIndex" : 0
+				},
+				{
 					"directoryIndex" : 3,
 					"id" : "graphdebug1::@6119c8a7cc6a1c8cf1c2",
-					"jsonFile" : "target-graphdebug1-Debug-20e815f2821eee83042b.json",
+					"jsonFile" : "target-graphdebug1-Debug-7bb48a96a05ff4fa2280.json",
 					"name" : "graphdebug1",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "graphdebug2::@6119c8a7cc6a1c8cf1c2",
-					"jsonFile" : "target-graphdebug2-Debug-b79988551d5a33703aef.json",
+					"jsonFile" : "target-graphdebug2-Debug-91cf8f9370730568ed6d.json",
 					"name" : "graphdebug2",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "graphdebug3::@6119c8a7cc6a1c8cf1c2",
-					"jsonFile" : "target-graphdebug3-Debug-ef1f30cc0ddcdbd288e0.json",
+					"jsonFile" : "target-graphdebug3-Debug-6e69cb98aebbf4e8111a.json",
 					"name" : "graphdebug3",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "gui::@fbd4ab375b392918fb6a",
-					"jsonFile" : "target-gui-Debug-5adf74f88c6f32d2422e.json",
+					"jsonFile" : "target-gui-Debug-c2c67a14431f47729c47.json",
 					"name" : "gui",
 					"projectIndex" : 0
 				}

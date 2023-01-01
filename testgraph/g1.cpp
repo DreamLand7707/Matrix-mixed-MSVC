@@ -2,7 +2,6 @@
 #include "drl_graph/drl_gui_module.hpp"
 #include "drl_graph/drl_gui_signal.hpp"
 
-
 int main(int argc, char *argv[])
 {
     using namespace drl;
@@ -116,6 +115,14 @@ int main(int argc, char *argv[])
     matr::paramatr args(matr::empty_paramatr_1165);
     O_partmatr out_matr(point_and_h, matr::empty_paramatr_1165);
 
+    auto suit_the_condition = [](TCHAR i) -> bool
+    {
+        if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' || (i >= 'A' && i <= 'Z') || (i >= 'a' && i <= 'z') ||
+              i == L'+' || i == L'*' || i == L'/' || i == L' ' || i == L'^' || i == L'(' || i == L')'))
+            return false;
+        return true;
+    };
+
     auto clear1_fun_1 = [&](gui_module *lhs, const gui_signal *rhs) -> gui_signal
     {
         if (rhs->sign.source == clears[std::stoi(rhs->exac_fin_word())].send_message_context_down.sign.source)
@@ -140,10 +147,7 @@ int main(int argc, char *argv[])
         temp_str = RGB1.input_string;
         for (auto &i : temp_str)
         {
-            if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                  i == L'x' || i == L'X' ||
-                  i == L'y' || i == L'Y' ||
-                  i == L'z' || i == L'Z'))
+            if (suit_the_condition(i))
                 i = L' ';
         }
         sin.str(temp_str);
@@ -152,10 +156,7 @@ int main(int argc, char *argv[])
         temp_str = ARG1.input_string;
         for (auto &i : temp_str)
         {
-            if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                  i == L'x' || i == L'X' ||
-                  i == L'y' || i == L'Y' ||
-                  i == L'z' || i == L'Z'))
+            if (suit_the_condition(i))
                 i = L' ';
         }
         sin.str(temp_str);
@@ -164,10 +165,7 @@ int main(int argc, char *argv[])
         temp_str = ARG2.input_string;
         for (auto &i : temp_str)
         {
-            if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                  i == L'x' || i == L'X' ||
-                  i == L'y' || i == L'Y' ||
-                  i == L'z' || i == L'Z'))
+            if (suit_the_condition(i))
                 i = L' ';
         }
         sin.str(temp_str);
@@ -179,10 +177,7 @@ int main(int argc, char *argv[])
             temp_str = point1.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);
@@ -191,10 +186,7 @@ int main(int argc, char *argv[])
             temp_str = point2.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);
@@ -208,10 +200,7 @@ int main(int argc, char *argv[])
             temp_str = point1.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);
@@ -220,10 +209,7 @@ int main(int argc, char *argv[])
             temp_str = point2.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);
@@ -232,10 +218,7 @@ int main(int argc, char *argv[])
             temp_str = point3.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);
@@ -255,10 +238,7 @@ int main(int argc, char *argv[])
             temp_str = point1.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);
@@ -267,10 +247,7 @@ int main(int argc, char *argv[])
             temp_str = point2.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);
@@ -279,10 +256,7 @@ int main(int argc, char *argv[])
             temp_str = point3.input_string;
             for (auto &i : temp_str)
             {
-                if (!((i >= L'0' && i <= L'9') || i == L'.' || i == L'-' ||
-                      i == L'x' || i == L'X' ||
-                      i == L'y' || i == L'Y' ||
-                      i == L'z' || i == L'Z'))
+                if (suit_the_condition(i))
                     i = L' ';
             }
             sin.str(temp_str);

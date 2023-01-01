@@ -13,6 +13,7 @@
 // #include <conio.h>
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <csetjmp>
 #include <csignal>
 #include <cstdarg>
@@ -34,10 +35,12 @@
 #include <initializer_list>
 #include <iostream>
 #include <iterator>
+#include <limits>
 #include <list>
 #include <map>
 #include <memory>
 #include <new>
+#include <numbers>
 #include <numeric>
 #include <queue>
 #include <random>
@@ -45,10 +48,12 @@
 #include <set>
 #include <sstream>
 #include <stack>
+#include <string>
 #include <thread>
 #include <type_traits>
 #include <utility>
 #include <vector>
+
 
 #ifdef UNICODE
 using _TSTRING = std::wstring;

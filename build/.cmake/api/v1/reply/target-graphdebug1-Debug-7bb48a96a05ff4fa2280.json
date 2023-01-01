@@ -52,6 +52,12 @@
 				"parent" : 0
 			},
 			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 29,
+				"parent" : 0
+			},
+			{
 				"command" : 2,
 				"file" : 0,
 				"line" : 11,
@@ -102,7 +108,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 29,
+				"line" : 30,
 				"parent" : 0
 			}
 		]
@@ -122,50 +128,50 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 5,
+					"backtrace" : 6,
 					"define" : "MATRIX_DRL_USE"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 7,
 					"define" : "NOMINMAX"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 8,
 					"define" : "UNICODE"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 9,
 					"define" : "_CRT_NON_CONFORMING_SWPRINTFS"
 				},
 				{
-					"backtrace" : 9,
+					"backtrace" : 10,
 					"define" : "_CRT_SECURE_NO_WARNINGS"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 11,
 					"define" : "_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING"
 				},
 				{
-					"backtrace" : 11,
+					"backtrace" : 12,
 					"define" : "_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING"
 				},
 				{
-					"backtrace" : 12,
+					"backtrace" : 13,
 					"define" : "_UNICODE"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include/drl_graph"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 14,
 					"path" : "E:/VisualStudio/VC/Auxiliary/VS/include"
 				}
 			],
@@ -191,7 +197,7 @@
 			"id" : "baspar::@fbd4ab375b392918fb6a"
 		},
 		{
-			"backtrace" : 4,
+			"backtrace" : 5,
 			"id" : "gui::@fbd4ab375b392918fb6a"
 		}
 	],
@@ -220,6 +226,11 @@
 			},
 			{
 				"backtrace" : 4,
+				"fragment" : "drl_casio.lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 5,
 				"fragment" : "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\lib\\gui.lib",
 				"role" : "libraries"
 			},
