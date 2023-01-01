@@ -27,4 +27,5 @@ target_include_directories(
     GPM1
     PUBLIC "../include"
     PUBLIC "../include/drl_graph"
-    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_particle")
