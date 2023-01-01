@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 
     auto clear1_fun_1 = [&](gui_module *lhs, const gui_signal *rhs) -> gui_signal
     {
-        if (rhs->sign.source == clears[std::stoi(rhs->exac_word(3))].send_message_context_down.sign.source)
+        if (rhs->sign.source == clears[std::stoi(rhs->exac_fin_word())].send_message_context_down.sign.source)
         {
             input_box_module *pointer = dynamic_cast<input_box_module *>(lhs);
             if (pointer)
@@ -130,7 +130,7 @@ int main(int argc, char *argv[])
     auto get1_fun_1 = [&](gui_module *lhs, const gui_signal *rhs) -> gui_signal
     {
         static strmatr A;
-        static _TSTRINGSTREAM sin;
+        _TSTRINGSTREAM &sin = drl::public_tstream();
         static _TSTRING temp_str;
         drl::output_box_module *pointer = dynamic_cast<output_box_module *>(lhs);
         TCHAR mode;

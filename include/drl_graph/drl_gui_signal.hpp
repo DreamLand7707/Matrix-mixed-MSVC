@@ -72,8 +72,6 @@ namespace drl
         bool target_use;
         static label_str_type system_message_label;
 
-     public:
-        static _TOSTREAM tcout;
 
      public:
 #pragma region
@@ -159,7 +157,7 @@ namespace drl
             sign.source += (_T(" ") + word);
             return *this;
         }
-        gui_signal &del_source_word(_TSTRING &deld)
+        gui_signal &del_fin_source_word(_TSTRING &deld)
         {
             auto c = sign.source.find_last_of(_T(' '));
             if (c != _TSTRING::npos)
@@ -175,15 +173,16 @@ namespace drl
         }
         _TSTRING exac_word(unsigned long long num) const
         {
+            num = num + 1;
             _TSTRING rec = _T("");
             unsigned long long temp1 = 0;
             _TSTRING::size_type l = 0;
             _TSTRING::size_type temp2 = _TSTRING::npos, temp3 = _TSTRING::npos;
             for (; l < sign.source.size(); l++)
             {
-                if (temp1 == num - 1)
+                if (temp1 == num - 1 && temp2 == _TSTRING::npos)
                     temp2 = l;
-                if (temp1 == num)
+                if (temp1 == num && temp3 == _TSTRING::npos)
                     temp3 = l;
                 if (sign.source[l] == _T(' '))
                     temp1++;
@@ -195,14 +194,23 @@ namespace drl
 
             return rec;
         }
+        _TSTRING exac_fin_word() const
+        {
+            _TSTRING::size_type x = sign.source.find_last_of(_T(' '));
+            if (x == _TSTRING::npos)
+                return _TSTRING(sign.source, 0);
+            return _TSTRING(sign.source, x + 1);
+        }
         _TSTRING exac_word(unsigned long long l, unsigned long long r) const
         {
+            l = l + 1;
+            r = r + 1;
             _TSTRING rec;
             _TSTRING temp;
-            rec = exac_word(l);
+            rec = exac_word(l - 1);
             for (auto i = l + 1; i <= r; i++)
             {
-                temp = exac_word(i);
+                temp = exac_word(i - 1);
                 if (temp.size())
                     rec += (_T(" ") + temp);
                 else
@@ -210,21 +218,7 @@ namespace drl
             }
             return rec;
         }
-#if can_concept
-        template <class T = label_num_type, class U = label_str_type>
-            requires(!can_print<T, U>)
-        void print() const
-        {
-            ;
-        }
-        template <class T = label_num_type, class U = label_str_type>
-            requires can_print<T, U>
-#endif
-        void print() const
-        {
-            tcout << (kind ? 1 : 0) << std::endl;
-            tcout << sign.mess_type << " from: " << sign.source << " to: " << sign.target << std::endl;
-        }
+
 #pragma endregion
     };
     std::deque<gui_signal> &message_deque();
@@ -234,7 +228,6 @@ namespace drl
     gui_signal message_pop_back(bool save = false) noexcept;
     gui_signal message_pop_front(bool save = false) noexcept;
 
-    const _TSTRING mess_detail(const _TSTRING &);
     inline std::multimap<size_t, std::function<gui_signal(gui_signal)>> &system_fun_reg(void)
     {
         static std::multimap<size_t, std::function<gui_signal(gui_signal)>> func_ta;

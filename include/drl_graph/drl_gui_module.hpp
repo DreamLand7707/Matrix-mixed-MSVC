@@ -11,6 +11,21 @@ namespace drl
 
     _TSTRING &global_font(void);
     const _TSTRING global_font(const _TSTRING &);
+    inline _TSTRINGSTREAM &public_tstream(bool good = true, bool clear = true)
+    {
+        static _TSTRINGSTREAM res;
+        if (good)
+            res.clear();
+        if (clear)
+            res.str(_T(""));
+        return res;
+    }
+    inline _TSTRINGSTREAM &public_tstream(_TSTRING o, bool good = true)
+    {
+        _TSTRINGSTREAM &res = public_tstream(good, false);
+        res.str(o);
+        return res;
+    }
     template <unsigned long long NUMBER>
     class gui_module_base
     {
@@ -504,7 +519,7 @@ namespace drl
     {
         try
         {
-            auto lr = user_fun_reg().equal_range(std::make_pair(a->sign.mess_type, mess_detail(a->sign.source)));
+            auto lr = user_fun_reg().equal_range(std::make_pair(a->sign.mess_type, a->exac_word(0)));
             if (lr.first == lr.second)
                 return gui_signal();
             lr.second--;

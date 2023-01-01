@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <easyx.h>
 
-_TOSTREAM drl::gui_signal::tcout(_TCOUT.rdbuf());
 
 drl::button_module::label_str_type_ drl::gui_signal::system_message_label = _T("#s");
 
@@ -29,13 +28,6 @@ const drl::output_box_module::label_num_type_ drl::output_box_module::no_message
 
 #define graflu FlushBatchDraw()
 #pragma region signal
-
-std::ostream &
-drl::operator<<(std::ostream &out, drl::gui_signal rhs)
-{
-    rhs.print();
-    return out;
-}
 
 std::deque<drl::gui_signal> &drl::message_deque()
 {
@@ -125,21 +117,7 @@ const _TSTRING drl::global_font(const _TSTRING &font)
     return res;
 }
 
-const _TSTRING drl::mess_detail(const _TSTRING &d)
-{
-    if (d.size())
-    {
-        static _TSTRINGSTREAM ting;
-        ting.clear();
-        static _TSTRING res;
-        res.clear();
-        ting.str(d);
-        ting >> res;
-        return res;
-    }
-    else
-        return _TSTRING();
-}
+
 
 #pragma endregion global
 
@@ -167,7 +145,7 @@ bool drl::button_module::_condition(const message_type &mess)
         if (source_filter_use)
         {
             if (std::find(source_filter.begin(), source_filter.end(),
-                          mess_detail(mess.sign.source)) == source_filter.end())
+                          mess.exac_word(0)) == source_filter.end())
                 return false;
         }
         if (mess.target_use)
@@ -272,7 +250,7 @@ bool drl::input_box_module::_condition(const message_type &mess)
             if (source_filter_use)
             {
                 if (std::find(source_filter.begin(), source_filter.end(),
-                              mess_detail(mess.sign.source)) == source_filter.end())
+                              mess.exac_word(0)) == source_filter.end())
                     return false;
             }
             if (mess.target_use)
@@ -599,7 +577,7 @@ bool drl::output_box_module::_condition(const message_type &mess)
             if (source_filter_use)
             {
                 if (std::find(source_filter.begin(), source_filter.end(),
-                              mess_detail(mess.sign.source)) == source_filter.end())
+                              mess.exac_word(0)) == source_filter.end())
                     return false;
             }
             if (mess.target_use)
