@@ -1,5 +1,5 @@
-﻿#include "../include/drl_graph/drl_gui_module.hpp"
-#include "../include/drl_graph/drl_gui_signal.hpp"
+﻿#include "drl_particle/drl_gui_module.hpp"
+#include "drl_particle/drl_gui_signal.hpp"
 #include <algorithm>
 #include <easyx.h>
 
