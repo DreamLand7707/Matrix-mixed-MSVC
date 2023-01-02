@@ -22,6 +22,9 @@ using _TOSTRINGSTREAM = std::wostringstream;
 using _TISTRINGSTREAM = std::wistringstream;
 using _TSTRINGSTREAM = std::wstringstream;
 using _TOSTREAM = std::wostream;
+using _TFSTREAM = std::wfstream;
+using _TIFSTREAM = std::wifstream;
+using _TOFSTREAM = std::wofstream;
 #define _TO_TSTRING std::to_wstring
 #define _TCOUT std::wcout
 #else
@@ -30,6 +33,9 @@ using _TOSTRINGSTREAM = std::ostringstream;
 using _TISTRINGSTREAM = std::istringstream;
 using _TSTRINGSTREAM = std::stringstream;
 using _TOSTREAM = std::ostream;
+using _TFSTREAM = std::fstream;
+using _TIFSTREAM = std::ifstream;
+using _TOFSTREAM = std::ofstream;
 #define _TCOUT std::cout
 #define _TO_TSTRING std::to_string
 #endif
@@ -64,7 +70,6 @@ namespace drl
             label_str_type source;
             label_str_type target;
         };
-        friend std::ostream &operator<<(std::ostream &out, drl::gui_signal rhs);
         mess_base kind;
         signal_t sign;
         bool make_sence;
