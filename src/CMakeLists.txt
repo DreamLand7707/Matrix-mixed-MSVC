@@ -4,7 +4,7 @@ set(rsource "gui_signal_module.cpp")
 set(casiosource "casio_analy.cpp")
 
 set(CMAKE_C_STANDARD 17)
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 14)
 include_directories(../include)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-D_CRT_NON_CONFORMING_SWPRINTFS)
@@ -19,10 +19,10 @@ set(LIBRARY_OUTPUT_PATH "../../lib")
 add_definitions(-DUNICODE)
 add_definitions(-D_UNICODE)
 
-add_library(baspar STATIC ${lsource})
+add_library(basmar STATIC ${lsource})
 add_library(gui STATIC ${rsource})
 add_library(drl_casio STATIC ${casiosource})
 
 set(LIBRARY_OUTPUT_PATH "../../lib")
 
-# file(COPY "../lib/libbaspar.a" DESTINATION "D:/Project/VSCode/CMakeMatrixtest")
+# file(COPY "../lib/libbasmar.a" DESTINATION "D:/Project/VSCode/CMakeMatrixtest")

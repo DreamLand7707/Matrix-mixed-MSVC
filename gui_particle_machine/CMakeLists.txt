@@ -19,7 +19,7 @@ set(CMAKE_C_STANDARD 17)
 
 add_executable(GPM1 ${executegui})
 
-target_link_libraries(GPM1 baspar)
+target_link_libraries(GPM1 basmar)
 target_link_libraries(GPM1 EasyXw.lib)
 target_link_libraries(GPM1 drl_casio)
 target_link_libraries(GPM1 gui)

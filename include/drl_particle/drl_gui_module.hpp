@@ -47,7 +47,7 @@ namespace drl
      protected:
         label_str_type_ id_in;
     };
-
+#pragma region var
     template <unsigned long long NUMBER>
     const drl::label_str_type gui_module_base<NUMBER>::module_basic = _T("BASIC");
     template <>
@@ -56,6 +56,7 @@ namespace drl
     const drl::label_str_type drl::gui_module_base<1>::module_basic;
     template <>
     const drl::label_str_type drl::gui_module_base<2>::module_basic;
+#pragma endregion var
     class gui_module
     {
      public:

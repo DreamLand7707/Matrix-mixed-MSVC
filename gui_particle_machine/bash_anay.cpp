@@ -4,22 +4,35 @@
 
 namespace drl
 {
-    static const _TSTRING bash_mode[] = {_T("paticle_generate_12"), _T("paticle_generate_16")};
-    void bash_analyse(_TSTRING path_in, _TSTRING path_out)
+    static const _TSTRING bash_mode[] = {
+        _T("bash: paticle_generate_12"),
+        _T("bash: paticle_generate_16")};
+    static const _TSTRING arg_name[] = {
+        _T("RGBA"), _T("TSE"), _T("DC"), _T("AGE"), _T("LIGHT")};
+    void bash_analyse(_TSTRING path_in, _TSTRING path_out, bool app)
     {
         using namespace std;
-        static _TFSTREAM foutin;
+        static _TIFSTREAM fin;
+        static _TOFSTREAM fout;
         static _TSTRING tstr1, tstr2, tstr3;
+        static int file_mode = _TOFSTREAM::out;
         {
-            foutin.clear();
+            fin.clear();
+            fout.clear();
             tstr1.clear();
             tstr2.clear();
             tstr3.clear();
         }
-        foutin.open(path_in, _TFSTREAM::in);
-        for (getline(foutin, tstr1); (foutin) && (!tstr1.size()); getline(foutin, tstr1))
+        if (app)
+            file_mode = (_TOFSTREAM::out | _TOFSTREAM::app);
+        else
+            file_mode = (_TOFSTREAM::out | _TOFSTREAM::trunc);
+
+
+        fin.open(path_in, _TIFSTREAM::in);
+        for (getline(fin, tstr1); (fin) && (!tstr1.size()); getline(fin, tstr1))
             ;
-        if (!foutin)
+        if (!fin)
             return;
         if (tstr1 == bash_mode[0] || tstr1 == bash_mode[1])
         {
@@ -33,7 +46,11 @@ namespace drl
             else if (tstr1 == bash_mode[1])
                 parname = _T("end_rod");
             // after init
-            
+            for (getline(fin, tstr1); fin; getline(fin, tstr1))
+            {
+                if (!tstr1.size())
+                    continue;
+            }
         }
     }
 } // namespace drl

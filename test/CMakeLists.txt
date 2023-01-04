@@ -13,17 +13,17 @@ add_executable(cppdebug1 ${execute1})
 add_executable(cppdebug2 ${execute2})
 add_executable(cppdebug3 ${execute3})
 
-target_link_libraries(cppdebug1 baspar)
+target_link_libraries(cppdebug1 basmar)
 target_include_directories(
     cppdebug1
     PUBLIC "../include"
     PUBLIC "E:\\VisualStudio\\VC\\Auxiliary\\VS\\include")
-target_link_libraries(cppdebug2 baspar)
+target_link_libraries(cppdebug2 basmar)
 target_include_directories(
     cppdebug2
     PUBLIC "../include"
     PUBLIC "E:\\VisualStudio\\VC\\Auxiliary\\VS\\include")
-target_link_libraries(cppdebug3 baspar)
+target_link_libraries(cppdebug3 basmar)
 target_include_directories(
     cppdebug3
     PUBLIC "../include"

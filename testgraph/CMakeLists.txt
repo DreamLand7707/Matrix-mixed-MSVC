@@ -23,7 +23,7 @@ add_executable(graphdebug1 ${execute1})
 add_executable(graphdebug2 ${execute2})
 add_executable(graphdebug3 ${execute3})
 
-target_link_libraries(graphdebug1 baspar)
+target_link_libraries(graphdebug1 basmar)
 target_link_libraries(graphdebug1 EasyXw.lib)
 target_link_libraries(graphdebug1 drl_casio.lib)
 target_link_libraries(graphdebug1 gui)
@@ -33,7 +33,7 @@ target_include_directories(
     PUBLIC "../include/drl_graph"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
 
-target_link_libraries(graphdebug2 baspar)
+target_link_libraries(graphdebug2 basmar)
 target_link_libraries(graphdebug2 EasyXw.lib)
 target_link_libraries(graphdebug2 drl_casio.lib)
 target_include_directories(
@@ -42,7 +42,7 @@ target_include_directories(
     PUBLIC "../include/drl_graph"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
 
-target_link_libraries(graphdebug3 baspar)
+target_link_libraries(graphdebug3 basmar)
 target_link_libraries(graphdebug3 EasyXw.lib)
 target_link_libraries(graphdebug3 drl_casio.lib)
 target_include_directories(

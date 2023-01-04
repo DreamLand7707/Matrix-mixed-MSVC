@@ -123,9 +123,12 @@ int main(int argc, char *argv[])
     {
         if (rhs->sign.source == clears[std::stoi(rhs->exac_fin_word())].send_message_context_down.sign.source)
         {
-            input_box_module *pointer = dynamic_cast<input_box_module *>(lhs);
+            input_box_module *pointer = dynamic_cast<input_box_module*>(lhs);
+            output_box_module *pointer2 = dynamic_cast<output_box_module *>(lhs);
             if (pointer)
                 pointer->change_text(_T(""));
+            if (pointer2)
+                pointer2->change_text(_T(""));
         }
         return gui_signal();
     };
