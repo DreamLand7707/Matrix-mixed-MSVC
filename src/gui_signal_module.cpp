@@ -235,10 +235,10 @@ bool drl::input_box_module::_condition(const message_type &mess)
     if (mess.make_sence)
     {
         if ((message_class(mess.sys().message) == EX_MOUSE) ||
-            (message_class(mess.sys().message) == EX_KEY) ||
+            (message_class(mess.sys().message) == EX_CHAR) ||
             (mess.kind == message_type::effect_message))
         {
-            if ((message_class(mess.sys().message) == EX_KEY) && (mode != 2))
+            if ((message_class(mess.sys().message) == EX_CHAR) && (mode != 2))
             {
                 return false;
             }
@@ -330,212 +330,20 @@ drl::input_box_module::message_type drl::input_box_module::effect(const message_
                 }
             }
         }
-        else if (message_class(mess.sys().message) == EX_KEY)
+        else if (message_class(mess.sys().message) == EX_CHAR)
         {
-            static bool state_shift = false;
-            static bool state_cap = false;
-            if (mode == 2 && mess.sys().message == WM_KEYDOWN)
-            {
-                static BYTE code;
-                static unsigned char modec;
-                mode = 2;
-                code = mess.sys().vkcode;
-#pragma region code_realize
-                if (code >= 0x60 && code <= 0x69)
-                    input_string.push_back(code - 0x60 + L'0');
-                else if (code == 0xBE)
-                    input_string.push_back(L'.');
-                else if (code == VK_BACK)
-                {
-                    if (input_string.size())
-                        input_string.pop_back();
-                }
-                else if (code >= 0x41 && code <= 0x5A)
-                {
-                    if (state_cap)
-                        input_string.push_back(L'A' + code - 0x41);
-                    else
-                    {
-                        if (state_shift)
-                            input_string.push_back(L'A' + code - 0x41);
-                        else
-                            input_string.push_back(L'a' + code - 0x41);
-                    }
-                }
-                else if (code >= 0x6a && code <= 0x6f)
-                    input_string.push_back(L'*' + code - 0x6a);
-                else if (code == 0x10)
-                    state_shift = true;
-                else if (code == 0xc0)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'~');
-                    else
-                        input_string.push_back(L'`');
-                }
-                else if (code == 0x31)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'!');
-                    else
-                        input_string.push_back(L'1');
-                }
-                else if (code == 0x32)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'@');
-                    else
-                        input_string.push_back(L'2');
-                }
-                else if (code == 0x33)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'#');
-                    else
-                        input_string.push_back(L'3');
-                }
-                else if (code == 0x34)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'$');
-                    else
-                        input_string.push_back(L'4');
-                }
-                else if (code == 0x35)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'%');
-                    else
-                        input_string.push_back(L'5');
-                }
-                else if (code == 0x36)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'^');
-                    else
-                        input_string.push_back(L'6');
-                }
-                else if (code == 0x37)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'&');
-                    else
-                        input_string.push_back(L'7');
-                }
-                else if (code == 0x38)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'*');
-                    else
-                        input_string.push_back(L'8');
-                }
-                else if (code == 0x39)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'(');
-                    else
-                        input_string.push_back(L'9');
-                }
-                else if (code == 0x30)
-                {
-                    if (state_shift)
-                        input_string.push_back(L')');
-                    else
-                        input_string.push_back(L'0');
-                }
-                else if (code == 0xbd)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'_');
-                    else
-                        input_string.push_back(L'-');
-                }
-                else if (code == 0xbb)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'+');
-                    else
-                        input_string.push_back(L'=');
-                }
-                else if (code == 0xdb)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'{');
-                    else
-                        input_string.push_back(L'[');
-                }
-                else if (code == 0xdd)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'}');
-                    else
-                        input_string.push_back(L']');
-                }
-                else if (code == 0xdc)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'|');
-                    else
-                        input_string.push_back(L'\\');
-                }
-                else if (code == 0xba)
-                {
-                    if (state_shift)
-                        input_string.push_back(L':');
-                    else
-                        input_string.push_back(L';');
-                }
-                else if (code == 0xde)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'"');
-                    else
-                        input_string.push_back(L'\'');
-                }
-                else if (code == 0xbc)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'<');
-                    else
-                        input_string.push_back(L',');
-                }
-                else if (code == 0xbe)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'>');
-                    else
-                        input_string.push_back(L'.');
-                }
-                else if (code == 0xbf)
-                {
-                    if (state_shift)
-                        input_string.push_back(L'?');
-                    else
-                        input_string.push_back(L'/');
-                }
-                else if (code == 0x20)
-                {
-                    input_string.push_back(L' ');
-                }
-                else if (code == 0x14)
-                {
-                    state_cap = !state_cap;
-                }
-
-#pragma endregion code_realize
-                settextstyle(style.text_size, 0, get_font().c_str());
-                modec = (textwidth(input_string.c_str()) >
-                         (style.coord.right - style.coord.left - 2 * style.line_width))
-                            ? 0
-                            : 1;
-                change_color(style.fill_color[2], style.line_color[2]);
-                make_text(style.text_color[2], modec);
-            }
-            else if (mode == 2 && mess.sys().message == WM_KEYUP)
-            {
-                if (mess.sys().vkcode == 0x10)
-                    state_shift = false;
-            }
+            static unsigned char modec;
+            if (mess.sys().ch == _T('\b'))
+                input_string.pop_back();
+            else
+                input_string.push_back(mess.sys().ch);
+            settextstyle(style.text_size, 0, get_font().c_str());
+            modec = (textwidth(input_string.c_str()) >
+                     (style.coord.right - style.coord.left - 2 * style.line_width))
+                        ? 0
+                        : 1;
+            change_color(style.fill_color[2], style.line_color[2]);
+            make_text(style.text_color[2], modec);
         }
     }
     else if (mess.kind == drl::gui_signal::effect_message)
