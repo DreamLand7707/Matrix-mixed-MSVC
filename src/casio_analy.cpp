@@ -2,7 +2,6 @@
 
 using std::cout;
 using std::endl;
-
 namespace drl_casio
 {
     long double factorial(long double x);

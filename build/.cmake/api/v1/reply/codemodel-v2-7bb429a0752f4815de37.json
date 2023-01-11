@@ -1,0 +1,205 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin",
+					"jsonFile" : "directory-src-Debug-2a6d03d1d156afc93fb6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						1,
+						5,
+						9
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin",
+					"jsonFile" : "directory-test-Debug-ace3c2ea66ebe52608d3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph",
+					"jsonFile" : "directory-testgraph-Debug-c2233e1521ae99219248.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "testgraph",
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine",
+					"jsonFile" : "directory-gui_particle_machine-Debug-802b0c03415a5f4603d2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "gui_particle_machine",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "matrixs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 4,
+					"id" : "GPM1::@128c311e863f8f80474d",
+					"jsonFile" : "target-GPM1-Debug-7f700c9836e08432919a.json",
+					"name" : "GPM1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "basmar::@fbd4ab375b392918fb6a",
+					"jsonFile" : "target-basmar-Debug-51479a3b10e4646d826e.json",
+					"name" : "basmar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug1::@44afef7806525cc4badc",
+					"jsonFile" : "target-cppdebug1-Debug-c89742a0dfcf35c54469.json",
+					"name" : "cppdebug1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug2::@44afef7806525cc4badc",
+					"jsonFile" : "target-cppdebug2-Debug-3105b80bf3a18cbe55bd.json",
+					"name" : "cppdebug2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug3::@44afef7806525cc4badc",
+					"jsonFile" : "target-cppdebug3-Debug-1aa32d90c144252c1c4c.json",
+					"name" : "cppdebug3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "drl_casio::@fbd4ab375b392918fb6a",
+					"jsonFile" : "target-drl_casio-Debug-2052cc549ba3f6f288c6.json",
+					"name" : "drl_casio",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug1::@6119c8a7cc6a1c8cf1c2",
+					"jsonFile" : "target-graphdebug1-Debug-96adfb1f92cbf86ae6b0.json",
+					"name" : "graphdebug1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug2::@6119c8a7cc6a1c8cf1c2",
+					"jsonFile" : "target-graphdebug2-Debug-d23539eb958c5e2b14c3.json",
+					"name" : "graphdebug2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug3::@6119c8a7cc6a1c8cf1c2",
+					"jsonFile" : "target-graphdebug3-Debug-dd3fa68d9b96f6dd54ed.json",
+					"name" : "graphdebug3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "gui::@fbd4ab375b392918fb6a",
+					"jsonFile" : "target-gui-Debug-c2c67a14431f47729c47.json",
+					"name" : "gui",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build",
+		"source" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

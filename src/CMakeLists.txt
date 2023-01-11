@@ -4,7 +4,7 @@ set(rsource "gui_signal_module.cpp")
 set(casiosource "casio_analy.cpp")
 
 set(CMAKE_C_STANDARD 17)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 20)
 include_directories(../include)
 add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 add_definitions(-D_CRT_NON_CONFORMING_SWPRINTFS)
