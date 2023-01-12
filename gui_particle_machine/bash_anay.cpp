@@ -6,20 +6,23 @@ namespace drl
 {
     namespace bash1
     {
-        const _TSTRING bash_para[]{
+        const _TSTRING bash_part_arg[]{
             _T("RGBA"), _T("TSE"), _T("DC"),
             _T("AGE"), _T("NAME")};
+        const _TSTRING bash_sou_arg[]{
+            _T("BPM"), _T("FORM"), _T("BLOCK"),
+            _T("PITCH"), _T("TONE")};
         const _TSTRING bash_modmode[]{
-            _T("partcle"), _T("tickparticle"), _T("musicparticle"), _T("tickmusicparticle")};
+            _T("partcle"), _T("tickparticle"),
+            _T("musicparticle"), _T("tickmusicparticle")};
         const _TSTRING para_last = _T("***");
         const _TSTRING modlabel = _T("label");
         const _TCHAR assign_char = ':';
         const _TSTRING comm_begin_1(_T("//"));
-        const _TSTRING unamed_mod(_T("#mod"));
+        const _TSTRING unamed_mod(_T("#0"));
     } // namespace bash1
     void bash_analyse_begin(const _TSTRING &file_path)
     {
-        
     }
 
 } // namespace drl
