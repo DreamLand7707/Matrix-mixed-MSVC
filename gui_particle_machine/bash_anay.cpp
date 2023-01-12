@@ -20,9 +20,23 @@ namespace drl
         const _TCHAR assign_char = ':';
         const _TSTRING comm_begin_1(_T("//"));
         const _TSTRING unamed_mod(_T("#0"));
+
+        const _TSTRING path_after(_T("source/tempfile/tsf"));
+        const _TSTRING output_file(_T("source/output"));
     } // namespace bash1
-    void bash_analyse_begin(const _TSTRING &file_path)
+    void bash_analyse_begin(const _TSTRING &source_file_path, const _TSTRING &target_file_path)
     {
+        using namespace std;
+        using namespace filesystem;
+        filesystem::path path_source(source_file_path),
+            path_target(filesystem::current_path() / (bash1::path_after + _T("1.txt")));
+        for (auto i : path(bash1::path_after))
+        {
+            static decltype(i) full(_T(""));
+            full /= i;
+            create_directory(full);
+        }
+        copy_file(path_source, path_target);
     }
 
 } // namespace drl
