@@ -1,6 +1,7 @@
-﻿#include "drl_particle/drl_gui_module.hpp"
+﻿#include "basic_par.h"
+#include "drl_particle/drl_gui_module.hpp"
 #include "drl_particle/drl_gui_signal.hpp"
-#include "drl_particle/drl_gui_type.hpp"
+
 
 
 #ifndef DRL_BASH_ANAY
@@ -21,8 +22,9 @@ namespace drl
         extern const _TSTRING path_after;
         extern const _TSTRING output_file;
         extern const std::vector<int (*)(const _TSTRING &, const _TSTRING &,
-                                         const std::tuple<size_t, _TSTREAMPOS, size_t>&)>
+                                         const std::tuple<size_t, _TSTREAMPOS, size_t> &)>
             function_map;
+        extern std::map<_TSTRING, matr::paramatr> args_temp;
     } // namespace bash1
     void bash_analyse_begin(const _TSTRING &, const _TSTRING & = bash1::output_file);
     const std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> &bash_module_devide(const _TSTRING &source_file_path);
@@ -40,6 +42,8 @@ namespace drl
 
     int bash_tickmusicparticle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
                                const std::tuple<size_t, _TSTREAMPOS, size_t> &mess);
+
+    int default_arg_set(const _TSTRING &line, matr::paramatr &args);
 
 } // namespace drl
 

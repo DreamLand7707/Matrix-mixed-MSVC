@@ -29,11 +29,15 @@ namespace drl
                 bash_tickparticle,
                 bash_musicparticle,
                 bash_tickmusicparticle};
+
+        std::map<_TSTRING, matr::paramatr> args_temp;
+        double game_ver = 1165;
     } // namespace bash1
     void bash_analyse_begin(const _TSTRING &source_file_path, const _TSTRING &target_file_path)
     {
         using namespace std;
         using namespace filesystem;
+        bash1::args_temp.clear();
         filesystem::path path_source(source_file_path),
             path_target(filesystem::current_path() / (bash1::path_after + _T("1.txt")));
         for (auto i : path(bash1::path_after))
@@ -43,6 +47,7 @@ namespace drl
             create_directory(full);
         }
         copy_file(path_source, path_target);
+        bash_anaylse_main(source_file_path, target_file_path, bash_module_devide(source_file_path));
     }
     const std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> &bash_module_devide(const _TSTRING &source_file_path)
     {
@@ -85,6 +90,7 @@ namespace drl
             p++;
         }
         std::get<2>(res.back()) = p;
+        fin.close();
         return res;
     }
     int bash_anaylse_main(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
@@ -97,10 +103,44 @@ namespace drl
         }
         return res;
     }
+    /*
+        & 用于存储标准参数
+        ^ t_start(d)          t_end(d)          CPT(i)             delta(d)
+        ? 起始参数             结束参数           每tick计算次数      计算间隔
+        ^ CPerf(i)            Tolf(i)           time(d)            direct(b)
+        ? .每个file的指令数目   .一共有的文件数目    .完全生成的时间     生成方向(true代表t_start -> t_end,false为反)
+        ^ Ver(i)              R(d)               G(d)               B(d)
+        ? 游戏版本             红                绿                  蓝
+        ^life(d)             light(i)          instant(b)         mode(i) ?
+        粒子寿命             发光              是否瞬间生成           模式(colorblock:0,文件:1,混合:2)
+    */
     int bash_particle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
                       const std::tuple<size_t, _TSTREAMPOS, size_t> &mess)
     {
-        ;
+        static _TIFSTREAM fin;
+        static _TOFSTREAM fout;
+        _TSTRING tstr1;
+        _TSTRING label;
+        matr::paramatr matrarg;
+        if (bash1::game_ver == 1165.0)
+            matrarg = matr::empty_paramatr_1165;
+        else
+            matrarg = matr::empty_paramatr;
+        drl::matrix pointcor(3, 3);
+        fin.clear();
+        fout.clear();
+        fin.open(source_file_path);
+        fin.seekg(std::get<1>(mess));
+        _TSTRINGSTREAM &ssin = public_tstream();
+        for (size_t i = 0; i < std::get<2>(mess); i++)
+        {
+            std::getline(fin, tstr1);
+            ssin.clear();
+            ssin.str(tstr1);
+        }
+
+        fin.close();
+        fout.close();
     }
     int bash_tickparticle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
                           const std::tuple<size_t, _TSTREAMPOS, size_t> &mess)
@@ -116,6 +156,39 @@ namespace drl
                                const std::tuple<size_t, _TSTREAMPOS, size_t> &mess)
     {
         ;
+    }
+    int default_arg_set(const _TSTRING &line, matr::paramatr &args)
+    {
+        _TSTRING temp1, temp2(line);
+        for (auto i : bash1::bash_part_arg)
+            temp1 += (i + _T("|"));
+        for (auto i : bash1::bash_sou_arg)
+            temp1 += (i + _T("|"));
+        temp1.pop_back();
+        _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")),   // 去前后连续空白字符，均可
+            divide1(_T(R"(^(\S+?)\s*:\s*(.+)$)")), // 根据:分前后，均可
+            divide2(_T(R"(^(\S+?)\s*,\s*(.+)$)")), // 根据,分前后，均可
+            module_head(_T(R"(^\$\S+\$$)")),       // 判断是否是模块头，均可
+            arg(_T("^") + temp1 + _T("$")),        // 判断是否是参数头，均可
+            judge1(_T(R"(^[^,:]+:)"));             // 判断后续跟的是否是继承值，用search
+        _TSMATCH match;
+        regex_match(temp2, match, divide0);
+        temp2 = match[1];
+        for (; regex_match(temp2, match, divide1);)
+        {
+            temp1 = match[0];
+            temp2 = match[1];
+            regex_match(temp2, match, divide2);
+            temp2 = match[0];
+            if (regex_match(temp1, module_head))
+            {
+            }
+            else if (regex_match(temp1, arg))
+            {
+            }
+            else
+                return -1;
+        }
     }
 
 } // namespace drl

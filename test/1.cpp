@@ -1,17 +1,22 @@
-﻿#include <filesystem>
-#include <fstream>
-#include <iostream>
-#include <tchar.h>
+﻿#include "basic_par.h"
 
 using namespace std;
 using namespace filesystem;
 int main(void)
 {
-    ifstream fin("./source/1.txt", std::ios::in);
-    string t;
-    for (; fin; getline(fin, t))
+    std::wcout.imbue(locale(""));
+    _TSTRING str(_T("[1.2 1.3 0.6]"));
+    _TREGEX divide1(_T(R"(^(\S+?):(.+))"));
+    _TREGEX divide2(_T(R"(^(\S+?),(.+))"));
+    _TSMATCH match;
+    if (regex_match(str, match, divide1))
     {
-        std::cout << fin.tellg() << std::endl;
+        wcout << match.size() << endl;
+        for (auto i : match)
+        {
+            std::wcout << i << std::endl;
+        }
     }
-    return 0;
+    else
+        wcout << L"None";
 }
