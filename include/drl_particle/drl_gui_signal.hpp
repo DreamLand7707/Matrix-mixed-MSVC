@@ -28,6 +28,16 @@ using _TOSTREAM = std::wostream;
 using _TFSTREAM = std::wfstream;
 using _TIFSTREAM = std::wifstream;
 using _TOFSTREAM = std::wofstream;
+using _TREGEX = std::wregex;
+using _TSMATCH = std::wsmatch;
+using _TCMATCH = std::wcmatch;
+using _TCSUB_MATCH = std::wcsub_match;
+using _TSSUB_MATCH = std::wssub_match;
+using _TSREGEX_ITERATOR = std::wsregex_iterator;
+using _TCREGEX_ITERATOR = std::wcregex_iterator;
+using _TSREGEX_TOKEN_ITERATOR = std::wsregex_token_iterator;
+using _TCREGEX_TOKEN_ITERATOR = std::wcregex_token_iterator;
+using _TSTREAMPOS = std::wstreampos;
 #define _TO_TSTRING std::to_wstring
 #define _TCOUT std::wcout
 #else
@@ -39,6 +49,16 @@ using _TOSTREAM = std::ostream;
 using _TFSTREAM = std::fstream;
 using _TIFSTREAM = std::ifstream;
 using _TOFSTREAM = std::ofstream;
+using _TREGEX = std::regex;
+using _TSMATCH = std::smatch;
+using _TCMATCH = std::cmatch;
+using _TCSUB_MATCH = std::csub_match;
+using _TSSUB_MATCH = std::ssub_match;
+using _TSREGEX_ITERATOR = std::sregex_iterator;
+using _TCREGEX_ITERATOR = std::cregex_iterator;
+using _TSREGEX_TOKEN_ITERATOR = std::sregex_token_iterator;
+using _TCREGEX_TOKEN_ITERATOR = std::cregex_token_iterator;
+using _TSTREAMPOS = std::streampos;
 #define _TCOUT std::cout
 #define _TO_TSTRING std::to_string
 #endif

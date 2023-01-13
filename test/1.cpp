@@ -7,12 +7,11 @@ using namespace std;
 using namespace filesystem;
 int main(void)
 {
-    path source(_T("./source/1/2/3/4/5/6/7/8/9"));
-    for (auto i : source)
+    ifstream fin("./source/1.txt", std::ios::in);
+    string t;
+    for (; fin; getline(fin, t))
     {
-        static decltype(i) o(_T(""));
-        o /= i;
-        create_directory((o));
+        std::cout << fin.tellg() << std::endl;
     }
     return 0;
 }

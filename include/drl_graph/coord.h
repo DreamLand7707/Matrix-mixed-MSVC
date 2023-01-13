@@ -11,8 +11,10 @@
 #include <sstream>
 #include <string>
 #include <tchar.h>
+#include <tuple>
 #include <utility>
 #include <vector>
+
 
 #ifdef UNICODE
 using _TSTRING = std::wstring;
