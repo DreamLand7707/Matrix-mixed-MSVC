@@ -5,18 +5,12 @@ using namespace filesystem;
 int main(void)
 {
     std::wcout.imbue(locale(""));
-    _TSTRING str(_T("[1.2 1.3 0.6]"));
-    _TREGEX divide1(_T(R"(^(\S+?):(.+))"));
-    _TREGEX divide2(_T(R"(^(\S+?),(.+))"));
+    _TSTRING str(_T("linear @162")), str1;
+    _TREGEX divide1(_T(R"((?:\s*(@([0-9]*))\s+)?)") + _TSTRING(_T("(linear|tparab|dparab)")) + _T(R"((?:\s+(@([0-9]*))\s*)?)"));
     _TSMATCH match;
-    if (regex_match(str, match, divide1))
+    regex_search(str, match, divide1);
+    for (int i = 0; i < match.size(); i++)
     {
-        wcout << match.size() << endl;
-        for (auto i : match)
-        {
-            std::wcout << i << std::endl;
-        }
+        std::wcout << i << _T(": ^") << match[i] << "$=>[size:" << match[i].str().size() << "]" << std::endl;
     }
-    else
-        wcout << L"None";
 }

@@ -23,8 +23,12 @@ namespace drl
         extern const _TSTRING output_file;
         extern const std::vector<int (*)(const _TSTRING &, const _TSTRING &,
                                          const std::tuple<size_t, _TSTREAMPOS, size_t> &)>
-            function_map;
+            module_function_map;
         extern std::map<_TSTRING, matr::paramatr> args_temp;
+        extern const _TSTRING particle_name[3];
+        extern const std::map<_TSTRING, int (*)(const _TSTRING &, const _TSTRING &,
+                                                const matr::paramatr &, double &)>
+            particle_function_map;
     } // namespace bash1
     void bash_analyse_begin(const _TSTRING &, const _TSTRING & = bash1::output_file);
     const std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> &bash_module_devide(const _TSTRING &source_file_path);
@@ -44,6 +48,23 @@ namespace drl
                                const std::tuple<size_t, _TSTREAMPOS, size_t> &mess);
 
     int default_arg_set(const _TSTRING &line, matr::paramatr &args);
+    inline const _TSTRING &regex_par_name()
+    {
+        static _TSTRING par_name;
+        if (par_name.size() == 0)
+        {
+            for (auto i : bash1::particle_name)
+            {
+                par_name += (i + _T("|"));
+            }
+            par_name.pop_back();
+        }
+        return par_name;
+    }
+    double command_sentence(const _TSTRING &command, double &last_time, const _TSTRING &file, const matr::paramatr &args);
+    int linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time);
+    int dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time);
+    int tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time);
 
 } // namespace drl
 

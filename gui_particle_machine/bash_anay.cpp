@@ -18,17 +18,26 @@ namespace drl
         const _TCHAR assign_char = ':';
         const _TSTRING comm_begin_1(_T("//"));
         const _TSTRING unamed_mod(_T("#0"));
+        const _TSTRING particle_name[3]{
+            _T("linear"), _T("dparab"), _T("tparab")};
 
         const _TSTRING path_after(_T("source/tempfile/tsf"));
         const _TSTRING output_file(_T("source/output"));
 
         const std::vector<int (*)(const _TSTRING &, const _TSTRING &,
                                   const std::tuple<size_t, _TSTREAMPOS, size_t> &)>
-            function_map{
+            module_function_map{
                 bash_particle,
                 bash_tickparticle,
                 bash_musicparticle,
                 bash_tickmusicparticle};
+
+        const std::map<_TSTRING, int (*)(const _TSTRING &, const _TSTRING &,
+                                         const matr::paramatr &, double &)>
+            particle_function_map{
+                {_T("linear"), linear_anay},
+                {_T("dparab"), dparab_anay},
+                {_T("tparab"), tparab_anay}};
 
         std::map<_TSTRING, matr::paramatr> args_temp;
         double game_ver = 1165;
@@ -99,7 +108,7 @@ namespace drl
         int res = 0;
         for (auto i : main_mess)
         {
-            res += bash1::function_map[std::get<0>(i)](source_file_path, target_file_path, i);
+            res += bash1::module_function_map[std::get<0>(i)](source_file_path, target_file_path, i);
         }
         return res;
     }
@@ -138,6 +147,7 @@ namespace drl
             ssin.clear();
             ssin.str(tstr1);
         }
+        /*未完成*/
 
         fin.close();
         fout.close();
@@ -168,27 +178,181 @@ namespace drl
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")),   // 去前后连续空白字符，均可
             divide1(_T(R"(^(\S+?)\s*:\s*(.+)$)")), // 根据:分前后，均可
             divide2(_T(R"(^(\S+?)\s*,\s*(.+)$)")), // 根据,分前后，均可
+            divide3(_T(R"(\s*\[(.*)\]\s*)")),      // 截取[]内的内容
             module_head(_T(R"(^\$\S+\$$)")),       // 判断是否是模块头，均可
             arg(_T("^") + temp1 + _T("$")),        // 判断是否是参数头，均可
             judge1(_T(R"(^[^,:]+:)"));             // 判断后续跟的是否是继承值，用search
         _TSMATCH match;
         regex_match(temp2, match, divide0);
         temp2 = match[1];
-        for (; regex_match(temp2, match, divide1);)
+        for (int i = 0; regex_match(temp2, match, divide1); i++)
         {
-            temp1 = match[0];
-            temp2 = match[1];
-            regex_match(temp2, match, divide2);
-            temp2 = match[0];
-            if (regex_match(temp1, module_head))
+            temp1 = match[1];
+            temp2 = match[2];
+            if (i == 0 && regex_match(temp1, module_head))
+                if (regex_search(temp2, match, judge1))
+                {
+                    regex_match(temp2, match, divide2);
+                    try
+                    {
+                        args = bash1::args_temp.at(match[1]);
+                    }
+                    catch (...)
+                    {
+                        throw std::invalid_argument("WRONG LABEL\n");
+                    }
+                }
+                else
+                    continue;
+            else if (regex_match(temp1, match, arg))
             {
-            }
-            else if (regex_match(temp1, arg))
-            {
+
+                regex_match(temp2, match, divide2);
+                temp2 = match[1];
+                regex_match(temp2, match, divide3);
+                temp2 = match[1];
+                _TREGEX tempr(_T(R"(\s+)"));
+                _TSREGEX_TOKEN_ITERATOR ber(temp2.begin(), temp2.end(), tempr, -1);
+                /*
+                    & 用于存储标准参数
+                    ^ t_start(d)          t_end(d)          CPT(i)             delta(d)
+                    ? 起始参数             结束参数           每tick计算次数      计算间隔
+                    ^ CPerf(i)            Tolf(i)           time(d)            direct(b)
+                    ? .每个file的指令数目   .一共有的文件数目    .完全生成的时间     生成方向(true代表t_start -> t_end,false为反)
+                    ^ Ver(i)              R(d)               G(d)               B(d)
+                    ? 游戏版本             红                绿                  蓝
+                    ^life(d)             light(i)          instant(b)         mode(i) ?
+                    粒子寿命             发光              是否瞬间生成           模式(colorblock:0,文件:1,混合:2)
+                */
+                if (temp1 == _T("RGBA"))
+                {
+                    args[2][1] = stod(*(ber++));
+                    args[2][2] = stod(*(ber++));
+                    args[2][3] = stod(*(ber++));
+                }
+                if (temp1 == _T("TSE"))
+                {
+                    args[0][0] = stod(*(ber++));
+                    args[0][1] = stod(*(ber++));
+                }
+                if (temp1 == _T("DC"))
+                {
+                    args[0][2] = stod(*(ber++));
+                    args[0][3] = stod(*(ber++));
+                }
+                if (temp1 == _T("AGE"))
+                {
+                    args[3][0] = stod(*(ber++));
+                }
+                if (temp1 == _T("NAME"))
+                {
+                    args.parname((*(ber++)).str().c_str());
+                }
             }
             else
-                return -1;
+                throw std::invalid_argument("WRONG ARG\n");
         }
+        return 1;
+    }
+    double command_sentence(const _TSTRING &command, double &last_time, const _TSTRING &file, const matr::paramatr &args)
+    {
+        _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
+        _TSMATCH match;
+        _TSTRING tstr;
+        double res;
+        regex_match(command, match, divide0);
+        if (match[1] == _T("{"))
+        {
+            // 进入并行处理
+            return -1;
+        }
+        else if (match[1] == _T("}"))
+        {
+            // 跳出并行处理
+            return -2;
+        }
+        else
+        {
+            // 正常处理
+            tstr = match[1];
+            _TREGEX judge1(_T(R"((?:\s*(@([0-9]*))\s+)?)") + _TSTRING(_T("(")) + regex_par_name() + _T(")") + _T(R"((?:\s+(@([0-9]*))\s*)?)"));
+            _TSMATCH match_t;
+            regex_search(tstr, match_t, judge1);
+            if (match_t[1].str().size())
+            {
+                if (match_t[2].str().size())
+                {
+                    res = stoi(match_t[2].str());
+                }
+                else
+                    res = 0;
+            }
+            else if (match_t[4].str().size())
+            {
+                if (match_t[5].str().size())
+                {
+                    res = last_time + stoi(match_t[5].str());
+                }
+                else
+                    res = last_time;
+            }
+            else
+                res = last_time;
+
+            tstr = match_t.suffix();
+            try
+            {
+                bash1::particle_function_map.at(match_t[3])(file, command, args, last_time);
+            }
+            catch (...)
+            {
+                throw std::invalid_argument("WRONG PARTICLE");
+            }
+
+            return res;
+        }
+    }
+    int linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time)
+    {
+        _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
+        _TSTRING tstr;
+        _TSMATCH match;
+        regex_match(command, match, divide0);
+        tstr = match[1];
+        matr::paramatr argst(args);
+        drl::matrix points(3, 3);
+
+
+        O_partmatr outmatr(points, argst);
+        last_time = (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
+    }
+    int dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time)
+    {
+        _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
+        _TSTRING tstr;
+        _TSMATCH match;
+        regex_match(command, match, divide0);
+        tstr = match[1];
+        matr::paramatr argst(args);
+        drl::matrix points(3, 3);
+
+
+        O_partmatr outmatr(points, argst);
+        last_time = (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
+    }
+    int tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time)
+    {
+        _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
+        _TSTRING tstr;
+        _TSMATCH match;
+        regex_match(command, match, divide0);
+        tstr = match[1];
+        matr::paramatr argst(args);
+        drl::matrix points(3, 3);
+
+
+        O_partmatr outmatr(points, argst);
+        last_time = (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
     }
 
 } // namespace drl
