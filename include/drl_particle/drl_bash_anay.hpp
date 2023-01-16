@@ -26,8 +26,8 @@ namespace drl
             module_function_map;
         extern std::map<_TSTRING, matr::paramatr> args_temp;
         extern const _TSTRING particle_name[3];
-        extern const std::map<_TSTRING, int (*)(const _TSTRING &, const _TSTRING &,
-                                                const matr::paramatr &, double &)>
+        extern const std::map<_TSTRING, double (*)(const _TSTRING &, const _TSTRING &,
+                                                   const matr::paramatr &, int &)>
             particle_function_map;
     } // namespace bash1
     void bash_analyse_begin(const _TSTRING &, const _TSTRING & = bash1::output_file);
@@ -47,7 +47,7 @@ namespace drl
     int bash_tickmusicparticle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
                                const std::tuple<size_t, _TSTREAMPOS, size_t> &mess);
 
-    int default_arg_set(const _TSTRING &line, matr::paramatr &args);
+    int default_arg_set(const _TSTRING &line, matr::paramatr &args, int);
     inline const _TSTRING &regex_par_name()
     {
         static _TSTRING par_name;
@@ -62,9 +62,9 @@ namespace drl
         return par_name;
     }
     double command_sentence(const _TSTRING &command, double &last_time, const _TSTRING &file, const matr::paramatr &args);
-    int linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time);
-    int dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time);
-    int tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time);
+    double linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &last_time);
+    double dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &last_time);
+    double tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &last_time);
 
 } // namespace drl
 

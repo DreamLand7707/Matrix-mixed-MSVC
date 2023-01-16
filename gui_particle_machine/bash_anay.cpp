@@ -32,8 +32,8 @@ namespace drl
                 bash_musicparticle,
                 bash_tickmusicparticle};
 
-        const std::map<_TSTRING, int (*)(const _TSTRING &, const _TSTRING &,
-                                         const matr::paramatr &, double &)>
+        const std::map<_TSTRING, double (*)(const _TSTRING &, const _TSTRING &,
+                                            const matr::paramatr &, int &)>
             particle_function_map{
                 {_T("linear"), linear_anay},
                 {_T("dparab"), dparab_anay},
@@ -167,7 +167,7 @@ namespace drl
     {
         ;
     }
-    int default_arg_set(const _TSTRING &line, matr::paramatr &args)
+    int default_arg_set(const _TSTRING &line, matr::paramatr &args, int line_code)
     {
         _TSTRING temp1, temp2(line);
         for (auto i : bash1::bash_part_arg)
@@ -254,7 +254,8 @@ namespace drl
         }
         return 1;
     }
-    double command_sentence(const _TSTRING &command, double &last_time, const _TSTRING &file, const matr::paramatr &args)
+    double command_sentence(const _TSTRING &command, double &last_time, const _TSTRING &file, const matr::paramatr &args,
+                            int line)
     {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
         _TSMATCH match;
@@ -302,31 +303,43 @@ namespace drl
             tstr = match_t.suffix();
             try
             {
-                bash1::particle_function_map.at(match_t[3])(file, command, args, last_time);
+                last_time = bash1::particle_function_map.at(match_t[3])(file, command, args, line);
             }
             catch (...)
             {
-                throw std::invalid_argument("WRONG PARTICLE");
+                throw std::invalid_argument("WRONG PARTICLE\n");
             }
 
             return res;
         }
     }
-    int linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time)
+    double linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line)
     {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
+        _TREGEX judge1(_T(R"(^(?:[\d.]+\s*?\b){6}\s+([^\d.]+:.+|$))"));
         _TSTRING tstr;
         _TSMATCH match;
         regex_match(command, match, divide0);
         tstr = match[1];
         matr::paramatr argst(args);
         drl::matrix points(3, 3);
+        if (regex_search(tstr, match, judge1))
+        {
+            tstr = match[1];
+            _TSTRINGSTREAM &ssin = public_tstream(tstr);
+            for (int i = 0; i < 2; i++)
+                for (int j = 0; j < 3; j++)
+                    ssin >> points[i][j];
+            default_arg_set(tstr, argst, line);
+        }
+        else
+            throw std::invalid_argument("INVALID COMMAND LINE\n");
 
 
         O_partmatr outmatr(points, argst);
-        last_time = (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
+        return (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
     }
-    int dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time)
+    double dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line)
     {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
         _TSTRING tstr;
@@ -338,9 +351,9 @@ namespace drl
 
 
         O_partmatr outmatr(points, argst);
-        last_time = (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
+        return (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
     }
-    int tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, double &last_time)
+    double tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line)
     {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
         _TSTRING tstr;
@@ -352,7 +365,7 @@ namespace drl
 
 
         O_partmatr outmatr(points, argst);
-        last_time = (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
+        return (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
     }
 
 } // namespace drl
