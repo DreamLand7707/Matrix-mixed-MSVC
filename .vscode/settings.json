@@ -94,5 +94,6 @@
     ],
     "lldb.displayFormat": "auto",
     "lldb.dereferencePointers": true,
-    "lldb.consoleMode": "commands"
+    "lldb.consoleMode": "commands",
+    "coddx.taskBoard.fileList": "TODO.md, folder/TODO-name.md"
 }
