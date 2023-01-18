@@ -1,5 +1,4 @@
-﻿project(matrixs LANGUAGES CXX)
-cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
+﻿cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 set(execute1 "1.cpp")
 set(execute2 "2.cpp")
 set(execute3 "3.cpp")

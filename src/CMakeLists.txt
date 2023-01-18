@@ -1,4 +1,5 @@
 ﻿project(matrixs LANGUAGES CXX)
+cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 set(lsource "lib1.cpp;lib2.cpp;lib3.cpp;lib4.cpp")
 set(rsource "gui_signal_module.cpp")
 set(casiosource "casio_analy.cpp")
@@ -12,7 +13,6 @@ add_definitions(-DNOMINMAX)
 add_definitions(-DMATRIX_DRL_USE)
 add_definitions(-D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING)
 add_definitions(-D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING)
-
 
 set(LIBRARY_OUTPUT_PATH "../../lib")
 

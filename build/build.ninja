@@ -582,6 +582,179 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\rebuild_cache: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\CMakeFiles\rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target cdebug1
+
+
+#############################################
+# Order-only phony target for cdebug1
+
+build cmake_object_order_depends_target_cdebug1: phony || D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir\1.c.obj: C_COMPILER__cdebug1_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\langc\1.c || cmake_object_order_depends_target_cdebug1
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /std:c17
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir
+  OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir\
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target cdebug1
+
+
+#############################################
+# Link the executable D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.exe
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.exe: C_EXECUTABLE_LINKER__cdebug1_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir\1.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug1.dir\
+  TARGET_FILE = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.exe
+  TARGET_IMPLIB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.lib
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target cdebug2
+
+
+#############################################
+# Order-only phony target for cdebug2
+
+build cmake_object_order_depends_target_cdebug2: phony || D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir\2.c.obj: C_COMPILER__cdebug2_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\langc\2.c || cmake_object_order_depends_target_cdebug2
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /std:c17
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir
+  OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir\
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target cdebug2
+
+
+#############################################
+# Link the executable D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.exe
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.exe: C_EXECUTABLE_LINKER__cdebug2_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir\2.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug2.dir\
+  TARGET_FILE = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.exe
+  TARGET_IMPLIB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.lib
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target cdebug3
+
+
+#############################################
+# Order-only phony target for cdebug3
+
+build cmake_object_order_depends_target_cdebug3: phony || D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir\3.c.obj: C_COMPILER__cdebug3_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\langc\3.c || cmake_object_order_depends_target_cdebug3
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /std:c17
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir
+  OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir\
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target cdebug3
+
+
+#############################################
+# Link the executable D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.exe
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.exe: C_EXECUTABLE_LINKER__cdebug3_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir\3.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug3.dir\
+  TARGET_FILE = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.exe
+  TARGET_IMPLIB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.lib
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.pdb
+
+# =============================================================================
+# Object build statements for EXECUTABLE target cdebug4
+
+
+#############################################
+# Order-only phony target for cdebug4
+
+build cmake_object_order_depends_target_cdebug4: phony || D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir\4.c.obj: C_COMPILER__cdebug4_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\langc\4.c || cmake_object_order_depends_target_cdebug4
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1 /std:c17
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir
+  OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir\
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target cdebug4
+
+
+#############################################
+# Link the executable D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.exe
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.exe: C_EXECUTABLE_LINKER__cdebug4_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir\4.c.obj
+  FLAGS = /DWIN32 /D_WINDOWS /W3 /MDd /Zi /Ob0 /Od /RTC1
+  LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
+  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\cdebug4.dir\
+  TARGET_FILE = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.exe
+  TARGET_IMPLIB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.lib
+  TARGET_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.pdb
+
+
+#############################################
+# Utility command for edit_cache
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc && C:\msys64\mingw64\bin\ccmake.exe -SD:\Project\VSCode\Project_Test\Matrix-mixed-MSVC -BD:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\edit_cache: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc && C:\msys64\mingw64\bin\cmake.exe --regenerate-during-build -SD:\Project\VSCode\Project_Test\Matrix-mixed-MSVC -BD:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\rebuild_cache: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\CMakeFiles\rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
 build GPM1: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\GPM1.exe
@@ -591,6 +764,22 @@ build GPM1.exe: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\GP
 build basmar: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\lib\basmar.lib
 
 build basmar.lib: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\lib\basmar.lib
+
+build cdebug1: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.exe
+
+build cdebug1.exe: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.exe
+
+build cdebug2: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.exe
+
+build cdebug2.exe: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.exe
+
+build cdebug3: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.exe
+
+build cdebug3.exe: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.exe
+
+build cdebug4: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.exe
+
+build cdebug4.exe: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.exe
 
 build cppdebug1: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cppdebug1.exe
 
@@ -644,6 +833,13 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine
 # =============================================================================
 
 #############################################
+# Folder: D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/langc
+
+build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\all: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug1.exe D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug2.exe D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug3.exe D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cdebug4.exe
+
+# =============================================================================
+
+#############################################
 # Folder: D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin
 
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\all: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cppdebug1.exe D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cppdebug2.exe D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\Debug\cppdebug3.exe
@@ -660,7 +856,7 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\all: phony
 #############################################
 # Folder: D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build
 
-build all: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\all D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\all D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\all D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\all
+build all: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\all D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\all D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\all D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\all D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\langc\all
 
 # =============================================================================
 # Built-in targets
@@ -669,14 +865,14 @@ build all: phony D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\al
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:\msys64\mingw64\share\cmake\Modules\CMakeCXXInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeCommonLanguageInclude.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeGenericSystem.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeInitializeConfigs.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeLanguageInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeRCInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInitialize.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-MSVC.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.24.1\CMakeCXXCompiler.cmake CMakeFiles\3.24.1\CMakeRCCompiler.cmake CMakeFiles\3.24.1\CMakeSystem.cmake D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\CMakeLists.txt
+build build.ninja: RERUN_CMAKE | C$:\msys64\mingw64\share\cmake\Modules\CMakeCInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeCXXInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeCommonLanguageInclude.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeGenericSystem.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeInitializeConfigs.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeLanguageInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeRCInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInitialize.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang-C.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang-C.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-MSVC.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.24.1\CMakeCCompiler.cmake CMakeFiles\3.24.1\CMakeCXXCompiler.cmake CMakeFiles\3.24.1\CMakeRCCompiler.cmake CMakeFiles\3.24.1\CMakeSystem.cmake D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\langc\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:\msys64\mingw64\share\cmake\Modules\CMakeCXXInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeCommonLanguageInclude.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeGenericSystem.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeInitializeConfigs.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeLanguageInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeRCInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInitialize.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-MSVC.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.24.1\CMakeCXXCompiler.cmake CMakeFiles\3.24.1\CMakeRCCompiler.cmake CMakeFiles\3.24.1\CMakeSystem.cmake D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\CMakeLists.txt: phony
+build C$:\msys64\mingw64\share\cmake\Modules\CMakeCInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeCXXInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeCommonLanguageInclude.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeGenericSystem.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeInitializeConfigs.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeLanguageInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeRCInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInformation.cmake C$:\msys64\mingw64\share\cmake\Modules\CMakeSystemSpecificInitialize.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\CMakeCommonCompilerMacros.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang-C.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Compiler\Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang-C.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang-CXX.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-Clang.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows-MSVC.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\Windows.cmake C$:\msys64\mingw64\share\cmake\Modules\Platform\WindowsPaths.cmake CMakeCache.txt CMakeFiles\3.24.1\CMakeCCompiler.cmake CMakeFiles\3.24.1\CMakeCXXCompiler.cmake CMakeFiles\3.24.1\CMakeRCCompiler.cmake CMakeFiles\3.24.1\CMakeSystem.cmake D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\langc\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\CMakeLists.txt D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\CMakeLists.txt: phony
 
 
 #############################################

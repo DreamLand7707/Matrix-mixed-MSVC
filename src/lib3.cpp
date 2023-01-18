@@ -678,7 +678,6 @@ int matr_sim_sol(const Mat *const ma_coe, const Mat *const ma_equ,
         return -2;
     int rank = 0;             //? 矩阵的秩
     int sim_count = 0;        //? 自由未知量的个数
-    int pos1 = 0, pos2 = 0;   //* 用于定位
     rank = matr_uni_sol(ma_coe, ma_equ, solve, error);
 
     Mat ma_pick1{}, ma_pick2{};
@@ -716,7 +715,6 @@ int matr_sim_sol(const Mat *const ma_coe, const Mat *const ma_equ,
     for (int i = 0; i < sim_count; i++)   // 从后往前第n个false
     {
         int i1 = 0, i2 = 0, i3 = 0, i4 = 0, i5 = 0;
-        bool temp = false;
         for (i1 = ma_pick1.count_r - 2, i2 = 0; i1 >= 0; i1--)
         {
             if (t1[i1] == false && i2 == i)

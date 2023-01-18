@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/langc",
+		"source" : "langc"
+	}
+}

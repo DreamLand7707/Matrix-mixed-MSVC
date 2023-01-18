@@ -200,6 +200,78 @@ rule CXX_EXECUTABLE_LINKER__GPM1_Debug
 
 
 #############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__cdebug1_Debug
+  deps = msvc
+  command = C:\msys64\mingw64\bin\clang-cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB -c -- $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C executable.
+
+rule C_EXECUTABLE_LINKER__cdebug1_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\msys64\mingw64\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\LLVM\bin\lld-link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  description = Linking C executable $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__cdebug2_Debug
+  deps = msvc
+  command = C:\msys64\mingw64\bin\clang-cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB -c -- $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C executable.
+
+rule C_EXECUTABLE_LINKER__cdebug2_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\msys64\mingw64\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\LLVM\bin\lld-link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  description = Linking C executable $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__cdebug3_Debug
+  deps = msvc
+  command = C:\msys64\mingw64\bin\clang-cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB -c -- $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C executable.
+
+rule C_EXECUTABLE_LINKER__cdebug3_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\msys64\mingw64\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\LLVM\bin\lld-link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  description = Linking C executable $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling C files.
+
+rule C_COMPILER__cdebug4_Debug
+  deps = msvc
+  command = C:\msys64\mingw64\bin\clang-cl.exe  /nologo $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB -c -- $in
+  description = Building C object $out
+
+
+#############################################
+# Rule for linking C executable.
+
+rule C_EXECUTABLE_LINKER__cdebug4_Debug
+  command = cmd.exe /C "$PRE_LINK && C:\msys64\mingw64\bin\cmake.exe -E vs_link_exe --intdir=$OBJECT_DIR --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100226~1.0\x64\mt.exe --manifests $MANIFESTS -- D:\LLVM\bin\lld-link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  description = Linking C executable $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
