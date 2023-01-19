@@ -1,5 +1,4 @@
-﻿#include <math.h>
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 struct Ivector;
 typedef struct Ivector vector;
