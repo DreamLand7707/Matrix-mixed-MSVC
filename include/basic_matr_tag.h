@@ -53,6 +53,15 @@
 #include <type_traits>
 #include <utility>
 #include <vector>
+namespace drl
+{
+    using _byte = unsigned char;
+    using uint8 = unsigned char;
+    using uint16 = unsigned short;
+    using uint = unsigned int;
+    using uint32 = unsigned long;
+    using uint64 = unsigned long long;
+} // namespace drl
 
 #ifdef UNICODE
 using _TSTRING = std::wstring;

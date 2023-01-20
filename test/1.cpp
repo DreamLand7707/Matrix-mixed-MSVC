@@ -1,70 +1,75 @@
-﻿#include <fstream>
+﻿// LZW文本压缩
+// 选取字典代码数为INT_MAX，字符选择为locale("C")
+
+#include <fstream>
 #include <iostream>
 #include <map>
+#include <string>
 
-const short EXCESS = 4,
-            BYTE_SIZE = 8,
-            ALPHA = 256,
-            MASK1 = 255,
-            MASK2 = 15;
-bool bitsLeftOver = false;
-short leftOver;
-std::ofstream fout("./source/out.txt");
-std::ifstream fin("./source/in.txt");
-void output(int pcode)
+constexpr int code_size = 16;
+constexpr int char_size = 8;
+constexpr unsigned int max_count = 1 << code_size;
+
+using tcode = int;
+using tkey = int;
+
+void compass(std::ifstream &fin, std::ofstream &fout);
+
+int main(int argc, char *argv[])
 {
-    short c, d;
-    if (bitsLeftOver)
+    std::ifstream fin;
+    std::ofstream fout;
+    if (argc >= 2)
     {
-        d = short(pcode & MASK1);
-        c = short((leftOver << EXCESS) | (pcode >> BYTE_SIZE));
-        fout.put(c);
-        fout.put(d);
-        bitsLeftOver = false;
+        fin.open(argv[1], std::ios::in);
+        if (argc > 2)
+            fout.open(argv[2], std::ios::out);
+        else
+            fout.open(std::string(argv[1]) + ".lzw", std::ios::out);
     }
-    else
-    {
-        leftOver = pcode & MASK2;
-        c = short(pcode >> EXCESS);
-        fout.put(c);
-        bitsLeftOver = true;
-    }
+    compass(fin, fout);
+    return 0;
 }
-void compress()
+void output(const unsigned long &mess, std::ofstream &fout)
+{
+    const int pite1 = 0b00001111;
+    const int pite2 = 0b11110000;
+    fout.put(mess & pite2);
+    fout.put(mess & pite1);
+}
+void compass(std::ifstream &fin, std::ofstream &fout)
 {
     using namespace std;
-    map<int, short> h;
-    for (int i = 0; i < ALPHA; i++)
+    map<tkey, tcode> dict;
+    for (unsigned char i = 0; i < 128; i++)
     {
-        h.insert(pair(i, i));
-    }
-    short codesUsed = ALPHA;
-
-    short c = fin.get();
-    if (c != EOF)
+        pair<tkey, tcode> y(i, i);
+        dict.insert(y);
+    } // 0-255的所有字符
+    int t1 = fin.get();
+    if (t1 != EOF)
     {
-        int pcode = c;
-        while ((c = fin.get()) != EOF)
+        int t2 = t1;
+        int count = 128;
+        map<tkey, tcode>::iterator pos;
+        for (t1 = fin.get(); fin; t1 = fin.get())
         {
-            int theKey = (pcode << BYTE_SIZE) + c;
-            auto thepair = h.find(theKey);
-            if (thepair == h.end())
-            {
-                output(pcode);
-                h.insert(std::pair((pcode << BYTE_SIZE) | c, codesUsed++));
-                pcode = c;
+            pos = dict.find(t2 << char_size | t1);
+            if (pos == dict.end())
+            { // 没找到
+                output(t2, fout);
+                if (count < max_count)
+                {
+                    dict.insert(pair<tkey, tcode>(
+                        t2 << char_size | t1,
+                        count++));
+                }
+                t2 = t1;
             }
             else
-                pcode = thepair->second;
+            { // 找到了
+                t2 = pos->second;
+            }
         }
-        output(pcode);
-        if (bitsLeftOver)
-            fout.put(leftOver << EXCESS);
     }
-    fout.close();
-    fin.close();
-}
-int main(void)
-{
-    compress();
 }

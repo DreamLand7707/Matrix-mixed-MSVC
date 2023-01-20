@@ -25,10 +25,21 @@
 		},
 		{
 			"type": "cmake",
-			"label": "CMake: build",
+			"label": "CMake: build cpp1",
 			"command": "build",
 			"targets": [
-				"graphdebug1"
+				"cppdebug1"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template build task"
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: build cpp2",
+			"command": "build",
+			"targets": [
+				"cppdebug2"
 			],
 			"group": "build",
 			"problemMatcher": [],
