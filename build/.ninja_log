@@ -1,3 +1,16 @@
 # ninja log v5
 5	122	6957172920784203	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/langc/CMakeFiles/cdebug1.dir/1.c.obj	db63d19f702d1ddf
 123	340	6957172922464231	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cdebug1.exe	d6630cff15476415
+23	635	6958215760439315	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/basmar.dir/lib3.cpp.obj	bc9672d334b22d9d
+15	1212	6958215766170408	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/basmar.dir/lib2.cpp.obj	c01049bd833395a7
+749	979	6958469103156208	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug1.exe	292e380c4a8f8bb6
+6	749	6958469101386100	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/cppdebug1.dir/1.cpp.obj	6fc39454aca8b6cf
+31	1347	6958215767520388	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/basmar.dir/lib4.cpp.obj	14922182ee6f297c
+6	1210	6958215766160398	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin/CMakeFiles/basmar.dir/lib1.cpp.obj	fd9b5a8747fa2c34
+1347	1476	6958215768870402	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/lib/basmar.lib	2a2cacb66bfdd907
+6	1067	6958490939288179	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/cppdebug2.dir/2.cpp.obj	b74a0d7519123211
+1067	1405	6958490942498377	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug2.exe	8def669ec6c63563
+6	1032	6958492683909544	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/cppdebug2.dir/2.cpp.obj	b74a0d7519123211
+1032	1254	6958492685639593	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug2.exe	8def669ec6c63563
+6	1093	6958493343740401	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin/CMakeFiles/cppdebug2.dir/2.cpp.obj	b74a0d7519123211
+1093	1308	6958493345420421	D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug2.exe	8def669ec6c63563
