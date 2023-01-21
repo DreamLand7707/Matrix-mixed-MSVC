@@ -31,6 +31,7 @@ target_include_directories(
     graphdebug1
     PUBLIC "../include"
     PUBLIC "../include/drl_graph"
+    PUBLIC "../include/drl_matrix"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
 
 target_link_libraries(graphdebug2 basmar)
@@ -40,6 +41,7 @@ target_include_directories(
     graphdebug2
     PUBLIC "../include"
     PUBLIC "../include/drl_graph"
+    PUBLIC "../include/drl_matrix"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
 
 target_link_libraries(graphdebug3 basmar)
@@ -49,4 +51,5 @@ target_include_directories(
     graphdebug3
     PUBLIC "../include"
     PUBLIC "../include/drl_graph"
+    PUBLIC "../include/drl_matrix"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")

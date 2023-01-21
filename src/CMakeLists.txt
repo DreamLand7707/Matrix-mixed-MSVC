@@ -25,4 +25,26 @@ add_library(drl_casio STATIC ${casiosource})
 
 set(LIBRARY_OUTPUT_PATH "../../lib")
 
+target_include_directories(
+    basmar
+    PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
+    PUBLIC "../include/drl_graph"
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_particle")
+target_include_directories(
+    gui
+    PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
+    PUBLIC "../include/drl_graph"
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_particle")
+target_include_directories(
+    drl_casio
+    PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
+    PUBLIC "../include/drl_graph"
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_particle")
+
 # file(COPY "../lib/libbasmar.a" DESTINATION "D:/Project/VSCode/CMakeMatrixtest")

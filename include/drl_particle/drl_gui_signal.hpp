@@ -1,5 +1,5 @@
-﻿#include "../basic_par.h"
-#include "../include/drl_graph/coord.h"
+﻿#include "basic_par.h"
+#include "coord.h"
 #include <deque>
 #include <filesystem>
 #include <functional>

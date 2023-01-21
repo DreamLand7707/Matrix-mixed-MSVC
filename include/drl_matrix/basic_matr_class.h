@@ -29,8 +29,8 @@ enum class matr_tag
     RAW     //? 列反转矩阵
 };
 
-#include "../include/basic_ma1.h"
-#include "../include/basic_matr_tag.h"
+#include "basic_ma1.h"
+#include "basic_matr_tag.h"
 namespace drl
 {
     class matrix

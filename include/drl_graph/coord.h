@@ -1225,7 +1225,7 @@ namespace drl // 线性运算主要部分
 #pragma endregion
 } // namespace drl
 #ifdef MATRIX_DRL_USE // 对多次回归的drl支持
-#include "../include/basic_matr_class.h"
+#include "basic_matr_class.h"
 
 namespace drl // 多次运算部分
 {

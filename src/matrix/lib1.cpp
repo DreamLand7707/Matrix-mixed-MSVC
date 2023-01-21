@@ -1,5 +1,5 @@
 ﻿//? basic_par_para.h库文件
-#include "../include/basic_par_para.h"
+#include "basic_par_para.h"
 #define thma ((drl::matrix &)(*this))
 #define par_def_name_change 1130
 namespace matr

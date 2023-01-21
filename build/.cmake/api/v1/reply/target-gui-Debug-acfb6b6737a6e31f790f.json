@@ -1,11 +1,18 @@
 {
+	"archive" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "/machine:x64",
+				"role" : "flags"
+			}
+		]
+	},
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug2.exe"
-		},
-		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug2.pdb"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/lib/gui.lib"
 		}
 	],
 	"backtrace" : 1,
@@ -13,14 +20,14 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"target_link_libraries",
+			"add_library",
 			"add_definitions",
+			"include_directories",
 			"target_include_directories"
 		],
 		"files" : 
 		[
-			"test/CMakeLists.txt"
+			"src/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -36,23 +43,47 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 31,
+				"line" : 13,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 19,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 11,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
 				"file" : 0,
 				"line" : 15,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
 				"line" : 14,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
 				"line" : 20,
 				"parent" : 0
@@ -60,37 +91,13 @@
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 13,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 12,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 17,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 16,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 19,
+				"line" : 9,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 32,
+				"line" : 35,
 				"parent" : 0
 			}
 		]
@@ -110,47 +117,59 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 2,
 					"define" : "MATRIX_DRL_USE"
 				},
 				{
-					"backtrace" : 4,
+					"backtrace" : 3,
 					"define" : "NOMINMAX"
 				},
 				{
-					"backtrace" : 5,
+					"backtrace" : 4,
 					"define" : "UNICODE"
 				},
 				{
-					"backtrace" : 6,
+					"backtrace" : 5,
 					"define" : "_CRT_NON_CONFORMING_SWPRINTFS"
 				},
 				{
-					"backtrace" : 7,
+					"backtrace" : 6,
 					"define" : "_CRT_SECURE_NO_WARNINGS"
 				},
 				{
-					"backtrace" : 8,
+					"backtrace" : 7,
 					"define" : "_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING"
 				},
 				{
-					"backtrace" : 9,
+					"backtrace" : 8,
 					"define" : "_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING"
 				},
 				{
-					"backtrace" : 10,
+					"backtrace" : 9,
 					"define" : "_UNICODE"
 				}
 			],
 			"includes" : 
 			[
 				{
+					"backtrace" : 10,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include"
+				},
+				{
 					"backtrace" : 11,
-					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/test/../include"
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_matrix"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_graph"
 				},
 				{
 					"backtrace" : 11,
 					"path" : "E:/VisualStudio/VC/Auxiliary/VS/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_particle"
 				}
 			],
 			"language" : "CXX",
@@ -168,44 +187,13 @@
 			]
 		}
 	],
-	"dependencies" : 
-	[
-		{
-			"backtrace" : 2,
-			"id" : "basmar::@fbd4ab375b392918fb6a"
-		}
-	],
-	"id" : "cppdebug2::@44afef7806525cc4badc",
-	"link" : 
-	{
-		"commandFragments" : 
-		[
-			{
-				"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1",
-				"role" : "flags"
-			},
-			{
-				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
-				"role" : "flags"
-			},
-			{
-				"backtrace" : 2,
-				"fragment" : "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\lib\\basmar.lib",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib",
-				"role" : "libraries"
-			}
-		],
-		"language" : "CXX"
-	},
-	"name" : "cppdebug2",
-	"nameOnDisk" : "cppdebug2.exe",
+	"id" : "gui::@fbd4ab375b392918fb6a",
+	"name" : "gui",
+	"nameOnDisk" : "gui.lib",
 	"paths" : 
 	{
-		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin",
-		"source" : "test"
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin",
+		"source" : "src"
 	},
 	"sourceGroups" : 
 	[
@@ -222,9 +210,9 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/2.cpp",
+			"path" : "src/gui_signal_module.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
-	"type" : "EXECUTABLE"
+	"type" : "STATIC_LIBRARY"
 }

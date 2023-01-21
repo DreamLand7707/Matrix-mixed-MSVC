@@ -1,5 +1,5 @@
 ﻿// 矩阵库的类代码重写,库实现文件
-#include "../include/basic_matr_class.h"
+#include "basic_matr_class.h"
 #include <fstream>
 #include <ios>
 // using namespace drl;
@@ -9,7 +9,7 @@ namespace matr
     drl::matrix II(3, _IN);
     drl::matrix Err(3, _Er);
     drl::matrix Empty(3, 3);
-}
+} // namespace matr
 
 drl::matrix::matrix(void)
 {
@@ -40,53 +40,53 @@ drl::matrix::matrix(int c_lr, matr_tag tag)
 {
     switch (tag)
     {
-        case matr_tag::I:
-        {
-            ::matr_init(&mar, c_lr, c_lr, NULL, 0);
-            for (int i = 0; i < c_lr; i++)
-                mar.pos[i][i] = 1;
-            inited = true;
-            break;
-        }
+    case matr_tag::I:
+    {
+        ::matr_init(&mar, c_lr, c_lr, NULL, 0);
+        for (int i = 0; i < c_lr; i++)
+            mar.pos[i][i] = 1;
+        inited = true;
+        break;
+    }
 
-        case matr_tag::II:
-        {
-            ::matr_init(&mar, c_lr, c_lr, NULL, 0);
-            for (int i = 0; i < c_lr; i++)
-                mar.pos[i][i] = -1;
-            inited = true;
-            break;
-        }
+    case matr_tag::II:
+    {
+        ::matr_init(&mar, c_lr, c_lr, NULL, 0);
+        for (int i = 0; i < c_lr; i++)
+            mar.pos[i][i] = -1;
+        inited = true;
+        break;
+    }
 
-        case matr_tag::Err:
-        {
-            int zero = 0;
-            ::matr_init(&mar, c_lr, c_lr, NULL, 0);
-            for (int i = 0; i < c_lr; i++)
-                mar.pos[i][i] /= zero;
-            inited = true;
-            nand = true;
-            break;
-        }
+    case matr_tag::Err:
+    {
+        int zero = 0;
+        ::matr_init(&mar, c_lr, c_lr, NULL, 0);
+        for (int i = 0; i < c_lr; i++)
+            mar.pos[i][i] /= zero;
+        inited = true;
+        nand = true;
+        break;
+    }
 
-        case matr_tag::SP:
-        {
-            ::matr_init(&mar, c_lr, 3, NULL, 0);
-            inited = true;
-            break;
-        }
+    case matr_tag::SP:
+    {
+        ::matr_init(&mar, c_lr, 3, NULL, 0);
+        inited = true;
+        break;
+    }
 
-        case matr_tag::PP:
-        {
-            ::matr_init(&mar, c_lr, 2, NULL, 0);
-            inited = true;
-            break;
-        }
-        default:
-        {
-            ::matr_init(&mar, c_lr, c_lr, NULL, 0);
-            inited = true;
-        }
+    case matr_tag::PP:
+    {
+        ::matr_init(&mar, c_lr, 2, NULL, 0);
+        inited = true;
+        break;
+    }
+    default:
+    {
+        ::matr_init(&mar, c_lr, c_lr, NULL, 0);
+        inited = true;
+    }
     }
 }
 double drl::matrix::matr_rand_max = 65535;
@@ -97,35 +97,35 @@ drl::matrix::matrix(int c_l, int c_r, matr_tag tag)
 {
     switch (tag)
     {
-        case matr_tag::RAN:
-        {
-            ::matr_init(&mar, c_l, c_r, NULL, 0);
-            static std::mt19937 randst(time(nullptr));
-            std::uniform_real_distribution<double> dis(matr_rand_min,
-                                                       matr_rand_max);
-            for (int i = 0; i < c_l; i++)
-                for (int j = 0; j < c_r; j++)
-                    mar.pos[i][j] = dis(randst);
-            inited = true;
-            break;
-        }
-        case matr_tag::IRAN:
-        {
-            ::matr_init(&mar, c_l, c_r, NULL, 0);
-            static std::default_random_engine randst(time(nullptr));
-            std::uniform_int_distribution<long long> dis(matr_rand_min_intager,
-                                                         matr_rand_max_intager);
-            for (int i = 0; i < c_l; i++)
-                for (int j = 0; j < c_r; j++)
-                    mar.pos[i][j] = dis(randst);
-            inited = true;
-            break;
-        }
-        default:
-        {
-            ::matr_init(&mar, c_l, c_r, NULL, 0);
-            inited = true;
-        }
+    case matr_tag::RAN:
+    {
+        ::matr_init(&mar, c_l, c_r, NULL, 0);
+        static std::mt19937 randst(time(nullptr));
+        std::uniform_real_distribution<double> dis(matr_rand_min,
+                                                   matr_rand_max);
+        for (int i = 0; i < c_l; i++)
+            for (int j = 0; j < c_r; j++)
+                mar.pos[i][j] = dis(randst);
+        inited = true;
+        break;
+    }
+    case matr_tag::IRAN:
+    {
+        ::matr_init(&mar, c_l, c_r, NULL, 0);
+        static std::default_random_engine randst(time(nullptr));
+        std::uniform_int_distribution<long long> dis(matr_rand_min_intager,
+                                                     matr_rand_max_intager);
+        for (int i = 0; i < c_l; i++)
+            for (int j = 0; j < c_r; j++)
+                mar.pos[i][j] = dis(randst);
+        inited = true;
+        break;
+    }
+    default:
+    {
+        ::matr_init(&mar, c_l, c_r, NULL, 0);
+        inited = true;
+    }
     }
 }
 drl::matrix::~matrix()
@@ -489,41 +489,41 @@ const drl::matrix drl::matrix::operator^(matr_tag tag) const
 {
     switch (tag)
     {
-        case matr_tag::T:
+    case matr_tag::T:
+    {
+        double *p_d = nullptr;
+        ::matr_dou2lin(&p_d, mar.pos, mar.count_l, mar.count_r);
+        drl::matrix temp1(mar.count_r, mar.count_l);
+        for (int i = 0; i < mar.count_r; i++)
+            for (int j = 0; j < mar.count_l; j++)
+                temp1[i][j] = (*this)[j][i];
+        ::free(p_d);
+        return temp1;
+    }
+    case matr_tag::P:
+    {
+        if (mar.count_l == mar.count_r)
         {
-            double *p_d = nullptr;
-            ::matr_dou2lin(&p_d, mar.pos, mar.count_l, mar.count_r);
-            drl::matrix temp1(mar.count_r, mar.count_l);
-            for (int i = 0; i < mar.count_r; i++)
-                for (int j = 0; j < mar.count_l; j++)
-                    temp1[i][j] = (*this)[j][i];
-            ::free(p_d);
+            drl::matrix temp1(mar.count_l, mar.count_r);
+            for (int i = 0; i < mar.count_l; i++)
+                for (int j = 0; j < mar.count_r; j++)
+                    temp1[i][j] = ::pow(-1, i + j) * (*this).Rdet(i, j).det();
+            temp1 = temp1 ^ _TM;
             return temp1;
         }
-        case matr_tag::P:
-        {
-            if (mar.count_l == mar.count_r)
-            {
-                drl::matrix temp1(mar.count_l, mar.count_r);
-                for (int i = 0; i < mar.count_l; i++)
-                    for (int j = 0; j < mar.count_r; j++)
-                        temp1[i][j] = ::pow(-1, i + j) * (*this).Rdet(i, j).det();
-                temp1 = temp1 ^ _TM;
-                return temp1;
-            }
-            else
-                return matr::Err;
-        }
-        case matr_tag::LIN:
-        {
-            return lrev();
-        }
-        case matr_tag::RAW:
-        {
-            return rrev();
-        }
-        default:
+        else
             return matr::Err;
+    }
+    case matr_tag::LIN:
+    {
+        return lrev();
+    }
+    case matr_tag::RAW:
+    {
+        return rrev();
+    }
+    default:
+        return matr::Err;
     }
 }
 const drl::matrix drl::operator-(drl::matrix const &ma_sor)
@@ -624,32 +624,32 @@ const drl::matrix drl::matrix::exra(int tar, int dim) const
 {
     switch (dim)
     {
-        case 1:
+    case 1:
+    {
+        if (tar >= 0 && tar < mar.count_l)
         {
-            if (tar >= 0 && tar < mar.count_l)
-            {
-                drl::matrix temp1(1, mar.count_r, mar.pos[tar], mar.count_r);
-                return temp1;
-                break;
-            }
-            else
-                return matr::Err;
+            drl::matrix temp1(1, mar.count_r, mar.pos[tar], mar.count_r);
+            return temp1;
+            break;
         }
-        case 2:
-        {
-            if (tar >= 0 && tar < mar.count_r)
-            {
-                drl::matrix temp2(mar.count_l, 1);
-                for (int i = 0; i < mar.count_l; i++)
-                    temp2[i][0] = mar.pos[i][tar];
-                return temp2;
-                break;
-            }
-            else
-                return matr::Err;
-        }
-        default:
+        else
             return matr::Err;
+    }
+    case 2:
+    {
+        if (tar >= 0 && tar < mar.count_r)
+        {
+            drl::matrix temp2(mar.count_l, 1);
+            for (int i = 0; i < mar.count_l; i++)
+                temp2[i][0] = mar.pos[i][tar];
+            return temp2;
+            break;
+        }
+        else
+            return matr::Err;
+    }
+    default:
+        return matr::Err;
     }
 }
 //? 行初等
@@ -796,7 +796,7 @@ double drl::matrix::unit_iterator::error_nan = nan("quiet");
 double &drl::matrix::unit_iterator::operator*() const
 {
     if (pos >= (*mar).size(0))
-        return error_nan;   // nan
+        return error_nan; // nan
     int x = pos / (*mar).size(2);
     int y = pos % (*mar).size(2);
     return (*(const_cast<drl::matrix *>(mar)))[x][y];
@@ -1059,7 +1059,7 @@ drl::matrix::raw_reference::operator=(const line_reference &line_ref)
 bool drl::matrix::printcsv(const std::string &path, int x)
 {
     std::ofstream fout;
-    fout.open(path, std::fstream::out|std::fstream::app);
+    fout.open(path, std::fstream::out | std::fstream::app);
     if (fout.good())
     {
         if (x < 0)

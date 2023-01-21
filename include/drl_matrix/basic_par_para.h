@@ -27,7 +27,7 @@ TD是total block总的命令方块数
 ^ 使用特定输出解析曲线矩阵
 */
 
-#include "../include/basic_matr_class.h"
+#include "basic_matr_class.h"
 #include <iostream>
 #include <string>
 

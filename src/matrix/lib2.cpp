@@ -1,5 +1,5 @@
 ﻿//? basic_par_algout.h库文件
-#include "../include/basic_par_algout.h"
+#include "basic_par_algout.h"
 using namespace drl;
 drl::matrix const O_partmatr::I_2(2, matr_tag::I);
 /*

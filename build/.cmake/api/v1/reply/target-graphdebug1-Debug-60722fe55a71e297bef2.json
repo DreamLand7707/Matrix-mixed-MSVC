@@ -172,7 +172,27 @@
 				},
 				{
 					"backtrace" : 14,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include/drl_matrix"
+				},
+				{
+					"backtrace" : 14,
 					"path" : "E:/VisualStudio/VC/Auxiliary/VS/include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_matrix"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_graph"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_particle"
 				}
 			],
 			"language" : "CXX",

@@ -2,7 +2,7 @@
 #ifndef basic_par_algout
 #define basic_par_algout 1
 
-#include "../include/basic_par_para.h"
+#include "basic_par_para.h"
 
 class O_partmatr;
 

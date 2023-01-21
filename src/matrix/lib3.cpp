@@ -1,5 +1,5 @@
 ﻿// ? 矩阵的底层实现
-#include "../include/basic_ma1.h"
+#include "basic_ma1.h"
 #include <algorithm>
 
 // ? 排序

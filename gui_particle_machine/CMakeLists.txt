@@ -26,6 +26,7 @@ target_link_libraries(GPM1 gui)
 target_include_directories(
     GPM1
     PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
     PUBLIC "../include/drl_graph"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
     PUBLIC "../include/drl_particle")

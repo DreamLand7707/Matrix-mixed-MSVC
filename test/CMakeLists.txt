@@ -27,14 +27,17 @@ target_link_libraries(cppdebug1 basmar)
 target_include_directories(
     cppdebug1
     PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
     PUBLIC "E:\\VisualStudio\\VC\\Auxiliary\\VS\\include")
 target_link_libraries(cppdebug2 basmar)
 target_include_directories(
     cppdebug2
     PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
     PUBLIC "E:\\VisualStudio\\VC\\Auxiliary\\VS\\include")
 target_link_libraries(cppdebug3 basmar)
 target_include_directories(
     cppdebug3
     PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
     PUBLIC "E:\\VisualStudio\\VC\\Auxiliary\\VS\\include")

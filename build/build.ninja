@@ -81,7 +81,7 @@ build cmake_object_order_depends_target_basmar: phony || D$:\Project\VSCode\Proj
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix\lib1.cpp.obj: CXX_COMPILER__basmar_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\matrix\lib1.cpp || cmake_object_order_depends_target_basmar
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\basmar.pdb
@@ -90,7 +90,7 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\ba
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix\lib2.cpp.obj: CXX_COMPILER__basmar_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\matrix\lib2.cpp || cmake_object_order_depends_target_basmar
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\basmar.pdb
@@ -99,7 +99,7 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\ba
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix\lib3.cpp.obj: CXX_COMPILER__basmar_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\matrix\lib3.cpp || cmake_object_order_depends_target_basmar
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\basmar.pdb
@@ -108,7 +108,7 @@ build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\ba
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix\lib4.cpp.obj: CXX_COMPILER__basmar_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\matrix\lib4.cpp || cmake_object_order_depends_target_basmar
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\matrix
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\basmar.dir\basmar.pdb
@@ -144,7 +144,7 @@ build cmake_object_order_depends_target_gui: phony || D$:\Project\VSCode\Project
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\gui.dir\gui_signal_module.cpp.obj: CXX_COMPILER__gui_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\gui_signal_module.cpp || cmake_object_order_depends_target_gui
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\gui.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\gui.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\gui.dir\gui.pdb
@@ -180,7 +180,7 @@ build cmake_object_order_depends_target_drl_casio: phony || D$:\Project\VSCode\P
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\drl_casio.dir\casio_analy.cpp.obj: CXX_COMPILER__drl_casio_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\casio_analy.cpp || cmake_object_order_depends_target_drl_casio
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\drl_casio.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\drl_casio.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\basbin\CMakeFiles\drl_casio.dir\drl_casio.pdb
@@ -245,7 +245,7 @@ build cmake_object_order_depends_target_cppdebug1: phony || cmake_object_order_d
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug1.dir\1.cpp.obj: CXX_COMPILER__cppdebug1_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\1.cpp || cmake_object_order_depends_target_cppdebug1
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include -IE:\VisualStudio\VC\Auxiliary\VS\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include\drl_matrix -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug1.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug1.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug1.dir\
@@ -283,7 +283,7 @@ build cmake_object_order_depends_target_cppdebug2: phony || cmake_object_order_d
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug2.dir\2.cpp.obj: CXX_COMPILER__cppdebug2_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\2.cpp || cmake_object_order_depends_target_cppdebug2
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include -IE:\VisualStudio\VC\Auxiliary\VS\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include\drl_matrix -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug2.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug2.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug2.dir\
@@ -321,7 +321,7 @@ build cmake_object_order_depends_target_cppdebug3: phony || cmake_object_order_d
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug3.dir\3.cpp.obj: CXX_COMPILER__cppdebug3_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\3.cpp || cmake_object_order_depends_target_cppdebug3
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include -IE:\VisualStudio\VC\Auxiliary\VS\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\test\..\include\drl_matrix -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug3.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug3.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testbin\CMakeFiles\cppdebug3.dir\
@@ -388,7 +388,7 @@ build cmake_object_order_depends_target_graphdebug1: phony || cmake_object_order
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug1.dir\g1.cpp.obj: CXX_COMPILER__graphdebug1_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\g1.cpp || cmake_object_order_depends_target_graphdebug1
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_matrix -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug1.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug1.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug1.dir\
@@ -426,7 +426,7 @@ build cmake_object_order_depends_target_graphdebug2: phony || cmake_object_order
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug2.dir\g2.cpp.obj: CXX_COMPILER__graphdebug2_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\g2.cpp || cmake_object_order_depends_target_graphdebug2
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_matrix -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug2.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug2.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug2.dir\
@@ -464,7 +464,7 @@ build cmake_object_order_depends_target_graphdebug3: phony || cmake_object_order
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug3.dir\g3.cpp.obj: CXX_COMPILER__graphdebug3_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\g3.cpp || cmake_object_order_depends_target_graphdebug3
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\testgraph\..\include\drl_matrix -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug3.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug3.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\testgraph\CMakeFiles\graphdebug3.dir\
@@ -531,7 +531,7 @@ build cmake_object_order_depends_target_GPM1: phony || cmake_object_order_depend
 build D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\CMakeFiles\GPM1.dir\main.cpp.obj: CXX_COMPILER__GPM1_Debug D$:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\main.cpp || cmake_object_order_depends_target_GPM1
   DEFINES = -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE
   FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20
-  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\..\include\drl_particle
+  INCLUDES = -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\..\include\drl_graph -IE:\VisualStudio\VC\Auxiliary\VS\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\gui_particle_machine\..\include\drl_particle -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_matrix -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_graph -ID:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\src\..\include\drl_particle
   OBJECT_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\CMakeFiles\GPM1.dir
   OBJECT_FILE_DIR = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\CMakeFiles\GPM1.dir
   TARGET_COMPILE_PDB = D:\Project\VSCode\Project_Test\Matrix-mixed-MSVC\bin\gui_particle_machine\CMakeFiles\GPM1.dir\
