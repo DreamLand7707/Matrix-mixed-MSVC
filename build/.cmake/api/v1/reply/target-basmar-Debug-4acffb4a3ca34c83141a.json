@@ -193,25 +193,25 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/lib1.cpp",
+			"path" : "src/matrix/lib1.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/lib2.cpp",
+			"path" : "src/matrix/lib2.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/lib3.cpp",
+			"path" : "src/matrix/lib3.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/lib4.cpp",
+			"path" : "src/matrix/lib4.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

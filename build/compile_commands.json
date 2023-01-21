@@ -1,23 +1,23 @@
 [
 {
   "directory": "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build",
-  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\lib1.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib1.cpp",
-  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib1.cpp"
+  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\matrix\\lib1.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib1.cpp",
+  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib1.cpp"
 },
 {
   "directory": "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build",
-  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\lib2.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib2.cpp",
-  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib2.cpp"
+  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\matrix\\lib2.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib2.cpp",
+  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib2.cpp"
 },
 {
   "directory": "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build",
-  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\lib3.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib3.cpp",
-  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib3.cpp"
+  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\matrix\\lib3.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib3.cpp",
+  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib3.cpp"
 },
 {
   "directory": "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build",
-  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\lib4.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib4.cpp",
-  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\lib4.cpp"
+  "command": "C:\\msys64\\mingw64\\bin\\clang-cl.exe  /nologo -TP -DMATRIX_DRL_USE -DNOMINMAX -DUNICODE -D_CRT_NON_CONFORMING_SWPRINTFS -D_CRT_SECURE_NO_WARNINGS -D_SILENCE_CXX17_C_HEADER_DEPRECATION_WARNING -D_SILENCE_CXX17_ITERATOR_BASE_CLASS_DEPRECATION_WARNING -D_UNICODE -ID:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\..\\include /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1 -std:c++20 /FoD:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\bin\\basbin\\CMakeFiles\\basmar.dir\\matrix\\lib4.cpp.obj /FdTARGET_COMPILE_PDB -c -- D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib4.cpp",
+  "file": "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\src\\matrix\\lib4.cpp"
 },
 {
   "directory": "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build",

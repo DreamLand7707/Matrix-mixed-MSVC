@@ -1,6 +1,6 @@
 ﻿project(matrixs LANGUAGES CXX)
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-set(lsource "lib1.cpp;lib2.cpp;lib3.cpp;lib4.cpp")
+set(lsource "./matrix/lib1.cpp;./matrix/lib2.cpp;./matrix/lib3.cpp;./matrix/lib4.cpp")
 set(rsource "gui_signal_module.cpp")
 set(casiosource "casio_analy.cpp")
 
