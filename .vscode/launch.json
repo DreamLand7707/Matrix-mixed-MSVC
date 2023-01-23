@@ -2,14 +2,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
-            "request": "launch",
-            "name": "d2 Debug",
-            "program": "${workspaceFolder}/Debug/cppdebug2.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}"
-        },
-        {
             "name": "d1 Debug",
             "type": "cppvsdbg",
             "request": "launch",
@@ -20,26 +12,6 @@
             "environment": [],
             "console": "integratedTerminal",
             "preLaunchTask": "CMake: build cpp1"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug g2",
-            "program": "${workspaceFolder}/Debug/graphdebug2.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "preLaunchTask": "CMake: build graph2",
-            "terminal": "external"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug g1",
-            "program": "${workspaceFolder}/Debug/graphdebug1.exe",
-            "args": [],
-            "cwd": "${workspaceFolder}",
-            "terminal": "external",
-            "preLaunchTask": "CMake: build graph1"
         }
     ]
 }
