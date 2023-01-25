@@ -276,7 +276,8 @@ namespace drl
         {
             // 正常处理
             tstr = match[1];
-            _TREGEX judge1(_T(R"((?:\s*(@([0-9]*))\s+)?)") + _TSTRING(_T("(")) + regex_par_name() + _T(")") + _T(R"((?:\s+(@([0-9]*))\s*)?)"));
+            _TREGEX judge1(_T(R"((?:\s*(@([0-9]*))\s+)?)") + _TSTRING(_T("(")) + regex_par_name() + _T(")") +
+                           _T(R"((?:\s+(@([0-9]*))\s*)?)"));
             _TSMATCH match_t;
             regex_search(tstr, match_t, judge1);
             if (match_t[1].str().size())

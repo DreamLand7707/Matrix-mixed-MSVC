@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/GPM1.exe"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/graphdebug1.exe"
 		},
 		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/GPM1.pdb"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/graphdebug1.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -20,7 +20,7 @@
 		],
 		"files" : 
 		[
-			"gui_particle_machine/CMakeLists.txt"
+			"testgraph/CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -30,61 +30,31 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 20,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
 				"line" : 22,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 23,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 24,
+				"line" : 27,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 25,
+				"line" : 28,
 				"parent" : 0
 			},
 			{
-				"command" : 2,
+				"command" : 1,
 				"file" : 0,
-				"line" : 9,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 8,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 14,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 7,
-				"parent" : 0
-			},
-			{
-				"command" : 2,
-				"file" : 0,
-				"line" : 6,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
@@ -102,13 +72,43 @@
 			{
 				"command" : 2,
 				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 9,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
 				"line" : 13,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 26,
+				"line" : 30,
 				"parent" : 0
 			}
 		]
@@ -164,23 +164,19 @@
 			[
 				{
 					"backtrace" : 14,
-					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/gui_particle_machine/../include"
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/gui_particle_machine/../include/drl_matrix"
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include/drl_graph"
 				},
 				{
 					"backtrace" : 14,
-					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/gui_particle_machine/../include/drl_graph"
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/testgraph/../include/drl_matrix"
 				},
 				{
 					"backtrace" : 14,
 					"path" : "E:/VisualStudio/VC/Auxiliary/VS/include"
-				},
-				{
-					"backtrace" : 14,
-					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/gui_particle_machine/../include/drl_particle"
 				},
 				{
 					"backtrace" : 2,
@@ -217,19 +213,15 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 5,
-			"id" : "gui::@fbd4ab375b392918fb6a"
-		},
-		{
-			"backtrace" : 4,
-			"id" : "drl_casio::@fbd4ab375b392918fb6a"
-		},
-		{
 			"backtrace" : 2,
 			"id" : "basmar::@fbd4ab375b392918fb6a"
+		},
+		{
+			"backtrace" : 5,
+			"id" : "gui::@fbd4ab375b392918fb6a"
 		}
 	],
-	"id" : "GPM1::@128c311e863f8f80474d",
+	"id" : "graphdebug1::@6119c8a7cc6a1c8cf1c2",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -254,7 +246,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\lib\\drl_casio.lib",
+				"fragment" : "drl_casio.lib",
 				"role" : "libraries"
 			},
 			{
@@ -269,12 +261,12 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "GPM1",
-	"nameOnDisk" : "GPM1.exe",
+	"name" : "graphdebug1",
+	"nameOnDisk" : "graphdebug1.exe",
 	"paths" : 
 	{
-		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine",
-		"source" : "gui_particle_machine"
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph",
+		"source" : "testgraph"
 	},
 	"sourceGroups" : 
 	[
@@ -291,7 +283,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "gui_particle_machine/main.cpp",
+			"path" : "testgraph/g1.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

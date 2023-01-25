@@ -32,7 +32,8 @@ target_include_directories(
     PUBLIC "../include"
     PUBLIC "../include/drl_graph"
     PUBLIC "../include/drl_matrix"
-    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_data_structures")
 
 target_link_libraries(graphdebug2 basmar)
 target_link_libraries(graphdebug2 EasyXw.lib)
@@ -42,7 +43,8 @@ target_include_directories(
     PUBLIC "../include"
     PUBLIC "../include/drl_graph"
     PUBLIC "../include/drl_matrix"
-    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_data_structures")
 
 target_link_libraries(graphdebug3 basmar)
 target_link_libraries(graphdebug3 EasyXw.lib)
@@ -52,4 +54,5 @@ target_include_directories(
     PUBLIC "../include"
     PUBLIC "../include/drl_graph"
     PUBLIC "../include/drl_matrix"
-    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include")
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_data_structures")
