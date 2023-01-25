@@ -15,7 +15,7 @@ AlignOperands: Align
 
 BreakBeforeBinaryOperators: None
 
-PackConstructorInitializers: CurrentLine
+PackConstructorInitializers: NextLine
 
 ColumnLimit: 0
 # 缩进宽度
