@@ -1,5 +1,7 @@
 ﻿#include <deque>
+#include <iostream>
 #include <vector>
+
 
 
 #ifndef DRL_BINARY_TREE
@@ -17,7 +19,7 @@ namespace drl
         using pointer = value_type *;
 
      public:
-        virtual ~binary_tree_base() = 0;
+        virtual ~binary_tree_base(){};
         virtual bool empty() = 0;
         virtual size_t size() = 0;
         template <class FUNC>
@@ -129,7 +131,7 @@ namespace drl
         tree_node<T> *parent;
         T element;
         tree_node(const T &x, tree_node<T> *parent = nullptr, tree_node<T> *left = nullptr, tree_node<T> *right = nullptr)
-            : element(x), parent(parent), left(left), right(right) {}
+            : left(left), right(right), parent(parent), element(x) {}
         tree_node(const tree_node<T> &x) : element(x.element), parent(parent), left(x.left), right(x.right) {}
         void make_lchild(const tree_node<T> &x)
         {
@@ -171,16 +173,18 @@ namespace drl
                 {
                     qu1.push_back(pcur->right);
                 }
-                delete pcur;
+                {
+                    delete pcur;
+                }
                 qu1.pop_front();
             }
         }
-        linked_binary_tree(tree_node<T> *ele = nullptr, size_type size_ = 0)
+        linked_binary_tree(T *ele = nullptr, size_type size_ = 0)
         {
-            if (ele && size__)
+            if (ele && size_)
             {
                 bool right = false;
-                std::deque<tree_node<T>> qu1;
+                std::deque<tree_node<T> *> qu1;
                 elements = new value_type(ele[0]);
                 tree_node<T> *cur_node = elements;
                 qu1.push_back(cur_node);

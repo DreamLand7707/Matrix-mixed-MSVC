@@ -1,5 +1,11 @@
-﻿#include <vector>
+﻿#include "blockchain/blockchain.hpp"
 int main(void)
 {
-    std::vector<int> c;
+    using std::cin;
+    using std::cout;
+    using std::endl;
+    using std::map;
+    using std::string;
+    using std::unordered_map;
+    using std::vector;
 }
