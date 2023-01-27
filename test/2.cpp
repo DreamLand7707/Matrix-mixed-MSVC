@@ -6,6 +6,10 @@ void init_blocks(std::map<int, block> &block_heap, std::vector<block *> &block_t
     block_heap.clear();
     block_time.clear();
     ifstream fin(path, std::ios::in);
+    if (!fin)
+    {
+        throw std::invalid_argument("Can't open file!");
+    }
     stringstream strin;
     std::string tstr, tstr1, tstr2;
     int t1;
@@ -33,6 +37,10 @@ void add_txs(std::map<int, block> &block_heap, std::unordered_map<std::string, a
 {
     using namespace std;
     ifstream fin(path, std::ios::in);
+    if (!fin)
+    {
+        throw std::invalid_argument("Can't open file!");
+    }
     stringstream strin;
     std::string tstr, tstr1, tstr2, tstr3;
     int t1, t2;
@@ -63,6 +71,8 @@ int search_admin_tx(std::string const &admin, std::vector<block *> const &block_
                     std::vector<tran *> &res_out, std::vector<tran *> &res_in)
 {
     size_t n = block_time.size();
+    res_out.clear();
+    res_in.clear();
     int res = 0;
     for (size_t i = 0; i < n; i++)
     {
@@ -78,11 +88,17 @@ int search_admin_tx(std::string const &admin, std::vector<block *> const &block_
                 if (admin == i.addr_out)
                 { // 转入的记录
                     res++;
-                    res_out.push_back(&i);
+                    res_in.push_back(&i);
                 }
             }
         }
     }
+    std::sort(res_out.begin(), res_out.end(),
+              [](tran *&l, tran *&r)
+              { return l->amout > r->amout; });
+    std::sort(res_in.begin(), res_in.end(),
+              [](tran *&l, tran *&r)
+              { return l->amout > r->amout; });
     return res;
 }
 
@@ -113,6 +129,7 @@ void rich_list(std::vector<block *> const &block_time, std::vector<std::pair<dou
                long time)
 {
     using namespace std;
+    admins.clear();
     std::map<std::string, double> trich;
     size_t n = block_time.size();
     for (size_t i = 0; i < n; i++)
@@ -207,7 +224,8 @@ void make_path(const std::string &begin_node, std::unordered_map<std::string, ad
     std::deque<std::pair<double, size_t>> qu0;
     std::deque<std::pair<std::string, tran *>> qu1;
     size_t t1 = 0;
-    tx_heap[begin_node].t[0] = true;
+    all_path.clear();
+    tx_heap.at(begin_node).t[0] = true;
     for (auto &i : tx_heap[begin_node].as_in)
     {
         qu1.push_back({i->addr_out, i});

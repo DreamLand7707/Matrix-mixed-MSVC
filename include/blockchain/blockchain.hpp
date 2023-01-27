@@ -33,7 +33,7 @@ struct adminer
 void init_blocks(std::map<int, block> &block_heap, std::vector<block *> &block_time, const std::string &path);
 
 
-void add_txs(std::map<int, block> &block_heap, const std::string &path);
+void add_txs(std::map<int, block> &block_heap, std::unordered_map<std::string, adminer> &tx_heap, const std::string &path);
 
 
 int search_admin_tx(std::string const &admin, std::vector<block *> const &block_time, long time_begin, long time_end,
@@ -58,6 +58,7 @@ bool have_circle(std::unordered_map<std::string, adminer> &tx_heap);
 
 void DFSD(adminer &i, std::unordered_map<std::string, adminer> &tx_heap, bool &res);
 
-void make_path(const std::string &begin_node, std::unordered_map<std::string, adminer> &tx_heap);
+void make_path(const std::string &begin_node, std::unordered_map<std::string, adminer> &tx_heap,
+               std::map<std::string, double> &all_path);
 
 #endif

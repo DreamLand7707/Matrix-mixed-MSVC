@@ -1,0 +1,271 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/basbin",
+					"jsonFile" : "directory-src-Debug-2a6d03d1d156afc93fb6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "src",
+					"targetIndexes" : 
+					[
+						1,
+						9,
+						13
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin",
+					"jsonFile" : "directory-test-Debug-ace3c2ea66ebe52608d3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "test",
+					"targetIndexes" : 
+					[
+						6,
+						7,
+						8
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph",
+					"jsonFile" : "directory-testgraph-Debug-c2233e1521ae99219248.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "testgraph",
+					"targetIndexes" : 
+					[
+						10,
+						11,
+						12
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/gui_particle_machine",
+					"jsonFile" : "directory-gui_particle_machine-Debug-802b0c03415a5f4603d2.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "gui_particle_machine",
+					"targetIndexes" : 
+					[
+						0
+					]
+				},
+				{
+					"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/langc",
+					"jsonFile" : "directory-langc-Debug-6c72d1b95cbf1b0c8365.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.5"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "langc",
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					],
+					"name" : "matrixs",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "clanguage",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 4,
+					"id" : "GPM1::@128c311e863f8f80474d",
+					"jsonFile" : "target-GPM1-Debug-d9aaca1f81f04860b48a.json",
+					"name" : "GPM1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "basmar::@fbd4ab375b392918fb6a",
+					"jsonFile" : "target-basmar-Debug-42824c66cc8ef188fa24.json",
+					"name" : "basmar",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "cdebug1::@49ed0ba5a018b2f09d8b",
+					"jsonFile" : "target-cdebug1-Debug-7f3871b8f2c7d2129ce2.json",
+					"name" : "cdebug1",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "cdebug2::@49ed0ba5a018b2f09d8b",
+					"jsonFile" : "target-cdebug2-Debug-fa27c34ae1fb8ca44d7c.json",
+					"name" : "cdebug2",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "cdebug3::@49ed0ba5a018b2f09d8b",
+					"jsonFile" : "target-cdebug3-Debug-53f1f266dcdf08abe969.json",
+					"name" : "cdebug3",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 5,
+					"id" : "cdebug4::@49ed0ba5a018b2f09d8b",
+					"jsonFile" : "target-cdebug4-Debug-18fbbd162d9ea1845b26.json",
+					"name" : "cdebug4",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug1::@44afef7806525cc4badc",
+					"jsonFile" : "target-cppdebug1-Debug-aea985e04a08722ec4a0.json",
+					"name" : "cppdebug1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug2::@44afef7806525cc4badc",
+					"jsonFile" : "target-cppdebug2-Debug-48df4bbf5e75f1febb98.json",
+					"name" : "cppdebug2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "cppdebug3::@44afef7806525cc4badc",
+					"jsonFile" : "target-cppdebug3-Debug-3da2ab121a7bd0f52fa2.json",
+					"name" : "cppdebug3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "drl_casio::@fbd4ab375b392918fb6a",
+					"jsonFile" : "target-drl_casio-Debug-67973e465dd31a6d24aa.json",
+					"name" : "drl_casio",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug1::@6119c8a7cc6a1c8cf1c2",
+					"jsonFile" : "target-graphdebug1-Debug-7b3836bcf411e7f98f74.json",
+					"name" : "graphdebug1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug2::@6119c8a7cc6a1c8cf1c2",
+					"jsonFile" : "target-graphdebug2-Debug-a26b575e487179e377e9.json",
+					"name" : "graphdebug2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 3,
+					"id" : "graphdebug3::@6119c8a7cc6a1c8cf1c2",
+					"jsonFile" : "target-graphdebug3-Debug-14536b8436e5a5aa4cd0.json",
+					"name" : "graphdebug3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "gui::@fbd4ab375b392918fb6a",
+					"jsonFile" : "target-gui-Debug-3b63ed93ad82fa4159bb.json",
+					"name" : "gui",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/build",
+		"source" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
