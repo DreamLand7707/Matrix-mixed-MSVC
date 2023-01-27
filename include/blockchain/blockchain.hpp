@@ -1,4 +1,13 @@
-﻿#include "basic.hpp"
+﻿#include <algorithm>
+#include <deque>
+#include <fstream>
+#include <iostream>
+#include <map>
+#include <regex>
+#include <sstream>
+#include <string>
+#include <unordered_map>
+#include <vector>
 
 #ifndef BLOCKCHAIN
 #define BLOCKCHAIN

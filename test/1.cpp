@@ -5,7 +5,6 @@ int main(void)
     using std::cout;
     using std::endl;
     using std::map;
-    using std::set;
     using std::string;
     using std::unordered_map;
     using std::vector;
