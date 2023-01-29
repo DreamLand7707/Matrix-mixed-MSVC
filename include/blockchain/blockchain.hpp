@@ -70,4 +70,7 @@ void DFSD(adminer &i, std::unordered_map<std::string, adminer> &tx_heap, bool &r
 void make_path(const std::string &begin_node, std::unordered_map<std::string, adminer> &tx_heap,
                std::map<std::string, double> &all_path);
 
+
+void heap_init(std::map<int, block> &block_heap, std::unordered_map<std::string, adminer> &tx_heap);
+
 #endif
