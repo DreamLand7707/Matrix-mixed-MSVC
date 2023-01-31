@@ -1,12 +1,15 @@
 ﻿function fun1() {
-    class A {
-        constructor() {
-            this.opo = 3.6;
+    var para = document.getElementById("demo");
+    let pro = new Promise(function (resolve, reject) {
+        if (document.getElementById("input").value == "hello") resolve("123");
+        else reject("rejec");
+    });
+    pro.then(
+        function (data) {
+            para.innerHTML = data;
+        },
+        function (err) {
+            para.innerHTML = err;
         }
-    }
-    dd = new A();
-    var b;
-    if (dd.constructor == A) b = true;
-    else b = false;
-    document.getElementById("para1").innerHTML = b.toString();
+    );
 }
