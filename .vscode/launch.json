@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "firefox",
+            "request": "launch",
+            "reAttach": true,
+            "name": "Launch 1.html",
+            "file": "${workspaceFolder}/1.html"
+        },
+        {
             "name": "Launch Program",
             "program": "${workspaceFolder}/1.js",
             "request": "launch",

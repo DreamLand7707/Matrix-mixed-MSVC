@@ -1,15 +1,14 @@
-﻿function fun1() {
-    var para = document.getElementById("demo");
-    let pro = new Promise(function (resolve, reject) {
-        if (document.getElementById("input").value == "hello") resolve("123");
-        else reject("rejec");
-    });
-    pro.then(
-        function (data) {
-            para.innerHTML = data;
-        },
-        function (err) {
-            para.innerHTML = err;
+﻿function ace() {
+    var a = document.getElementById("pop");
+    var b;
+    var posadd = 0;
+    b = setInterval(function () {
+        if (posadd <= 450) {
+            a.style.top = posadd + "px";
+            a.style.left = posadd + "px";
+            posadd++;
+        } else {
+            clearInterval(b);
         }
-    );
+    }, 5);
 }
