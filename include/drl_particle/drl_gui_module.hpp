@@ -25,8 +25,7 @@ namespace drl
         return res;
     }
     template <unsigned long long NUMBER>
-    class gui_module_base
-    {
+    class gui_module_base {
      public:
         using message_type = drl::gui_signal;
         using label_num_type_ = drl::label_num_type;
@@ -53,8 +52,7 @@ namespace drl
     template <>
     const drl::label_str_type drl::gui_module_base<2>::module_basic;
 #pragma endregion var
-    class gui_module
-    {
+    class gui_module {
      public:
         using message_type = drl::gui_signal;
         using label_num_type_ = drl::label_num_type;
@@ -96,14 +94,12 @@ namespace drl
         bool (T::*lhs_fp)(const gui_module::message_type &),
         gui_module::message_type (T::*rhs_fp)(const gui_module::message_type &),
         gui_module::message_type (T::*init_fp)(), size_t pt);
-    class button_module : public gui_module, public gui_module_base<0>
-    {
+    class button_module : public gui_module, public gui_module_base<0> {
      protected:
         bool virtual _condition(const message_type &);
 
      public:
-        struct button_style
-        {
+        struct button_style {
             RECT coord;
             int ellipsewidth;
             int ellipseheight;
@@ -220,15 +216,13 @@ namespace drl
         }
     };
 
-    class input_box_module : public gui_module, public gui_module_base<1>
-    {
+    class input_box_module : public gui_module, public gui_module_base<1> {
      protected:
         bool virtual _condition(const message_type &);
 
      public:
         using KKKKK = input_box_module;
-        struct input_box_style
-        {
+        struct input_box_style {
             RECT coord;
             int text_size;
             int line_width;
@@ -352,14 +346,12 @@ namespace drl
         }
     };
 
-    class output_box_module : public gui_module, public gui_module_base<2>
-    {
+    class output_box_module : public gui_module, public gui_module_base<2> {
      protected:
         bool virtual _condition(const message_type &);
 
      public:
-        struct output_box_style
-        {
+        struct output_box_style {
             RECT coord;
             int text_size;
             int line_width;

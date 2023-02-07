@@ -2,8 +2,7 @@
 #include "drl_particle/drl_gui_module.hpp"
 #include "drl_particle/drl_gui_signal.hpp"
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
     using namespace drl;
     using std::make_pair;
     initgraph(1280, 960);
@@ -121,9 +120,8 @@ int main(int argc, char *argv[])
 
     auto clear1_fun_1 = [&](gui_module *lhs, const gui_signal *rhs) -> gui_signal
     {
-        if (rhs->sign.source == clears[std::stoi(rhs->exac_fin_word())].send_message_context_down.sign.source)
-        {
-            input_box_module *pointer = dynamic_cast<input_box_module*>(lhs);
+        if (rhs->sign.source == clears[std::stoi(rhs->exac_fin_word())].send_message_context_down.sign.source) {
+            input_box_module *pointer = dynamic_cast<input_box_module *>(lhs);
             output_box_module *pointer2 = dynamic_cast<output_box_module *>(lhs);
             if (pointer)
                 pointer->change_text(_T(""));
@@ -144,8 +142,7 @@ int main(int argc, char *argv[])
         args.parname(NAME1.input_string.c_str());
         sin.clear();
         temp_str = RGB1.input_string;
-        for (auto &i : temp_str)
-        {
+        for (auto &i : temp_str) {
             if (suit_the_condition(i))
                 i = L' ';
         }
@@ -153,8 +150,7 @@ int main(int argc, char *argv[])
         sin >> args[2][1] >> args[2][2] >> args[2][3];
         sin.clear();
         temp_str = ARG1.input_string;
-        for (auto &i : temp_str)
-        {
+        for (auto &i : temp_str) {
             if (suit_the_condition(i))
                 i = L' ';
         }
@@ -162,8 +158,7 @@ int main(int argc, char *argv[])
         sin >> args[0][3] >> args[0][2] >> args[3][0];
         sin.clear();
         temp_str = ARG2.input_string;
-        for (auto &i : temp_str)
-        {
+        for (auto &i : temp_str) {
             if (suit_the_condition(i))
                 i = L' ';
         }
@@ -171,11 +166,9 @@ int main(int argc, char *argv[])
         sin >> args[0][0] >> args[0][1];
         out_matr.assign_para(args);
         sin.clear();
-        if (mode_swit == 0)
-        {
+        if (mode_swit == 0) {
             temp_str = point1.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -183,8 +176,7 @@ int main(int argc, char *argv[])
             sin >> point_and_h[0][0] >> point_and_h[0][1] >> point_and_h[0][2];
             sin.clear();
             temp_str = point2.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -194,11 +186,9 @@ int main(int argc, char *argv[])
             A = out_matr.linear();
             pointer->change_text(dynamic_cast<_TSTRING &>(A));
         }
-        if (mode_swit == 1)
-        {
+        if (mode_swit == 1) {
             temp_str = point1.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -206,8 +196,7 @@ int main(int argc, char *argv[])
             sin >> point_and_h[0][0] >> point_and_h[0][1] >> point_and_h[0][2];
             sin.clear();
             temp_str = point2.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -215,8 +204,7 @@ int main(int argc, char *argv[])
             sin >> point_and_h[1][0] >> point_and_h[1][1] >> point_and_h[1][2];
             sin.clear();
             temp_str = point3.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -232,11 +220,9 @@ int main(int argc, char *argv[])
             A = out_matr.quadhet(point_and_h[2][0], mode);
             pointer->change_text(dynamic_cast<_TSTRING &>(A));
         }
-        if (mode_swit == 2)
-        {
+        if (mode_swit == 2) {
             temp_str = point1.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -244,8 +230,7 @@ int main(int argc, char *argv[])
             sin >> point_and_h[0][0] >> point_and_h[0][1] >> point_and_h[0][2];
             sin.clear();
             temp_str = point2.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -253,8 +238,7 @@ int main(int argc, char *argv[])
             sin >> point_and_h[1][0] >> point_and_h[1][1] >> point_and_h[1][2];
             sin.clear();
             temp_str = point3.input_string;
-            for (auto &i : temp_str)
-            {
+            for (auto &i : temp_str) {
                 if (suit_the_condition(i))
                     i = L' ';
             }
@@ -277,18 +261,14 @@ int main(int argc, char *argv[])
 
     ExMessage sys_mes;
     gui_signal cur_mes, last_mes, res_mes;
-    for (;;)
-    {
+    for (;;) {
         getmessage(&sys_mes, EX_MOUSE | EX_KEY);
         message_push_back(sys_mes);
-        for (; !message_deque().empty(); last_mes = message_pop_front())
-        {
+        for (; !message_deque().empty(); last_mes = message_pop_front()) {
             cur_mes = message_pop_front(true);
-            if (cur_mes.make_sence)
-            {
+            if (cur_mes.make_sence) {
                 auto &&fun_use = system_fun_reg(1);
-                for (; fun_use.first != fun_use.second; fun_use.first++)
-                {
+                for (; fun_use.first != fun_use.second; fun_use.first++) {
                     res_mes = fun_use.first->second(cur_mes);
                     if (res_mes.make_sence)
                         message_push_back(res_mes);
@@ -296,16 +276,14 @@ int main(int argc, char *argv[])
                 }
             }
             /*additional 2*/
-            if (cur_mes.sign.source == switch1.send_message_context_down.sign.source)
-            {
+            if (cur_mes.sign.source == switch1.send_message_context_down.sign.source) {
                 mode_swit++;
                 if (mode_swit > 2)
                     mode_swit = 0;
                 switch1.change_text(mode_mes[mode_swit]);
                 clears[2].change_text(mode_mes1[mode_swit]);
             }
-            if (cur_mes.sign.source == switch2.send_message_context_down.sign.source)
-            {
+            if (cur_mes.sign.source == switch2.send_message_context_down.sign.source) {
                 game_mode = !game_mode;
                 switch2.change_text(mode_mes2[game_mode]);
                 if (game_mode)
@@ -313,15 +291,13 @@ int main(int argc, char *argv[])
                 else
                     args[2][0] = 1165.0;
             }
-            if (cur_mes.sign.source == copy1.send_message_context_down.sign.source)
-            {
+            if (cur_mes.sign.source == copy1.send_message_context_down.sign.source) {
                 static int timess = 0;
                 HWND hwnd = NULL;
                 int i = 0;
                 HGLOBAL hG = GlobalAlloc(GHND, 4096);
                 wchar_t *p = (wchar_t *)GlobalLock(hG);
-                for (i = 0; i < command1.output_string.size(); i++)
-                {
+                for (i = 0; i < command1.output_string.size(); i++) {
                     p[i] = command1.output_string[i];
                 }
                 p[i] = 0;
@@ -331,14 +307,12 @@ int main(int argc, char *argv[])
                 SetClipboardData(CF_UNICODETEXT, hG);
                 CloseClipboard();
                 GlobalFree(hG);
-                if (timess)
-                {
+                if (timess) {
                     HWND hwnd = NULL;
                     int i = 0;
                     HGLOBAL hG = GlobalAlloc(GHND, 4096);
                     wchar_t *p = (wchar_t *)GlobalLock(hG);
-                    for (i = 0; i < command1.output_string.size(); i++)
-                    {
+                    for (i = 0; i < command1.output_string.size(); i++) {
                         p[i] = command1.output_string[i];
                     }
                     p[i] = 0;

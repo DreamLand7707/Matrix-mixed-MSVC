@@ -35,8 +35,7 @@ namespace matr
 {
     extern drl::matrix empty_paramatr;
     extern drl::matrix empty_paramatr_1165;
-    class paramatr : public drl::matrix
-    {
+    class paramatr : public drl::matrix {
      private:
         _TSTRING name;
         _TSTRING path = def_path;

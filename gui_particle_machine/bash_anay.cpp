@@ -42,15 +42,13 @@ namespace drl
         std::map<_TSTRING, matr::paramatr> args_temp;
         double game_ver = 1165;
     } // namespace bash1
-    void bash_analyse_begin(const _TSTRING &source_file_path, const _TSTRING &target_file_path)
-    {
+    void bash_analyse_begin(const _TSTRING &source_file_path, const _TSTRING &target_file_path) {
         using namespace std;
         using namespace filesystem;
         bash1::args_temp.clear();
         filesystem::path path_source(source_file_path),
             path_target(filesystem::current_path() / (bash1::path_after + _T("1.txt")));
-        for (auto i : path(bash1::path_after))
-        {
+        for (auto i : path(bash1::path_after)) {
             static decltype(i) full(_T(""));
             full /= i;
             create_directory(full);
@@ -58,8 +56,7 @@ namespace drl
         copy_file(path_source, path_target);
         bash_anaylse_main(source_file_path, target_file_path, bash_module_devide(source_file_path));
     }
-    const std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> &bash_module_devide(const _TSTRING &source_file_path)
-    {
+    const std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> &bash_module_devide(const _TSTRING &source_file_path) {
         using std::getline;
         static std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> res;
         static _TIFSTREAM fin;
@@ -81,15 +78,12 @@ namespace drl
         fin.open(source_file_path, std::ios::in);
         last_pos = fin.tellg();
 
-        for (getline(fin, strt1); fin; getline(fin, strt1))
-        {
-            if (std::regex_match(strt1, match, use))
-            {
+        for (getline(fin, strt1); fin; getline(fin, strt1)) {
+            if (std::regex_match(strt1, match, use)) {
                 t = find_mode(match[0]);
                 if (t == -1)
                     throw std::invalid_argument(std::string("Line ") + std::to_string(p) + std::string(":WRONG MODULE MODE!"));
-                if (res.size())
-                {
+                if (res.size()) {
                     std::get<2>(res.back()) = p;
                     p = 0;
                 }
@@ -103,11 +97,9 @@ namespace drl
         return res;
     }
     int bash_anaylse_main(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
-                          const std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> &main_mess)
-    {
+                          const std::vector<std::tuple<size_t, _TSTREAMPOS, size_t>> &main_mess) {
         int res = 0;
-        for (auto i : main_mess)
-        {
+        for (auto i : main_mess) {
             res += bash1::module_function_map[std::get<0>(i)](source_file_path, target_file_path, i);
         }
         return res;
@@ -124,8 +116,7 @@ namespace drl
         粒子寿命             发光              是否瞬间生成           模式(colorblock:0,文件:1,混合:2)
     */
     int bash_particle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
-                      const std::tuple<size_t, _TSTREAMPOS, size_t> &mess)
-    {
+                      const std::tuple<size_t, _TSTREAMPOS, size_t> &mess) {
         static _TIFSTREAM fin;
         static _TOFSTREAM fout;
         _TSTRING tstr1;
@@ -141,8 +132,7 @@ namespace drl
         fin.open(source_file_path);
         fin.seekg(std::get<1>(mess));
         _TSTRINGSTREAM &ssin = public_tstream();
-        for (size_t i = 0; i < std::get<2>(mess); i++)
-        {
+        for (size_t i = 0; i < std::get<2>(mess); i++) {
             std::getline(fin, tstr1);
             ssin.clear();
             ssin.str(tstr1);
@@ -153,22 +143,18 @@ namespace drl
         fout.close();
     }
     int bash_tickparticle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
-                          const std::tuple<size_t, _TSTREAMPOS, size_t> &mess)
-    {
+                          const std::tuple<size_t, _TSTREAMPOS, size_t> &mess) {
         ;
     }
     int bash_musicparticle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
-                           const std::tuple<size_t, _TSTREAMPOS, size_t> &mess)
-    {
+                           const std::tuple<size_t, _TSTREAMPOS, size_t> &mess) {
         ;
     }
     int bash_tickmusicparticle(const _TSTRING &source_file_path, const _TSTRING &target_file_path,
-                               const std::tuple<size_t, _TSTREAMPOS, size_t> &mess)
-    {
+                               const std::tuple<size_t, _TSTREAMPOS, size_t> &mess) {
         ;
     }
-    int default_arg_set(const _TSTRING &line, matr::paramatr &args, int line_code)
-    {
+    int default_arg_set(const _TSTRING &line, matr::paramatr &args, int line_code) {
         _TSTRING temp1, temp2(line);
         for (auto i : bash1::bash_part_arg)
             temp1 += (i + _T("|"));
@@ -185,27 +171,22 @@ namespace drl
         _TSMATCH match;
         regex_match(temp2, match, divide0);
         temp2 = match[1];
-        for (int i = 0; regex_match(temp2, match, divide1); i++)
-        {
+        for (int i = 0; regex_match(temp2, match, divide1); i++) {
             temp1 = match[1];
             temp2 = match[2];
             if (i == 0 && regex_match(temp1, module_head))
-                if (regex_search(temp2, match, judge1))
-                {
+                if (regex_search(temp2, match, judge1)) {
                     regex_match(temp2, match, divide2);
-                    try
-                    {
+                    try {
                         args = bash1::args_temp.at(match[1]);
                     }
-                    catch (...)
-                    {
+                    catch (...) {
                         throw std::invalid_argument("WRONG LABEL\n");
                     }
                 }
                 else
                     continue;
-            else if (regex_match(temp1, match, arg))
-            {
+            else if (regex_match(temp1, match, arg)) {
 
                 regex_match(temp2, match, divide2);
                 temp2 = match[1];
@@ -224,28 +205,23 @@ namespace drl
                     ^life(d)             light(i)          instant(b)         mode(i) ?
                     粒子寿命             发光              是否瞬间生成           模式(colorblock:0,文件:1,混合:2)
                 */
-                if (temp1 == _T("RGBA"))
-                {
+                if (temp1 == _T("RGBA")) {
                     args[2][1] = stod(*(ber++));
                     args[2][2] = stod(*(ber++));
                     args[2][3] = stod(*(ber++));
                 }
-                if (temp1 == _T("TSE"))
-                {
+                if (temp1 == _T("TSE")) {
                     args[0][0] = stod(*(ber++));
                     args[0][1] = stod(*(ber++));
                 }
-                if (temp1 == _T("DC"))
-                {
+                if (temp1 == _T("DC")) {
                     args[0][2] = stod(*(ber++));
                     args[0][3] = stod(*(ber++));
                 }
-                if (temp1 == _T("AGE"))
-                {
+                if (temp1 == _T("AGE")) {
                     args[3][0] = stod(*(ber++));
                 }
-                if (temp1 == _T("NAME"))
-                {
+                if (temp1 == _T("NAME")) {
                     args.parname((*(ber++)).str().c_str());
                 }
             }
@@ -255,44 +231,36 @@ namespace drl
         return 1;
     }
     double command_sentence(const _TSTRING &command, double &last_time, const _TSTRING &file, const matr::paramatr &args,
-                            int line)
-    {
+                            int line) {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
         _TSMATCH match;
         _TSTRING tstr;
         double res;
         regex_match(command, match, divide0);
-        if (match[1] == _T("{"))
-        {
+        if (match[1] == _T("{")) {
             // 进入并行处理
             return -1;
         }
-        else if (match[1] == _T("}"))
-        {
+        else if (match[1] == _T("}")) {
             // 跳出并行处理
             return -2;
         }
-        else
-        {
+        else {
             // 正常处理
             tstr = match[1];
             _TREGEX judge1(_T(R"((?:\s*(@([0-9]*))\s+)?)") + _TSTRING(_T("(")) + regex_par_name() + _T(")") +
                            _T(R"((?:\s+(@([0-9]*))\s*)?)"));
             _TSMATCH match_t;
             regex_search(tstr, match_t, judge1);
-            if (match_t[1].str().size())
-            {
-                if (match_t[2].str().size())
-                {
+            if (match_t[1].str().size()) {
+                if (match_t[2].str().size()) {
                     res = stoi(match_t[2].str());
                 }
                 else
                     res = 0;
             }
-            else if (match_t[4].str().size())
-            {
-                if (match_t[5].str().size())
-                {
+            else if (match_t[4].str().size()) {
+                if (match_t[5].str().size()) {
                     res = last_time + stoi(match_t[5].str());
                 }
                 else
@@ -302,20 +270,17 @@ namespace drl
                 res = last_time;
 
             tstr = match_t.suffix();
-            try
-            {
+            try {
                 last_time = bash1::particle_function_map.at(match_t[3])(file, command, args, line);
             }
-            catch (...)
-            {
+            catch (...) {
                 throw std::invalid_argument("WRONG PARTICLE\n");
             }
 
             return res;
         }
     }
-    double linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line)
-    {
+    double linear_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line) {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
         _TREGEX judge1(_T(R"(^(?:[\d.]+\s*?\b){6}\s+([^\d.]+:.+|$))"));
         _TSTRING tstr;
@@ -324,8 +289,7 @@ namespace drl
         tstr = match[1];
         matr::paramatr argst(args);
         drl::matrix points(3, 3);
-        if (regex_search(tstr, match, judge1))
-        {
+        if (regex_search(tstr, match, judge1)) {
             tstr = match[1];
             _TSTRINGSTREAM &ssin = public_tstream(tstr);
             for (int i = 0; i < 2; i++)
@@ -340,8 +304,7 @@ namespace drl
         O_partmatr outmatr(points, argst);
         return (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
     }
-    double dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line)
-    {
+    double dparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line) {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
         _TSTRING tstr;
         _TSMATCH match;
@@ -354,8 +317,7 @@ namespace drl
         O_partmatr outmatr(points, argst);
         return (argst[0][1] - argst[0][0]) / (argst[0][2] * argst[0][3]);
     }
-    double tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line)
-    {
+    double tparab_anay(const _TSTRING &file, const _TSTRING &command, const matr::paramatr &args, int &line) {
         _TREGEX divide0(_T(R"(^\s*(.*?)\s*$)")); // 去前后连续空白字符，均可
         _TSTRING tstr;
         _TSMATCH match;

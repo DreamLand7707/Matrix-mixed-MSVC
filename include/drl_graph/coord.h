@@ -57,19 +57,16 @@ namespace drl // 线性运算主要部分
     namespace plot2_messages // 样式类定义
     {
 #pragma region // graphstyle_s
-        class graphstyle_s
-        {
+        class graphstyle_s {
          public:
-            enum class linestyle_
-            {
+            enum class linestyle_ {
                 SOLID = PS_SOLID,
                 DASH = PS_DASH,
                 DOT = PS_DOT,
                 DASHDOT = PS_DASHDOT,
                 DASHDOTDOT = PS_DASHDOTDOT
             };
-            enum class pointstyle_
-            {
+            enum class pointstyle_ {
                 SOLID = 0,
                 SQUARE = 1,
                 TRIA = 2,
@@ -231,8 +228,7 @@ namespace drl // 线性运算主要部分
         };
 #pragma endregion
 #pragma region // range_para
-        class range_para
-        {
+        class range_para {
          public:
             std::pair<double, double> x_minmax;
             std::pair<double, double> y_minmax;
@@ -261,8 +257,7 @@ namespace drl // 线性运算主要部分
         };
 #pragma endregion
 #pragma region // act_para
-        class act_para
-        {
+        class act_para {
          public:
             bool title;        // 启用标题？
             bool axis;         // 启用坐标轴？
@@ -314,8 +309,7 @@ namespace drl // 线性运算主要部分
         };
 #pragma endregion
 #pragma region // image_message
-        class image_message
-        {
+        class image_message {
          public:
             _TSTRING x_mess;
             _TSTRING y_mess;

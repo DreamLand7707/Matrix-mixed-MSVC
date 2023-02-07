@@ -7,8 +7,7 @@ namespace drl_casio
     long double factorial(long double x);
     short do_command(const std::string &command);
     long double calculate(const std::string &message, size_t k = 0, size_t y = 0);
-    struct value_exp
-    {
+    struct value_exp {
         size_t pos;
         size_t stack_pos_l;
         size_t stack_pos_r;

@@ -9,8 +9,7 @@
 namespace drl
 {
     template <class T>
-    class binary_tree_base
-    {
+    class binary_tree_base {
      public:
         using value_type = T;
         using size_type = size_t;
@@ -37,8 +36,7 @@ namespace drl
 
 
     template <class T>
-    class array_binary_tree : public binary_tree_base<T>
-    {
+    class array_binary_tree : public binary_tree_base<T> {
      public:
         using iterator = typename binary_tree_base<T>::pointer;
         using const_iterator = const typename binary_tree_base<T>::pointer;
@@ -111,8 +109,7 @@ namespace drl
     };
 
     template <class T>
-    class tree_node
-    {
+    class tree_node {
      public:
         tree_node<T> *left;
         tree_node<T> *right;
@@ -130,8 +127,7 @@ namespace drl
     };
 
     template <class T>
-    class linked_binary_tree : public binary_tree_base<tree_node<T>>
-    {
+    class linked_binary_tree : public binary_tree_base<tree_node<T>> {
      public:
         using size_type = typename binary_tree_base<tree_node<T>>::size_type;
         using value_type = typename binary_tree_base<tree_node<T>>::value_type;

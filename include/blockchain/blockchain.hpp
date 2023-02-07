@@ -13,8 +13,7 @@
 #define BLOCKCHAIN
 
 struct tran;
-struct block
-{
+struct block {
     int blockID;
     std::string hash;
     std::string prevhash;
@@ -23,8 +22,7 @@ struct block
     std::map<std::string, double> the_rich; // 在进行交易初始化的时候直接生成富豪榜
 };
 
-struct tran
-{
+struct tran {
     long int txID;
     int blockID;
     std::string addr_in; // 出钱一方
@@ -32,8 +30,7 @@ struct tran
     std::string addr_out; // 得钱一方
 };
 
-struct adminer
-{
+struct adminer {
     std::vector<tran *> as_in;
     std::vector<tran *> as_out;
     bool t[8]{};

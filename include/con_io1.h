@@ -4,8 +4,7 @@
 #define _LENGTH 50
 #include <cstdio>
 #include <cstring>
-typedef struct Console_Text
-{
+typedef struct Console_Text {
     bool active[_COUNT];        // 该行是否激活
     bool new_line[_COUNT];      // 是否需要换行
     char text[_COUNT][_LENGTH]; // 文本串

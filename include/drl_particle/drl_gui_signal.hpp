@@ -35,16 +35,13 @@ namespace drl
     template <class T, class U>
     concept can_print = requires(T t, U u) { _TCOUT << t << u; };
 #endif
-    class gui_signal
-    {
+    class gui_signal {
      public:
-        enum mess_base
-        {
+        enum mess_base {
             system_message = 0,
             effect_message = 1
         };
-        struct signal_t
-        {
+        struct signal_t {
             ExMessage sys_mes;
             label_num_type mess_type;
             label_str_type source;

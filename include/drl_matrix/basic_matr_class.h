@@ -14,8 +14,7 @@ namespace matr
     extern drl::matrix Empty;
 } // namespace matr
 
-enum class matr_tag
-{
+enum class matr_tag {
     T,    //? 转置
     P,    //? 逆矩阵
     I,    //? 单位矩阵
@@ -33,8 +32,7 @@ enum class matr_tag
 #include "basic_matr_tag.h"
 namespace drl
 {
-    class matrix
-    {
+    class matrix {
      private:
         typedef drl::matrix mat;
 

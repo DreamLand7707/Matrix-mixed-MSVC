@@ -18,8 +18,7 @@ typedef O_partmatr Omatr;
 
 */
 
-class strmatr : public _TSTRING, public matr::paramatr
-{
+class strmatr : public _TSTRING, public matr::paramatr {
  private:
     //?
  public:
@@ -53,8 +52,7 @@ class strmatr : public _TSTRING, public matr::paramatr
 
 namespace matr
 {
-    class matrix_temp : public drl::matrix
-    {
+    class matrix_temp : public drl::matrix {
      public:
         matrix_temp(const matrix &ma)
             : matrix(ma){};
@@ -71,8 +69,7 @@ namespace matr
     };
 } // namespace matr
 
-class O_partmatr : private matr::matrix_temp, private matr::paramatr
-{
+class O_partmatr : private matr::matrix_temp, private matr::paramatr {
  private:
     static const drl::matrix I_2;
     // int add_counts = 1;
