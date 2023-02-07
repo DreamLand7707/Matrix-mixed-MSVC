@@ -65,15 +65,13 @@ namespace drl
               sign({}),
               make_sence(false),
               mess_type_use(false),
-              target_use(false)
-        {}
+              target_use(false) {}
         gui_signal(ExMessage sys_mes_, label_str_type source_,
                    label_num_type mess_type_ = label_num_type(), label_str_type target_ = label_str_type(),
                    bool mess_type_use_ = true, bool target_use_ = false)
             : make_sence(true),
               mess_type_use(mess_type_use_),
-              target_use(target_use_)
-        {
+              target_use(target_use_) {
             sign.sys_mes = sys_mes_;
             sign.mess_type = mess_type_;
             sign.source = source_;
@@ -85,8 +83,7 @@ namespace drl
                    bool mess_type_use_ = true, bool target_use_ = false)
             : make_sence(true),
               mess_type_use(mess_type_use_),
-              target_use(target_use_)
-        {
+              target_use(target_use_) {
             sign.mess_type = mess_type_;
             sign.source = source_;
             sign.target = target_;
@@ -95,8 +92,7 @@ namespace drl
         gui_signal(ExMessage sys_mes_)
             : make_sence(true),
               mess_type_use(false),
-              target_use(false)
-        {
+              target_use(false) {
             sign.sys_mes = sys_mes_;
             sign.mess_type = 0;
             sign.source = system_message_label;
@@ -107,64 +103,51 @@ namespace drl
         gui_signal(gui_signal &&) = default;
         gui_signal &operator=(const gui_signal &) = default;
         gui_signal &operator=(gui_signal &&) = default;
-        int form() const
-        {
+        int form() const {
             return kind;
         }
-        const ExMessage &sys() const
-        {
+        const ExMessage &sys() const {
             return sign.sys_mes;
         }
-        const label_str_type &source() const
-        {
+        const label_str_type &source() const {
             return sign.source;
         }
-        const label_num_type &mes_type() const
-        {
+        const label_num_type &mes_type() const {
             return sign.mess_type;
         }
-        const label_str_type &target() const
-        {
+        const label_str_type &target() const {
             return sign.target;
         }
-        void clear(bool all = false)
-        {
+        void clear(bool all = false) {
             mess_type_use = false;
             target_use = false;
-            if (all)
-            {
+            if (all) {
                 sign.mess_type = label_num_type();
                 sign.target = label_str_type();
             }
         }
-        gui_signal &add_source_word(const _TSTRING &word)
-        {
+        gui_signal &add_source_word(const _TSTRING &word) {
             sign.source += (_T(" ") + word);
             return *this;
         }
-        gui_signal &del_fin_source_word(_TSTRING &deld)
-        {
+        gui_signal &del_fin_source_word(_TSTRING &deld) {
             auto c = sign.source.find_last_of(_T(' '));
-            if (c != _TSTRING::npos)
-            {
+            if (c != _TSTRING::npos) {
                 deld.assign(sign.source, c);
                 sign.source.erase(sign.source.find_last_of(_T(' ')), _TSTRING::npos);
             }
-            else
-            {
+            else {
                 deld.assign(_T(""));
             }
             return *this;
         }
-        _TSTRING exac_word(unsigned long long num) const
-        {
+        _TSTRING exac_word(unsigned long long num) const {
             num = num + 1;
             _TSTRING rec = _T("");
             unsigned long long temp1 = 0;
             _TSTRING::size_type l = 0;
             _TSTRING::size_type temp2 = _TSTRING::npos, temp3 = _TSTRING::npos;
-            for (; l < sign.source.size(); l++)
-            {
+            for (; l < sign.source.size(); l++) {
                 if (temp1 == num - 1 && temp2 == _TSTRING::npos)
                     temp2 = l;
                 if (temp1 == num && temp3 == _TSTRING::npos)
@@ -172,29 +155,25 @@ namespace drl
                 if (sign.source[l] == _T(' '))
                     temp1++;
             }
-            if (temp2 != _TSTRING::npos)
-            {
+            if (temp2 != _TSTRING::npos) {
                 rec.assign(sign.source, temp2, temp3 - temp2 - 1);
             }
 
             return rec;
         }
-        _TSTRING exac_fin_word() const
-        {
+        _TSTRING exac_fin_word() const {
             _TSTRING::size_type x = sign.source.find_last_of(_T(' '));
             if (x == _TSTRING::npos)
                 return _TSTRING(sign.source, 0);
             return _TSTRING(sign.source, x + 1);
         }
-        _TSTRING exac_word(unsigned long long l, unsigned long long r) const
-        {
+        _TSTRING exac_word(unsigned long long l, unsigned long long r) const {
             l = l + 1;
             r = r + 1;
             _TSTRING rec;
             _TSTRING temp;
             rec = exac_word(l - 1);
-            for (auto i = l + 1; i <= r; i++)
-            {
+            for (auto i = l + 1; i <= r; i++) {
                 temp = exac_word(i - 1);
                 if (temp.size())
                     rec += (_T(" ") + temp);
@@ -213,18 +192,15 @@ namespace drl
     gui_signal message_pop_back(bool save = false) noexcept;
     gui_signal message_pop_front(bool save = false) noexcept;
 
-    inline std::multimap<size_t, std::function<gui_signal(gui_signal)>> &system_fun_reg(void)
-    {
+    inline std::multimap<size_t, std::function<gui_signal(gui_signal)>> &system_fun_reg(void) {
         static std::multimap<size_t, std::function<gui_signal(gui_signal)>> func_ta;
         return func_ta;
     }
     inline void system_fun_reg(const std::function<bool(gui_signal)> &lhs,
-                               const std::function<gui_signal(gui_signal)> &rhs, size_t pt)
-    {
+                               const std::function<gui_signal(gui_signal)> &rhs, size_t pt) {
         auto c = [=](gui_signal p) -> gui_signal
         {
-            if (lhs(p))
-            {
+            if (lhs(p)) {
                 return rhs(p);
             }
             else

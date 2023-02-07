@@ -25,13 +25,13 @@ BreakBeforeBraces: Custom
 
 # 大括号换行，只有当BreakBeforeBraces设置为Custom时才有效，设置其他配置则下面不生效
 BraceWrapping:
-  AfterCaseLabel: true
+  AfterCaseLabel: false
   AfterClass: true
-  AfterControlStatement: Always
+  AfterControlStatement: Never
   AfterEnum: true
-  AfterFunction: true
+  AfterFunction: false
   AfterNamespace: true
-  AfterObjCDeclaration: true
+  AfterObjCDeclaration: false
   AfterStruct: true
   AfterUnion: true
   AfterExternBlock: true

@@ -38,14 +38,13 @@
 同时接受一个int值作为最大字符数，注意传入的字符数包含了空字符
 返回一个char*类型的值，该值指向传入的字符串
 */
-static inline char *s_gets(char *c, int a)   // 安全字符串输入函数 No.D2022416
+static inline char *s_gets(char *c, int a) // 安全字符串输入函数 No.D2022416
 {
     // 使用fgets作为内置函数，所以声明了stdio.h
     int i = 0;
     char *k = NULL;
     k = fgets(c, a, stdin);
-    if (k)
-    {
+    if (k) {
         while (c[i] != '\n' && c[i] != '\0')
             i++;
         if (c[i] == '\n')
@@ -61,7 +60,7 @@ static inline char *s_gets(char *c, int a)   // 安全字符串输入函数 No.D
 用于控制控制台光标位置。接受两个参数，x和y，调用之后
 将控制台光标置于xy指定的位置
 */
-inline void gotoxy(int x, int y)   // 控制台光标控制函数 NO.D2022420
+inline void gotoxy(int x, int y) // 控制台光标控制函数 NO.D2022420
 {
     HANDLE handle = GetStdHandle(STD_OUTPUT_HANDLE);
     COORD pos;
@@ -76,12 +75,10 @@ inline void gotoxy(int x, int y)   // 控制台光标控制函数 NO.D2022420
 ! 用count来确定后面跟的点的个数，这个个数代表着延迟的秒数 NO.D2022420
 ! DrL:已经使用宏定义LOAD(X)，可以直接代替loading
 */
-inline void loading(int count)
-{
+inline void loading(int count) {
     printf("Loading");
     int i = 0;
-    for (; i < count; i++)
-    {
+    for (; i < count; i++) {
         putchar('.');
         Sleep(1000);
     }
@@ -93,8 +90,7 @@ inline void loading(int count)
 ? 进入标志为T_START,出口标志为T_END
 ! 若只有T_END，则自动将程序入点当作T_START位置 NO.D2022508
 */
-inline clock_t t_time(void)
-{
+inline clock_t t_time(void) {
     return clock();
 }
 
@@ -109,8 +105,7 @@ static clock_t _error_t = 0;
            (double)(_end_t - _start_t) / (double)CLOCKS_PER_SEC)
 
 /*暂停函数*/
-inline void pause(void)
-{
+inline void pause(void) {
     char c;
     while ((c = _getch()) != 113)
         continue;
@@ -118,8 +113,7 @@ inline void pause(void)
 #define _PAUSE_S pause()
 
 /*最大公因数*/
-inline long long gcd(long long a, long long b)
-{
+inline long long gcd(long long a, long long b) {
     return b != 0 ? gcd(b, a % b) : a;
 }
 #endif

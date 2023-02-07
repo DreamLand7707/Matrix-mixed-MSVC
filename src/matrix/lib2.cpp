@@ -29,10 +29,8 @@ namespace O_str
 
 namespace
 {
-    matrix solved(matrix A, double x = 1, double y = 1, double z = 0)
-    {
-        while (A.size(2) > 1)
-        {
+    matrix solved(matrix A, double x = 1, double y = 1, double z = 0) {
+        while (A.size(2) > 1) {
             A.rsim(0, A.size(2) - 1, x, y, z, true);
             A.rdel(0);
         }
@@ -40,17 +38,13 @@ namespace
     }
 } // namespace
 
-strmatr const Omatr::linear(void)
-{
+strmatr const Omatr::linear(void) {
     if (!(_POINTS.size(1) >= 2 && _POINTS.size(2) >= 3))
         return O_str::WRONG;
-    switch ((int)(_PARAS[3][3]))
-    {
-    case 0:
-    { //? 即colorblock模式
+    switch ((int)(_PARAS[3][3])) {
+    case 0: { //? 即colorblock模式
         int b = (int)(_PARAS[2][0]);
-        if (b == 1122)
-        {
+        if (b == 1122) {
             //? 行只选前两行的前三个数字
             ::matrix left(2, 3), right(2, 2, 1.0);
 
@@ -94,8 +88,7 @@ strmatr const Omatr::linear(void)
             return stma;
             //
         }
-        else if (b == 1165)
-        {
+        else if (b == 1165) {
             //? 行只选前两行的前三个数字
             ::matrix left(2, 3), right(2, 2, 1.0);
 
@@ -142,8 +135,7 @@ strmatr const Omatr::linear(void)
             return O_str::WRONG;
     }
     case 1:
-    case 2:
-    {
+    case 2: {
         return O_str::WRONG;
     }
     default:
@@ -151,17 +143,13 @@ strmatr const Omatr::linear(void)
     }
 }
 
-strmatr const Omatr::quadhet(double y, int mode)
-{
+strmatr const Omatr::quadhet(double y, int mode) {
     if (!(_POINTS.size(1) >= 2 && _POINTS.size(2) >= 3))
         return O_str::WRONG;
-    switch ((int)(_PARAS[3][3]))
-    {
-    case 0:
-    { //? 即colorblock模式
+    switch ((int)(_PARAS[3][3])) {
+    case 0: { //? 即colorblock模式
         int b = (int)(_PARAS[2][0]);
-        if (b == 1122)
-        {
+        if (b == 1122) {
             // mode=1为x抛物线 mode=2为y抛物线 mode=3为z抛物线
             if (mode < 0)
                 mode = 0;
@@ -174,11 +162,9 @@ strmatr const Omatr::quadhet(double y, int mode)
             double x = (_POINTS[0][mode] + _POINTS[1][mode]) / 2 - y;
             // mode切换
             ::matrix funs[3];
-            for (int i = 0; i < 3; i++)
-            {
+            for (int i = 0; i < 3; i++) {
                 ::matrix left(2, 1), right(2, 2);
-                if (i == mode)
-                {
+                if (i == mode) {
                     left[0][0] = _POINTS[0][i] - x;
                     left[1][0] = _POINTS[1][i] - x;
                     right[0][0] = _PARAS[0][0] * _PARAS[0][0];
@@ -194,8 +180,7 @@ strmatr const Omatr::quadhet(double y, int mode)
                     funs[i].rsim(0, 1, x, true);
                     funs[i].rdel(0);
                 }
-                else
-                {
+                else {
                     left[0][0] = _POINTS[0][i];
                     left[1][0] = _POINTS[1][i];
                     right[0][0] = _PARAS[0][0];
@@ -230,8 +215,7 @@ strmatr const Omatr::quadhet(double y, int mode)
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[3][1], _PARAS[0][1],
                     _PARAS[0][0]);
             TCHAR c;
-            for (int i = 0; i < 3; i++)
-            {
+            for (int i = 0; i < 3; i++) {
                 {
                     if (i == 0)
                         c = 'x';
@@ -240,13 +224,11 @@ strmatr const Omatr::quadhet(double y, int mode)
                     else
                         c = 'z';
                 }
-                if (i == mode)
-                {
+                if (i == mode) {
                     _stprintf(_str + ::wcslen(_str), _T("%c=%.3f*t^2+%.3f*t+%.3f"), c,
                               funs[i][0][0], funs[i][1][0], x);
                 }
-                else
-                {
+                else {
                     _stprintf(_str + ::wcslen(_str), _T("%c=%.3f*t+%.3f"), c,
                               funs[i][0][0], funs[i][1][0]);
                 }
@@ -261,8 +243,7 @@ strmatr const Omatr::quadhet(double y, int mode)
             strmatr stma(_str, (paramatr &)(*this));
             return stma;
         }
-        else if (b == 1165)
-        {
+        else if (b == 1165) {
             // mode=1为x抛物线 mode=2为y抛物线 mode=3为z抛物线
             if (mode < 0)
                 mode = 0;
@@ -275,11 +256,9 @@ strmatr const Omatr::quadhet(double y, int mode)
             double x = (_POINTS[0][mode] + _POINTS[1][mode]) / 2 - y;
             // mode切换
             ::matrix funs[3];
-            for (int i = 0; i < 3; i++)
-            {
+            for (int i = 0; i < 3; i++) {
                 ::matrix left(2, 1), right(2, 2);
-                if (i == mode)
-                {
+                if (i == mode) {
                     left[0][0] = _POINTS[0][i] - x;
                     left[1][0] = _POINTS[1][i] - x;
                     right[0][0] = _PARAS[0][0] * _PARAS[0][0];
@@ -295,8 +274,7 @@ strmatr const Omatr::quadhet(double y, int mode)
                     funs[i].rsim(0, 1, x, true);
                     funs[i].rdel(0);
                 }
-                else
-                {
+                else {
                     left[0][0] = _POINTS[0][i];
                     left[1][0] = _POINTS[1][i];
                     right[0][0] = _PARAS[0][0];
@@ -330,8 +308,7 @@ strmatr const Omatr::quadhet(double y, int mode)
                     _PARAS[2][2], _PARAS[2][3], 1.0, _PARAS[0][1],
                     _PARAS[0][0]);
             TCHAR c;
-            for (int i = 0; i < 3; i++)
-            {
+            for (int i = 0; i < 3; i++) {
                 {
                     if (i == 0)
                         c = 'x';
@@ -342,13 +319,11 @@ strmatr const Omatr::quadhet(double y, int mode)
                 }
                 if (i == 0)
                     _stprintf(_str + ::wcslen(_str), _T("\""));
-                if (i == mode)
-                {
+                if (i == mode) {
                     _stprintf(_str + ::wcslen(_str), _T("%c= %.3f *t^2+ %.3f *t+ %.3f"), c,
                               funs[i][0][0], funs[i][1][0], x);
                 }
-                else
-                {
+                else {
                     _stprintf(_str + ::wcslen(_str), _T("%c= %.3f *t+ %.3f"), c,
                               funs[i][0][0], funs[i][1][0]);
                 }
@@ -363,14 +338,12 @@ strmatr const Omatr::quadhet(double y, int mode)
             strmatr stma(_str, (paramatr &)(*this));
             return stma;
         }
-        else
-        {
+        else {
             return O_str::WRONG;
         }
     }
     case 1:
-    case 2:
-    {
+    case 2: {
         return O_str::WRONG;
     }
     default:
@@ -378,18 +351,14 @@ strmatr const Omatr::quadhet(double y, int mode)
     }
 }
 
-strmatr const Omatr::quadthr(double dig, bool x)
-{
+strmatr const Omatr::quadthr(double dig, bool x) {
     using namespace std;
     if (!(_POINTS.size(1) >= 3 && _POINTS.size(2) >= 3))
         return O_str::WRONG;
-    switch ((int)(_PARAS[3][3]))
-    {
-    case 0:
-    { //? 即colorblock模式
+    switch ((int)(_PARAS[3][3])) {
+    case 0: { //? 即colorblock模式
         int b = (int)(_PARAS[2][0]);
-        if (b == 1122 || b == 1165)
-        {
+        if (b == 1122 || b == 1165) {
             if (fabs(((_POINTS[1][1] - _POINTS[0][1]) *
                       (_POINTS[2][0] - _POINTS[1][0])) -
                      ((_POINTS[2][1] - _POINTS[1][1]) *
@@ -417,8 +386,7 @@ strmatr const Omatr::quadthr(double dig, bool x)
             right.trans(2, 3, 0.0);
 
             for (int i = 0; i < 2; i++)
-                for (int j = 0; j < 3; j++)
-                {
+                for (int j = 0; j < 3; j++) {
                     if (i == 0)
                         right[i][j] = bas_z[j][0];
                     else
@@ -447,8 +415,7 @@ strmatr const Omatr::quadthr(double dig, bool x)
             right.trans(3, 2, 0.0);
 
             for (int i = 0; i < 2; i++)
-                for (int j = 0; j < 3; j++)
-                {
+                for (int j = 0; j < 3; j++) {
                     left[j][i] = _POINTS[i + 1][j] - _POINTS[0][j];
                     if (i == 0)
                         right[j][i] = bas_x[j][0];
@@ -542,8 +509,7 @@ strmatr const Omatr::quadthr(double dig, bool x)
             ans = xmima / right;
             ans = solved(ans);
 
-            if (b == 1122)
-            {
+            if (b == 1122) {
                 _stprintf(
                     _str,
                     _T("/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f %.f 0 0 0 %.3f %.3f x=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;y=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f;z=%f*(%f*t+%f)^2+%f*(%f*t+%f)+%f %f %.f %.f"),
@@ -557,8 +523,7 @@ strmatr const Omatr::quadthr(double dig, bool x)
                     ans[1][0], parafun_fin[2][2], _PARAS[0][3], _PARAS[0][2],
                     _PARAS[3][0]);
             }
-            else
-            {
+            else {
                 _stprintf(
                     _str,
                     _T("/particleex tickparameter %s 0 0 0 %.3f %.3f %.3f %.f 0 0 0 %.3f %.3f \"x= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f;y= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f;z= %f *( %f *t+ %f )^2+ %f *( %f *t+ %f )+ %f\" %f %.f %.f"),

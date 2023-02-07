@@ -3,8 +3,7 @@
 #include <iostream>
 #include <string>
 
-int main(void)
-{
+int main(void) {
     using namespace std;
     double color[4], pos[3], cpt, t1 = 0, r, pi = 3.1415926;
     string path;

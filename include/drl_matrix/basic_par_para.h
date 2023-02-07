@@ -54,13 +54,11 @@ namespace matr
         void parname(const TCHAR *name = _T(""));
         void pathname(const TCHAR *name = _T(""));
         void check(void);
-        const _TSTRING &par_name(void)
-        {
+        const _TSTRING &par_name(void) {
             return name;
         }
         using matrix::operator[];
-        inline int tail(void)
-        {
+        inline int tail(void) {
             double total;
             total =
                 ::ceil((matrix::operator[](0)[1] - matrix::operator[](0)[0]) /

@@ -29,12 +29,10 @@ using _TOSTRINGSTREAM = std::ostringstream;
 
 #pragma region // 类/函数定义部分
 
-inline long double operator""_R(long double x)
-{
+inline long double operator""_R(long double x) {
     return std::numbers::pi_v<long double> * x / 180.0l;
 }
-inline long double operator""_R(unsigned long long x)
-{
+inline long double operator""_R(unsigned long long x) {
     return std::numbers::pi_v<long double> * x / 180.0l;
 }
 
@@ -42,19 +40,16 @@ namespace drl // 线性运算主要部分
 {
 #pragma region // 对数倒数预定义函数
     template <class _x>
-    inline _x ln_d(_x x)
-    {
+    inline _x ln_d(_x x) {
         __cplusplus;
         return log(fabs(x)) / log(exp(1));
     }
     template <class _x>
-    inline _x pow_1_d(_x x)
-    {
+    inline _x pow_1_d(_x x) {
         return pow(x, -1);
     }
     template <class _x>
-    inline _x x_sta_d(_x x)
-    {
+    inline _x x_sta_d(_x x) {
         return x;
     }
     typedef unsigned short ushort;
@@ -231,8 +226,7 @@ namespace drl // 线性运算主要部分
                   line_ref_x_width(line_ref_x_width_),
                   line_ref_y_width(line_ref_Y_width),
                   ref_line_style_x(ref_line_style_x_),
-                  ref_line_style_y(ref_line_style_y_)
-            {
+                  ref_line_style_y(ref_line_style_y_) {
             }
         };
 #pragma endregion
@@ -262,8 +256,7 @@ namespace drl // 线性运算主要部分
                   x_ratio(x_ratio_),
                   y_ratio(y_ratio_),
                   pres(pres_),
-                  output(output_)
-            {
+                  output(output_) {
             }
         };
 #pragma endregion
@@ -316,8 +309,7 @@ namespace drl // 线性运算主要部分
                   polar(polard),
                   part_graph(part_graphd),
                   x_ref_line(x_ref),
-                  y_ref_line(y_ref)
-            {
+                  y_ref_line(y_ref) {
             }
         };
 #pragma endregion
@@ -328,8 +320,7 @@ namespace drl // 线性运算主要部分
             _TSTRING x_mess;
             _TSTRING y_mess;
             _TSTRING title;
-            image_message(const _TSTRING &x = _T("X"), const _TSTRING &y = _T("Y"), const _TSTRING &title_ = _T(""))
-            {
+            image_message(const _TSTRING &x = _T("X"), const _TSTRING &y = _T("Y"), const _TSTRING &title_ = _T("")) {
                 x_mess = x;
                 y_mess = y;
                 if (title_.size())
@@ -376,8 +367,7 @@ namespace drl // 线性运算主要部分
 
     {
 #pragma region // IMAGE控制
-        if (image)
-        {
+        if (image) {
             if (image->getwidth() > 25600)
                 image->Resize(25600, image->getheight());
             if (image->getheight() > 16000)
@@ -388,13 +378,11 @@ namespace drl // 线性运算主要部分
 #pragma region // 变量定义
 
         int window[2]{};
-        if (image)
-        {
+        if (image) {
             window[0] = (image->getwidth());
             window[1] = (image->getheight());
         }
-        else
-        {
+        else {
             window[0] = graph_style.width_window;
             window[1] = graph_style.height_window;
         }
@@ -418,13 +406,11 @@ namespace drl // 线性运算主要部分
         colors_before.push_back(getfillcolor());
         colors_before.push_back(getlinecolor());
         colors_before.push_back(gettextcolor());
-        if (act_paras_.clear_all && !ucover && !act_paras_.part_graph)
-        {
+        if (act_paras_.clear_all && !ucover && !act_paras_.part_graph) {
             setbkcolor(graph_style.bkcolor);
             cleardevice();
         }
-        else if (act_paras_.part_graph)
-        {
+        else if (act_paras_.part_graph) {
             double k = -graph_style.frame_width / 2.0;
             k = graph_style.frame_width / 2.0 + graph_style.pointsize;
             setbkcolor(graph_style.bkcolor);
@@ -438,8 +424,7 @@ namespace drl // 线性运算主要部分
 #pragma region // 开始绘图
         if (!image)
             BeginBatchDraw();
-        if (!ucover && !act_paras_.part_graph)
-        {
+        if (!ucover && !act_paras_.part_graph) {
             if (act_paras_.title) // 是否启用Titie？
             {
                 settextcolor(graph_style.colortitle);
@@ -462,10 +447,8 @@ namespace drl // 线性运算主要部分
                 outtextxy(text_points[0], text_points[1], messages.title.c_str());
             }
         }
-        if (!ucover)
-        {
-            if (act_paras_.axis)
-            {
+        if (!ucover) {
+            if (act_paras_.axis) {
                 if (act_paras_.x_ || act_paras_.y_ || act_paras_.x_num || act_paras_.y_num ||
                     act_paras_.x_ref_line || act_paras_.y_ref_line) // 是否启用坐标轴？
                 {
@@ -482,22 +465,16 @@ namespace drl // 线性运算主要部分
                     int width_of_num;
                     int height_of_num;
                     _TSTRING coordnum;
-                    if (act_paras_.x_ || act_paras_.x_num || act_paras_.x_ref_line)
-                    {
+                    if (act_paras_.x_ || act_paras_.x_num || act_paras_.x_ref_line) {
                         settextcolor(graph_style.colorxnum);
-                        for (unsigned int i = 0; i <= graph_style.num_of_x; i++)
-                        {
-                            if (act_paras_.x_)
-                            {
-                                if (i != 0 && i != graph_style.num_of_x)
-                                {
-                                    if (!act_paras_.x_main_scale || i % graph_style.x_scaleplace_density != 0)
-                                    {
+                        for (unsigned int i = 0; i <= graph_style.num_of_x; i++) {
+                            if (act_paras_.x_) {
+                                if (i != 0 && i != graph_style.num_of_x) {
+                                    if (!act_paras_.x_main_scale || i % graph_style.x_scaleplace_density != 0) {
                                         setlinestyle(int(graph_style.scale_line_style_x), graph_style.x_scaleplate_width);
                                         setlinecolor(graph_style.scaleplate_color);
                                     }
-                                    else
-                                    {
+                                    else {
                                         setlinestyle(int(graph_style.main_scale_line_style_x), graph_style.x_main_scaleplate_width);
                                         setlinecolor(graph_style.color_main_x_scaleplace);
                                     }
@@ -507,21 +484,17 @@ namespace drl // 线性运算主要部分
                                          posts[3] - graph_style.frame_width / 2);
                                 }
                             }
-                            if (act_paras_.x_num && !act_paras_.part_graph)
-                            {
-                                if (i % graph_style.xnum_density == 0 || i == graph_style.num_of_x)
-                                {
+                            if (act_paras_.x_num && !act_paras_.part_graph) {
+                                if (i % graph_style.xnum_density == 0 || i == graph_style.num_of_x) {
                                     double max, min, deltad;
-                                    if (range_.xdefaulted)
-                                    {
+                                    if (range_.xdefaulted) {
                                         max = (double)*(std::max_element(x.first, x.second));
                                         min = (double)*(std::min_element(x.first, x.second));
                                         double temp1 = max - min;
                                         max += temp1 * (range_.x_ratio - 1) / 2.0;
                                         min -= temp1 * (range_.x_ratio - 1) / 2.0;
                                     }
-                                    else
-                                    {
+                                    else {
                                         min = range_.x_minmax.first;
                                         max = range_.x_minmax.second;
                                         double temp1 = max - min;
@@ -546,23 +519,20 @@ namespace drl // 线性运算主要部分
                                 }
                             }
                         }
-                        if (act_paras_.x_ref_line)
-                        {
+                        if (act_paras_.x_ref_line) {
                             // setlinestyle(int(graph_style.ref_line_style_x), graph_style.scaleplate_width);
                             setlinecolor(graph_style.color_line_ref_x);
                             setlinestyle(int(graph_style.ref_line_style_x), graph_style.line_ref_x_width);
                             double x_min, x_max;
                             double x_ratio;
-                            if (range_.xdefaulted)
-                            {
+                            if (range_.xdefaulted) {
                                 x_max = (double)*(std::max_element(x.first, x.second));
                                 x_min = (double)*(std::min_element(x.first, x.second));
                                 double temp1 = x_max - x_min;
                                 x_max += temp1 * (range_.x_ratio - 1) / 2.0;
                                 x_min -= temp1 * (range_.x_ratio - 1) / 2.0;
                             }
-                            else
-                            {
+                            else {
                                 x_min = range_.x_minmax.first;
                                 x_max = range_.x_minmax.second;
                                 double temp1 = x_max - x_min;
@@ -578,22 +548,16 @@ namespace drl // 线性运算主要部分
                         }
                     }
                     // setlinestyle(int(graph_style.scale_line_style_y), graph_style.scaleplate_width);
-                    if (act_paras_.y_ || act_paras_.y_num || act_paras_.y_ref_line)
-                    {
+                    if (act_paras_.y_ || act_paras_.y_num || act_paras_.y_ref_line) {
                         settextcolor(graph_style.colorynum);
-                        for (unsigned int i = 0; i <= graph_style.num_of_y; i++)
-                        {
-                            if (act_paras_.y_)
-                            {
-                                if (i != 0 && i != graph_style.num_of_y)
-                                {
-                                    if (!act_paras_.y_main_scale || i % graph_style.y_scaleplace_density != 0)
-                                    {
+                        for (unsigned int i = 0; i <= graph_style.num_of_y; i++) {
+                            if (act_paras_.y_) {
+                                if (i != 0 && i != graph_style.num_of_y) {
+                                    if (!act_paras_.y_main_scale || i % graph_style.y_scaleplace_density != 0) {
                                         setlinestyle(int(graph_style.scale_line_style_y), graph_style.y_scaleplate_width);
                                         setlinecolor(graph_style.scaleplate_color);
                                     }
-                                    else
-                                    {
+                                    else {
                                         setlinestyle(int(graph_style.main_scale_line_style_y), graph_style.y_main_scaleplate_width);
                                         setlinecolor(graph_style.color_main_y_scaleplace);
                                     }
@@ -603,21 +567,17 @@ namespace drl // 线性运算主要部分
                                          (int)(window[1] * (0.2 + i * (0.9 - 0.2) / graph_style.num_of_y)));
                                 }
                             }
-                            if (act_paras_.y_num && !act_paras_.part_graph)
-                            {
-                                if (i % graph_style.ynum_density == 0 || i == graph_style.num_of_y)
-                                {
+                            if (act_paras_.y_num && !act_paras_.part_graph) {
+                                if (i % graph_style.ynum_density == 0 || i == graph_style.num_of_y) {
                                     double max, min, deltad;
-                                    if (range_.ydefaulted)
-                                    {
+                                    if (range_.ydefaulted) {
                                         max = (double)*(std::max_element(y.first, y.second));
                                         min = (double)*(std::min_element(y.first, y.second));
                                         double temp1 = max - min;
                                         max += temp1 * (range_.y_ratio - 1) / 2.0;
                                         min -= temp1 * (range_.y_ratio - 1) / 2.0;
                                     }
-                                    else
-                                    {
+                                    else {
                                         min = range_.y_minmax.first;
                                         max = range_.y_minmax.second;
                                         double temp1 = max - min;
@@ -643,22 +603,19 @@ namespace drl // 线性运算主要部分
                                 }
                             }
                         }
-                        if (act_paras_.y_ref_line)
-                        {
+                        if (act_paras_.y_ref_line) {
                             setlinecolor(graph_style.color_line_ref_y);
                             setlinestyle(int(graph_style.ref_line_style_y), graph_style.line_ref_y_width);
                             double y_min, y_max;
                             double y_ratio;
-                            if (range_.ydefaulted)
-                            {
+                            if (range_.ydefaulted) {
                                 y_max = (double)*(std::max_element(y.first, y.second));
                                 y_min = (double)*(std::min_element(y.first, y.second));
                                 double temp1 = y_max - y_min;
                                 y_max += temp1 * (range_.y_ratio - 1) / 2.0;
                                 y_min -= temp1 * (range_.y_ratio - 1) / 2.0;
                             }
-                            else
-                            {
+                            else {
                                 y_min = range_.y_minmax.first;
                                 y_max = range_.y_minmax.second;
                                 double temp1 = y_max - y_min;
@@ -676,8 +633,7 @@ namespace drl // 线性运算主要部分
                     if ((act_paras_.mess_x || act_paras_.mess_y) && !act_paras_.part_graph) // 是否启用坐标轴信息？
                     {
                         int text_points[2]{};
-                        if (act_paras_.mess_y)
-                        {
+                        if (act_paras_.mess_y) {
                             settextcolor(graph_style.colorytext);
                             text_points[0] = static_cast<int>(window[1] * 0.08);
                             settextstyle(text_points[0], 0, graph_style.lougfont.c_str());
@@ -687,8 +643,7 @@ namespace drl // 线性运算主要部分
                             text_points[1] = static_cast<int>(window[1] * 0.12);
                             outtextxy(text_points[0], text_points[1], messages.y_mess.c_str());
                         }
-                        if (act_paras_.mess_x)
-                        {
+                        if (act_paras_.mess_x) {
                             settextstyle(int(window[1] * 0.1), 0, graph_style.lougfont.c_str());
                             for (int i = int(window[1] * 0.1) - 4;
                                  textwidth(messages.x_mess.c_str()) > window[0] * 0.08;
@@ -706,8 +661,7 @@ namespace drl // 线性运算主要部分
         }
         if (act_paras_.draw_line_ || act_paras_.point_) // 是否启用描点|画线？
         {
-            if (act_paras_.clip)
-            {
+            if (act_paras_.clip) {
                 double k = -graph_style.frame_width / 2.0;
                 if (act_paras_.clip_detail)
                     k = graph_style.frame_width / 2.0 + graph_style.pointsize;
@@ -720,32 +674,28 @@ namespace drl // 线性运算主要部分
             }
             double x_min, x_max, y_min, y_max;
             double x_ratio, y_ratio;
-            if (range_.xdefaulted)
-            {
+            if (range_.xdefaulted) {
                 x_max = (double)*(std::max_element(x.first, x.second));
                 x_min = (double)*(std::min_element(x.first, x.second));
                 double temp1 = x_max - x_min;
                 x_max += temp1 * (range_.x_ratio - 1) / 2.0;
                 x_min -= temp1 * (range_.x_ratio - 1) / 2.0;
             }
-            else
-            {
+            else {
                 x_min = range_.x_minmax.first;
                 x_max = range_.x_minmax.second;
                 double temp1 = x_max - x_min;
                 x_max += temp1 * (range_.x_ratio - 1) / 2.0;
                 x_min -= temp1 * (range_.x_ratio - 1) / 2.0;
             }
-            if (range_.ydefaulted)
-            {
+            if (range_.ydefaulted) {
                 y_max = (double)*(std::max_element(y.first, y.second));
                 y_min = (double)*(std::min_element(y.first, y.second));
                 double temp1 = y_max - y_min;
                 y_max += temp1 * (range_.y_ratio - 1) / 2.0;
                 y_min -= temp1 * (range_.y_ratio - 1) / 2.0;
             }
-            else
-            {
+            else {
                 y_min = range_.y_minmax.first;
                 y_max = range_.y_minmax.second;
                 double temp1 = y_max - y_min;
@@ -756,8 +706,7 @@ namespace drl // 线性运算主要部分
             y_ratio = (window[1] * 0.7) / (y_max - y_min);
             auto distan = x.second - x.first;
 
-            if (act_paras_.draw_line_)
-            {
+            if (act_paras_.draw_line_) {
                 setlinecolor(graph_style.linecolor);
                 setlinestyle((int)graph_style.linestyle, graph_style.linewidth);
                 for (int i = 1; i < distan; i++)
@@ -766,23 +715,18 @@ namespace drl // 线性运算主要部分
                          int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
                          int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2));
             }
-            if (act_paras_.point_)
-            {
+            if (act_paras_.point_) {
                 setfillcolor(graph_style.pointcolor);
-                for (int i = 0; i < distan; i++)
-                {
+                for (int i = 0; i < distan; i++) {
                     if (i % graph_style.point_density == 0 || i == distan - 1)
-                        switch (graph_style.pointstyle)
-                        {
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::SOLID:
-                        {
+                        switch (graph_style.pointstyle) {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::SOLID: {
                             solidcircle(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
                                         int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2),
                                         graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLE:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLE: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             circle(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -790,8 +734,7 @@ namespace drl // 线性运算主要部分
                                    graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIA:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIA: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             POINT s[3]{};
@@ -804,8 +747,7 @@ namespace drl // 线性运算主要部分
                             polygon(s, 3);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARE:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARE: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             rectangle(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -814,8 +756,7 @@ namespace drl // 线性运算主要部分
                                       int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2) + graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::CROSS:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::CROSS: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             line(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -829,8 +770,7 @@ namespace drl // 线性运算主要部分
                                  int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2) + graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLECROSS:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::CIRCLECROSS: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             line(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -846,8 +786,7 @@ namespace drl // 线性运算主要部分
                                    graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARECROSS:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::SQUARECROSS: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             line(int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1) - graph_style.pointsize,
@@ -864,8 +803,7 @@ namespace drl // 线性运算主要部分
                                       int(y_ratio * (y_max - *(y.first + i)) + window[1] * 0.2) + graph_style.pointsize);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIACROSS:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::TRIACROSS: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             int x0 = int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -884,8 +822,7 @@ namespace drl // 线性运算主要部分
                             line(x0, y0, x0 + size, y0 + size);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::Star:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::Star: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             int x0 = int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -896,8 +833,7 @@ namespace drl // 线性运算主要部分
                             line(x0, y0 + size, x0, y0 - size);
                             break;
                         }
-                        case drl::plot2_messages::graphstyle_s::pointstyle_::Nazi:
-                        {
+                        case drl::plot2_messages::graphstyle_s::pointstyle_::Nazi: {
                             setlinecolor(graph_style.pointcolor);
                             setlinestyle(PS_SOLID, graph_style.point_line_width);
                             int x0 = int(x_ratio * (-x_min + *(x.first + i)) + window[0] * 0.1),
@@ -923,13 +859,11 @@ namespace drl // 线性运算主要部分
         }
 #pragma endregion
 #pragma region // 恢复状态
-        if (range_.ydefaulted)
-        {
+        if (range_.ydefaulted) {
             returnd.second = (double)*(std::max_element(y.first, y.second));
             returnd.first = (double)*(std::min_element(y.first, y.second));
         }
-        else
-        {
+        else {
             returnd.first = range_.y_minmax.first;
             returnd.second = range_.y_minmax.second;
         }
@@ -967,8 +901,7 @@ namespace drl // 线性运算主要部分
         -> std::pair<std::pair<typename _x::value_type,
                                typename _x::value_type>,
                      std::pair<typename _x::value_type,
-                               typename _x::value_type>>
-    {
+                               typename _x::value_type>> {
         std::vector<typename _x::value_type> _y_;
         for (_x i = x.first; i != x.second; i++)
             _y_.push_back(y(*i));
@@ -977,8 +910,7 @@ namespace drl // 线性运算主要部分
 #pragma endregion
 #pragma region // 线性函数表
     template <class _x = decltype(x_sta_d<double>) *>
-    auto linear_fun_(short i) -> std::pair<_x, _x>
-    {
+    auto linear_fun_(short i) -> std::pair<_x, _x> {
         if (i == (short)0)
             return std::make_pair(x_sta_d<double>, x_sta_d<double>);
         if (i == (short)1)
@@ -1001,8 +933,7 @@ namespace drl // 线性运算主要部分
         const std::pair<_x, _x> &x, const std::pair<_y, _y> &y,
         const _funx &funx, const _funy &funy, short i = -1)
         -> std::pair<std::pair<typename _x::value_type, typename _x::value_type>,
-                     std::pair<typename _x::value_type, short>>
-    {
+                     std::pair<typename _x::value_type, short>> {
         typename _x::value_type temp1 = 0;
         typename _x::value_type temp2 = 0;
         typename _x::value_type temp3 = 0;
@@ -1012,8 +943,7 @@ namespace drl // 线性运算主要部分
         std::vector<std::vector<typename _x::value_type>>
             temp_vec(2);
 
-        for (int j = 0; j < n; j++)
-        {
+        for (int j = 0; j < n; j++) {
             temp_vec[0].push_back(funx(*(x.first + j)));
             temp_vec[1].push_back(funy(*(y.first + j)));
         }
@@ -1049,8 +979,7 @@ namespace drl // 线性运算主要部分
         const std::pair<_x, _x> &x, const std::pair<_y, _y> &y,
         short i = 0)
         -> std::pair<std::pair<typename _x::value_type, typename _x::value_type>,
-                     std::pair<typename _x::value_type, short>>
-    {
+                     std::pair<typename _x::value_type, short>> {
         const _funx &funx = linear_fun_(i).first;
         const _funy &funy = linear_fun_(i).second;
         typename _x::value_type y_aver;
@@ -1066,8 +995,7 @@ namespace drl // 线性运算主要部分
     auto element_xy_sort_copy(
         const std::pair<_x, _x> &x_ele, const std::pair<_y, _y> &y_ele, const _x_p &x_iter, const _y_p &y_iter)
         -> std::pair<std::pair<typename _x::value_type, typename _x::value_type>,
-                     std::pair<typename _y::value_type, typename _y::value_type>>
-    {
+                     std::pair<typename _y::value_type, typename _y::value_type>> {
         typename _x::value_type x_max = *std::max_element(x_ele.first, x_ele.second);
         typename _x::value_type x_min = *std::min_element(x_ele.first, x_ele.second);
         typename _y::value_type y_max = *std::max_element(y_ele.first, y_ele.second);
@@ -1082,8 +1010,7 @@ namespace drl // 线性运算主要部分
             return l.first < r.first;
         };
         std::sort(points.begin(), points.end(), sort_fun);
-        for (int i = 0; i < points.size(); i++)
-        {
+        for (int i = 0; i < points.size(); i++) {
             *(x_iter + i) = points[i].first;
             *(y_iter + i) = points[i].second;
         }
@@ -1130,8 +1057,7 @@ namespace drl // 线性运算主要部分
     _TSTRING reg_mess(const std::pair<std::pair<_x, _x>,
                                       std::pair<_x, short>>
                           &args,
-                      decltype(std::ios::floatfield) po = decltype(std::ios::floatfield)(0), int pres = 4)
-    {
+                      decltype(std::ios::floatfield) po = decltype(std::ios::floatfield)(0), int pres = 4) {
         _TOSTRINGSTREAM tcout;
         tcout.precision(pres);
         tcout.setf(po, std::ios::floatfield);
@@ -1165,24 +1091,20 @@ namespace drl // 线性运算主要部分
                            const std::pair<std::pair<typename _x::value_type, typename _x::value_type>,
                                            std::pair<typename _x::value_type, short>>
                                &args)
-        -> std::pair<typename _x::value_type, typename _x::value_type>
-    {
+        -> std::pair<typename _x::value_type, typename _x::value_type> {
         typename _x::value_type y_max, y_min, temp;
         typename _x::value_type p;
         if (args.second.second < 0 && args.second.second != -1)
             p = -1;
         else
             p = 1;
-        for (auto i = x.first; i != x.second; i++)
-        {
-            if (i == x.first)
-            {
+        for (auto i = x.first; i != x.second; i++) {
+            if (i == x.first) {
                 *(y_iter + (i - x.first)) = p * (reg_funs[abs(args.second.second)])(args.first, *i);
                 y_max = (*(y_iter + (i - x.first)));
                 y_min = (*(y_iter + (i - x.first)));
             }
-            else
-            {
+            else {
                 temp = *(y_iter + (i - x.first)) = p * (reg_funs[abs(args.second.second)])(args.first, *i);
                 if (y_min > temp)
                     y_min = temp;
@@ -1197,8 +1119,7 @@ namespace drl // 线性运算主要部分
     template <class _x, class _y>
     auto line_reg_analysis(const std::pair<_x, _x> &x, const std::pair<_y, _y> &y)
         -> std::pair<std::pair<typename _x::value_type, typename _x::value_type>,
-                     std::pair<typename _x::value_type, short>>
-    {
+                     std::pair<typename _x::value_type, short>> {
         std::vector<std::pair<std::pair<typename _x::value_type, typename _x::value_type>,
                               std::pair<typename _x::value_type, short>>>
             Rs;
@@ -1233,14 +1154,11 @@ namespace drl // 多次运算部分
 #pragma region // 多次回归方程
     template <class _x, class _y, class _z = drl::matrix>
     auto degree_reg(const std::pair<_x, _x> &x_mess, const std::pair<_y, _y> &y_mess, const short degree)
-        -> std::pair<std::shared_ptr<drl::matrix>, std::pair<typename _x::value_type, short>>
-    {
-        if (x_mess.second - x_mess.first == y_mess.second - y_mess.first)
-        {
+        -> std::pair<std::shared_ptr<drl::matrix>, std::pair<typename _x::value_type, short>> {
+        if (x_mess.second - x_mess.first == y_mess.second - y_mess.first) {
             using drl::matrix;
             matrix X(int(x_mess.second - x_mess.first), int(degree + 1), 1.0), y(int(x_mess.second - x_mess.first), 1);
-            for (int i = 0; i < X.size(1); i++)
-            {
+            for (int i = 0; i < X.size(1); i++) {
                 for (int j = 1; j < X.size(2); j++)
                     X[i][j] = pow(*(x_mess.first + i), j);
                 y[i][0] = *(y_mess.first + i);
@@ -1248,8 +1166,7 @@ namespace drl // 多次运算部分
             std::shared_ptr<drl::matrix> b =
                 std::make_shared<drl::matrix>(((X ^ matr_tag::T) * y) /
                                               ((X ^ matr_tag::T) * (X)));
-            for (int i = 1; b->size(2) != 1; i++)
-            {
+            for (int i = 1; b->size(2) != 1; i++) {
                 b->rsim(1, 0);
                 b->rdel(1);
             }
@@ -1273,24 +1190,19 @@ namespace drl // 多次运算部分
     auto degree_reg_fun(const std::pair<_x, _x> &x_mess, const _y &y_mess,
                         const std::pair<std::shared_ptr<drl::matrix>,
                                         std::pair<typename _x::value_type, short>> &args)
-        -> std::pair<typename _x::value_type, typename _x::value_type>
-    {
+        -> std::pair<typename _x::value_type, typename _x::value_type> {
         typename _x::value_type y_max, y_min, temp;
-        for (int i = 0; i < x_mess.second - x_mess.first; i++)
-        {
+        for (int i = 0; i < x_mess.second - x_mess.first; i++) {
             *(y_mess + i) = 0;
-            for (int j = 0; j <= args.second.second; j++)
-            {
+            for (int j = 0; j <= args.second.second; j++) {
                 *(y_mess + i) += args.first->operator[](j)[0] * pow(*(x_mess.first + i), j);
             }
             temp = *(y_mess + i);
-            if (i == 0)
-            {
+            if (i == 0) {
                 y_max = temp;
                 y_min = temp;
             }
-            else
-            {
+            else {
                 if (y_max < temp)
                     y_max = temp;
                 if (y_min > temp)
@@ -1304,16 +1216,14 @@ namespace drl // 多次运算部分
     template <class _x>
     _TSTRING degree_reg_mess(const std::pair<std::shared_ptr<drl::matrix>,
                                              std::pair<_x, short>> &args,
-                             decltype(std::ios::floatfield) po = decltype(std::ios::floatfield)(0), int pres = 4)
-    {
+                             decltype(std::ios::floatfield) po = decltype(std::ios::floatfield)(0), int pres = 4) {
         _TOSTRINGSTREAM tcout;
         tcout.precision(pres);
         tcout.setf(po, std::ios::floatfield);
         drl::matrix b = *(args.first);
         b.lrev();
         tcout << _T("y = ");
-        for (int i = 0; i <= args.second.second; i++)
-        {
+        for (int i = 0; i <= args.second.second; i++) {
             if (i != args.second.second && i != args.second.second - 1)
                 tcout << _T("(") << b[i][0] << _T(")x^") << args.second.second - i;
             else if (i == args.second.second - 1)
@@ -1330,11 +1240,9 @@ namespace drl // 多次运算部分
 #pragma region // 多次回归分析
     template <class _x, class _y, class _z = drl::matrix>
     auto degree_analy(const std::pair<_x, _x> &x_mess, const std::pair<_y, _y> &y_mess)
-        -> std::pair<std::shared_ptr<drl::matrix>, std::pair<typename _x::value_type, short>>
-    {
+        -> std::pair<std::shared_ptr<drl::matrix>, std::pair<typename _x::value_type, short>> {
         std::vector<std::pair<std::shared_ptr<drl::matrix>, std::pair<typename _x::value_type, short>>> mess(max_degree);
-        for (int i = 1; i <= max_degree; i++)
-        {
+        for (int i = 1; i <= max_degree; i++) {
             mess[i - 1] = degree_reg(x_mess, y_mess, i);
         }
         auto fun1 = [](std::pair<std::shared_ptr<drl::matrix>, std::pair<typename _x::value_type, short>> &l, std::pair<std::shared_ptr<drl::matrix>, std::pair<typename _x::value_type, short>> &r) -> bool
@@ -1351,8 +1259,7 @@ namespace drl // 多次运算部分
 
 namespace drl
 {
-    inline BYTE message_class(USHORT mess)
-    {
+    inline BYTE message_class(USHORT mess) {
         if (mess >= 0x200)
             return EX_MOUSE;
         if (mess < 0x100)

@@ -1,1 +1,57 @@
-﻿
+﻿#up_f {
+    background-color: rgb(207, 206, 206);
+    position: absolute;
+    height: 4px;
+    width: 720px;
+    top: 20px;
+}
+#down_f {
+    background-color: rgb(207, 206, 206);
+    position: absolute;
+    height: 4px;
+    width: 720px;
+    top: 170px;
+}
+#frame {
+    position: relative;
+    width: 100%;
+}
+
+#block {
+    background-color: rgb(135, 228, 152);
+    position: absolute;
+    height: 80px;
+    width: 160px;
+    top: 55px;
+    border-radius: 30px;
+    animation-name: sport;
+    animation-duration: 5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forward;
+    animation-iteration-count: infinite;
+    z-index: 2;
+    text-align: center;
+}
+
+@keyframes sport {
+    0% {
+        left: 0;
+        transform: rotate(0deg);
+        background-color: aquamarine;
+    }
+    40% {
+        left: 0;
+        transform: rotate(20deg);
+        background-color: chartreuse;
+    }
+    75% {
+        left: 720px;
+        transform: rotate(0deg);
+        background-color: chocolate;
+    }
+    100% {
+        left: 0;
+        transform: rotate(-180deg);
+        background-color: aquamarine;
+    }
+}

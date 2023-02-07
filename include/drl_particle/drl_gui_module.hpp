@@ -11,8 +11,7 @@ namespace drl
 
     _TSTRING &global_font(void);
     const _TSTRING global_font(const _TSTRING &);
-    inline _TSTRINGSTREAM &public_tstream(bool good = true, bool clear = true)
-    {
+    inline _TSTRINGSTREAM &public_tstream(bool good = true, bool clear = true) {
         static _TSTRINGSTREAM res;
         if (good)
             res.clear();
@@ -20,8 +19,7 @@ namespace drl
             res.str(_T(""));
         return res;
     }
-    inline _TSTRINGSTREAM &public_tstream(_TSTRING o, bool good = true)
-    {
+    inline _TSTRINGSTREAM &public_tstream(_TSTRING o, bool good = true) {
         _TSTRINGSTREAM &res = public_tstream(good, false);
         res.str(o);
         return res;
@@ -34,12 +32,10 @@ namespace drl
         using label_num_type_ = drl::label_num_type;
         using label_str_type_ = drl::label_str_type;
         const static label_str_type_ module_basic;
-        const label_str_type_ &id(void)
-        {
+        const label_str_type_ &id(void) {
             return id_in;
         }
-        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
-        {
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true) {
             id_in = module_basic + new_id;
             return *this;
         }
@@ -85,8 +81,7 @@ namespace drl
               lately_sign(),
               sys_type_filter(a),
               source_filter(b) {}
-        bool virtual condition(const message_type &mess)
-        {
+        bool virtual condition(const message_type &mess) {
             lately_sign = mess;
             return (lately_state = _condition(mess));
         }
@@ -124,8 +119,7 @@ namespace drl
 
         message_type virtual effect(const message_type &);
         message_type virtual inited();
-        _TSTRING virtual get_font()
-        {
+        _TSTRING virtual get_font() {
             if (font.size())
                 return font;
             else
@@ -152,11 +146,9 @@ namespace drl
               label_name(label_name_),
               font(font_),
               send_message_context_down(send_message_type, module_basic + id_ + down),
-              send_message_context_up(send_message_type, module_basic + id_ + up)
-        {
+              send_message_context_up(send_message_type, module_basic + id_ + up) {
             gui_module_base::id_in = module_basic + id_;
-            if (regist)
-            {
+            if (regist) {
                 drl::system_fun_reg<button_module>(this, &button_module::condition, &button_module::effect, &button_module::inited, group);
             }
         }
@@ -183,50 +175,42 @@ namespace drl
                             text_color1, text_color2, text_color3, label_name_,
                             id_, font_, group, regist) {}
         button_module(button_style sty) : style(sty) {}
-        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
-        {
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true) {
             id_in = module_basic + new_id;
-            if (change)
-            {
+            if (change) {
                 send_message_context_down.sign.source = module_basic + new_id + down;
                 send_message_context_up.sign.source = module_basic + new_id + up;
             }
             return *this;
         }
-        virtual button_module &flush(void)
-        {
+        virtual button_module &flush(void) {
             FlushBatchDraw(style.coord.left, style.coord.top,
                            style.coord.right, style.coord.bottom);
             return *this;
         }
-        button_module &change_text(_TSTRING text = _T(""), bool with_gra = true)
-        {
+        button_module &change_text(_TSTRING text = _T(""), bool with_gra = true) {
             label_name = text;
-            if (with_gra)
-            {
+            if (with_gra) {
                 change_color(style.color[mode]);
                 make_text(style.text_color[mode]);
             }
             flush();
             return *this;
         }
-        button_module &change_target(const _TSTRING &new_target)
-        {
+        button_module &change_target(const _TSTRING &new_target) {
             send_message_context_down.sign.target = new_target;
             send_message_context_down.target_use = true;
             send_message_context_up.sign.target = new_target;
             send_message_context_up.target_use = true;
             return *this;
         }
-        button_module &change_color(COLORREF color)
-        {
+        button_module &change_color(COLORREF color) {
             setfillcolor(color);
             solidroundrect(style.coord.left, style.coord.top, style.coord.right,
                            style.coord.bottom, style.ellipsewidth, style.ellipseheight);
             return *this;
         }
-        button_module &make_text(COLORREF color)
-        {
+        button_module &make_text(COLORREF color) {
             setbkmode(TRANSPARENT);
             settextcolor(color);
             settextstyle(style.text_size, 0, get_font().c_str());
@@ -279,11 +263,9 @@ namespace drl
                      {text_color1, text_color2, text_color3}}),
               input_string(),
               font(font_),
-              send_message_context(send_message_type, module_basic + id_ + selected)
-        {
+              send_message_context(send_message_type, module_basic + id_ + selected) {
             gui_module_base::id_in = module_basic + id_;
-            if (regist)
-            {
+            if (regist) {
                 drl::system_fun_reg<input_box_module>(this, &input_box_module::condition, &input_box_module::effect, &input_box_module::inited, group);
             }
         }
@@ -312,55 +294,46 @@ namespace drl
                                text_color1, text_color2, text_color3,
                                id_, font_, group, regist) {}
 
-        input_box_module(input_box_style sty) : style(sty)
-        {}
-        _TSTRING virtual get_font()
-        {
+        input_box_module(input_box_style sty) : style(sty) {}
+        _TSTRING virtual get_font() {
             if (font.size())
                 return font;
             else
                 return global_font();
         }
-        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
-        {
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true) {
             id_in = module_basic + new_id;
             if (change)
                 send_message_context.sign.source = module_basic + new_id;
             return *this;
         }
-        virtual input_box_module &flush(void)
-        {
+        virtual input_box_module &flush(void) {
             FlushBatchDraw(style.coord.left, style.coord.top,
                            style.coord.right, style.coord.bottom);
             return *this;
         }
-        input_box_module &change_text(_TSTRING text = _T(""), bool with_gra = true)
-        {
+        input_box_module &change_text(_TSTRING text = _T(""), bool with_gra = true) {
             input_string = text;
-            if (with_gra)
-            {
+            if (with_gra) {
                 change_color(style.fill_color[mode], style.line_color[mode]);
                 make_text(style.text_color[mode]);
             }
             flush();
             return *this;
         }
-        input_box_module &change_target(const _TSTRING &new_target)
-        {
+        input_box_module &change_target(const _TSTRING &new_target) {
             send_message_context.sign.target = new_target;
             send_message_context.target_use = true;
             return *this;
         }
-        input_box_module &change_color(COLORREF color1, COLORREF color2)
-        {
+        input_box_module &change_color(COLORREF color1, COLORREF color2) {
             setfillcolor(color1);
             setlinestyle(PS_SOLID, style.line_width);
             setlinecolor(color2);
             fillrectangle(style.coord.left, style.coord.top, style.coord.right, style.coord.bottom);
             return *this;
         }
-        input_box_module &make_text(COLORREF color, int l = 1)
-        { // l == 1则靠左 l == 0则靠右
+        input_box_module &make_text(COLORREF color, int l = 1) { // l == 1则靠左 l == 0则靠右
             static RECT coord_text;
             coord_text = {
                 style.coord.left + style.line_width,
@@ -417,11 +390,9 @@ namespace drl
                      {line_color1, line_color2, line_color3},
                      {text_color1, text_color2, text_color3}}),
               output_string(),
-              font(font_)
-        {
+              font(font_) {
             gui_module_base::id_in = module_basic + id_;
-            if (regist)
-            {
+            if (regist) {
                 drl::system_fun_reg<output_box_module>(this, &output_box_module::condition, &output_box_module::effect, &output_box_module::inited, group);
             }
         }
@@ -450,45 +421,38 @@ namespace drl
                                 text_color1, text_color2, text_color3,
                                 id_, font_, group, regist) {}
         output_box_module(output_box_style sty) : style(sty) {}
-        _TSTRING virtual get_font()
-        {
+        _TSTRING virtual get_font() {
             if (font.size())
                 return font;
             else
                 return global_font();
         }
-        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true)
-        {
+        virtual gui_module_base &change_id(const _TSTRING &new_id, bool change = true) {
             id_in = module_basic + new_id;
             return *this;
         }
-        virtual output_box_module &flush(void)
-        {
+        virtual output_box_module &flush(void) {
             FlushBatchDraw(style.coord.left, style.coord.top,
                            style.coord.right, style.coord.bottom);
             return *this;
         }
-        output_box_module &change_text(_TSTRING text = _T(""), bool with_gra = true)
-        {
+        output_box_module &change_text(_TSTRING text = _T(""), bool with_gra = true) {
             output_string = text;
-            if (with_gra)
-            {
+            if (with_gra) {
                 change_color(style.fill_color[mode], style.line_color[mode]);
                 make_text(style.text_color[mode]);
             }
             flush();
             return *this;
         }
-        output_box_module &change_color(COLORREF color1, COLORREF color2)
-        {
+        output_box_module &change_color(COLORREF color1, COLORREF color2) {
             setfillcolor(color1);
             setlinestyle(PS_SOLID, style.line_width);
             setlinecolor(color2);
             fillrectangle(style.coord.left, style.coord.top, style.coord.right, style.coord.bottom);
             return *this;
         }
-        output_box_module &make_text(COLORREF color)
-        { // l == 1则靠左 l == 0则靠右
+        output_box_module &make_text(COLORREF color) { // l == 1则靠左 l == 0则靠右
             static RECT coord_text;
             coord_text = {
                 style.coord.left + style.line_width,
@@ -508,27 +472,22 @@ namespace drl
     inline std::multimap<
         std::pair<const label_num_type, const label_str_type>,
         std::function<gui_signal(drl::gui_module *, const drl::gui_signal *)>> &
-    user_fun_reg()
-    {
+    user_fun_reg() {
         static std::multimap<
             std::pair<const label_num_type, const label_str_type>,
             std::function<gui_signal(drl::gui_module *, const drl::gui_signal *)>>
             fun_tab;
         return fun_tab;
     }
-    inline gui_signal user_fun_reg(drl::gui_module *lhs, const drl::gui_signal *a)
-    {
-        try
-        {
+    inline gui_signal user_fun_reg(drl::gui_module *lhs, const drl::gui_signal *a) {
+        try {
             auto lr = user_fun_reg().equal_range(std::make_pair(a->sign.mess_type, a->exac_word(0)));
             if (lr.first == lr.second)
                 return gui_signal();
             lr.second--;
             gui_signal res;
-            for (;; lr.first++)
-            {
-                if (lr.first == lr.second)
-                {
+            for (;; lr.first++) {
+                if (lr.first == lr.second) {
                     res = lr.first->second(lhs, a);
                     break;
                 }
@@ -537,20 +496,17 @@ namespace drl
             }
             return res;
         }
-        catch (...)
-        {
+        catch (...) {
             return gui_signal();
         }
     }
 
 
-    inline std::multimap<size_t, std::function<gui_module::message_type()>> &inited_fun_reg()
-    {
+    inline std::multimap<size_t, std::function<gui_module::message_type()>> &inited_fun_reg() {
         static std::multimap<size_t, std::function<gui_module::message_type()>> init_fun_list;
         return init_fun_list;
     }
-    inline void inited_fun_reg(const std::function<gui_module::message_type()> &fun, size_t pt)
-    {
+    inline void inited_fun_reg(const std::function<gui_module::message_type()> &fun, size_t pt) {
         inited_fun_reg().insert(std::make_pair(pt, fun));
     }
     template <class T>
@@ -558,8 +514,7 @@ namespace drl
         T *obj,
         bool (T::*lhs_fp)(const gui_module::message_type &),
         gui_module::message_type (T::*rhs_fp)(const gui_module::message_type &),
-        gui_module::message_type (T::*init_fp)(), size_t pt)
-    {
+        gui_module::message_type (T::*init_fp)(), size_t pt) {
         std::function<bool(gui_module::message_type)> lfun(
             std::bind(lhs_fp, obj, std::placeholders::_1));
         std::function<gui_module::message_type(gui_module::message_type)> rfun(
@@ -572,8 +527,7 @@ namespace drl
 
     inline std::pair<std::remove_reference<decltype(system_fun_reg())>::type::iterator,
                      std::remove_reference<decltype(system_fun_reg())>::type::iterator>
-    system_fun_reg(size_t l, size_t r)
-    {
+    system_fun_reg(size_t l, size_t r) {
 
         std::remove_reference<decltype(system_fun_reg())>::type::iterator
             lhs(system_fun_reg().lower_bound(l)),
@@ -582,8 +536,7 @@ namespace drl
     }
     inline std::pair<std::remove_reference<decltype(system_fun_reg())>::type::iterator,
                      std::remove_reference<decltype(system_fun_reg())>::type::iterator>
-    system_fun_reg(size_t l)
-    {
+    system_fun_reg(size_t l) {
 
         std::remove_reference<decltype(system_fun_reg())>::type::iterator
             lhs(system_fun_reg().lower_bound(l)),
@@ -591,16 +544,14 @@ namespace drl
         return std::pair(lhs, rhs);
     }
 
-    inline void init_group(size_t g1)
-    {
+    inline void init_group(size_t g1) {
         std::remove_reference<decltype(inited_fun_reg())>::type::iterator
             lhs(inited_fun_reg().lower_bound(g1)),
             rhs(inited_fun_reg().upper_bound(g1));
         for (; lhs != rhs; lhs++)
             lhs->second();
     }
-    inline void init_group(size_t g1, size_t g2)
-    {
+    inline void init_group(size_t g1, size_t g2) {
         std::remove_reference<decltype(inited_fun_reg())>::type::iterator
             lhs(inited_fun_reg().lower_bound(g1)),
             rhs(inited_fun_reg().upper_bound(g2));

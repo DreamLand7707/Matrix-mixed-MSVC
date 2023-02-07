@@ -16,8 +16,7 @@ namespace matr
     _TSTRING paramatr::def_name_1165 = _T("end_rod");
     _TSTRING paramatr::def_path = _T("../mcfunctions");
 
-    paramatr::paramatr(drl::matrix const &ma, const TCHAR *str) : drl::matrix(ma)
-    {
+    paramatr::paramatr(drl::matrix const &ma, const TCHAR *str) : drl::matrix(ma) {
         check();
         thma[1][0] = thma[0][2];
         thma[1][2] = thma[1][1] =
@@ -33,8 +32,7 @@ namespace matr
         else
             name = str;
     }
-    paramatr::paramatr(const TCHAR *str, drl::matrix const &ma) : drl::matrix(ma)
-    {
+    paramatr::paramatr(const TCHAR *str, drl::matrix const &ma) : drl::matrix(ma) {
         check();
         thma[1][0] = thma[0][2];
         thma[1][2] = thma[1][1] =
@@ -47,12 +45,10 @@ namespace matr
         else
             name = str;
     }
-    paramatr::paramatr(const paramatr &pama) : drl::matrix((drl::matrix &)pama)
-    {
+    paramatr::paramatr(const paramatr &pama) : drl::matrix((drl::matrix &)pama) {
         name = pama.name;
     }
-    void paramatr::parname(const TCHAR *name)
-    {
+    void paramatr::parname(const TCHAR *name) {
         if (name == nullptr || ::wcslen(name) == 0)
             if (thma[2][0] < par_def_name_change)
                 paramatr::name = def_name_1122;
@@ -61,15 +57,13 @@ namespace matr
         else
             paramatr::name = name;
     }
-    void paramatr::pathname(const TCHAR *name)
-    {
+    void paramatr::pathname(const TCHAR *name) {
         if (name == nullptr || ::wcslen(name) == 0)
             path = def_path;
         else
             path = name;
     }
-    bool paramatr::print_t() const
-    {
+    bool paramatr::print_t() const {
         using _TCOUT;
         using std::endl;
         printf("Game version:%.f\n", thma[2][0]);
@@ -84,26 +78,21 @@ namespace matr
             ((int)thma[3][2]) ? 'T' : 'F', thma[3][3]);
         return true;
     }
-    void paramatr::check(void)
-    {
-        if (thma.size(1) == 4 && thma.size(2) == 4)
-        {
+    void paramatr::check(void) {
+        if (thma.size(1) == 4 && thma.size(2) == 4) {
             if (thma[0][0] >= thma[0][1] &&
-                fabs(thma[0][0] - thma[0][1]) < drl::matrix::matr_error)
-            {
+                fabs(thma[0][0] - thma[0][1]) < drl::matrix::matr_error) {
                 thma[0][0] = 1;
                 thma[0][1] = 10;
             } //? 参数大小判断
-            if (thma[0][2] <= 0 || thma[0][3] <= 0)
-            {
+            if (thma[0][2] <= 0 || thma[0][3] <= 0) {
                 thma[0][2] = 10;
                 thma[0][3] = 0.1;
             } //? 正负判断
             else
                 thma[0][2] = ::round(thma[0][2]); //? 取整
 
-            if (thma[0][1] - thma[0][0] < thma[0][3])
-            {
+            if (thma[0][1] - thma[0][0] < thma[0][3]) {
                 thma[0][0] = 1;
                 thma[0][1] = 10;
                 thma[0][2] = 10;

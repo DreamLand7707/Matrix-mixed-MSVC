@@ -26,26 +26,21 @@ class strmatr : public _TSTRING, public matr::paramatr
     strmatr(void){};
     strmatr(_TSTRING const &str, matr::paramatr const &pama = matr::empty_paramatr)
         : _TSTRING(str),
-          paramatr(pama)
-    {
+          paramatr(pama) {
     }
     strmatr(const TCHAR *str, matr::paramatr const &pama = matr::empty_paramatr)
         : _TSTRING(str),
-          paramatr(pama)
-    {
+          paramatr(pama) {
     }
     strmatr(const strmatr &stma)
         : _TSTRING((_TSTRING &)stma),
-          paramatr((matr::paramatr &)stma)
-    {
+          paramatr((matr::paramatr &)stma) {
     }
-    auto operator[](int x) -> decltype(matr::paramatr::operator[](x))
-    {
+    auto operator[](int x) -> decltype(matr::paramatr::operator[](x)) {
         return matr::paramatr::operator[](x);
     }
     bool operator==(const strmatr &stma) { return (_TSTRING)(*this) == (_TSTRING)(stma); }
-    bool print_t(void) const
-    {
+    bool print_t(void) const {
         _TCOUT << _T("**********") << std::endl;
         _TCOUT << _T("command:") << std::endl
                << *((_TSTRING *)this) << std::endl;
@@ -84,25 +79,20 @@ class O_partmatr : private matr::matrix_temp, private matr::paramatr
  public:
     O_partmatr(void)
         : matrix_temp(0, matr_tag::SP),
-          paramatr(matr::empty_paramatr)
-    {
+          paramatr(matr::empty_paramatr) {
     }
     O_partmatr(drl::matrix const &ma, matr::paramatr const &pama = matr::empty_paramatr)
         : matrix_temp(ma),
-          paramatr(pama)
-    {
+          paramatr(pama) {
     }
     O_partmatr(O_partmatr const &Optma)
-        : matrix_temp((drl::matrix &)(matrix_temp &)Optma)
-    {
+        : matrix_temp((drl::matrix &)(matrix_temp &)Optma) {
     }
     ~O_partmatr() {}
-    void assign_point(const drl::matrix &A)
-    {
+    void assign_point(const drl::matrix &A) {
         ((matrix &)(matrix_temp &)(*this)).operator=(A);
     }
-    void assign_para(const paramatr &B)
-    {
+    void assign_para(const paramatr &B) {
         ((paramatr &)(*this)).operator=(B);
     }
     strmatr const linear(void);

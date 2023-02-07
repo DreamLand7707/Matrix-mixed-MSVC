@@ -48,13 +48,10 @@ namespace drl
                                const std::tuple<size_t, _TSTREAMPOS, size_t> &mess);
 
     int default_arg_set(const _TSTRING &line, matr::paramatr &args, int);
-    inline const _TSTRING &regex_par_name()
-    {
+    inline const _TSTRING &regex_par_name() {
         static _TSTRING par_name;
-        if (par_name.size() == 0)
-        {
-            for (auto i : bash1::particle_name)
-            {
+        if (par_name.size() == 0) {
+            for (auto i : bash1::particle_name) {
                 par_name += (i + _T("|"));
             }
             par_name.pop_back();

@@ -42,20 +42,16 @@ namespace drl
      public:
         using iterator = typename binary_tree_base<T>::pointer;
         using const_iterator = const typename binary_tree_base<T>::pointer;
-        iterator begin()
-        {
+        iterator begin() {
             return elements;
         }
-        iterator end()
-        {
+        iterator end() {
             return elements + cur_size;
         }
-        const_iterator cbegin()
-        {
+        const_iterator cbegin() {
             return elements;
         }
-        const_iterator cend()
-        {
+        const_iterator cend() {
             return elements + cur_size;
         }
 
@@ -63,8 +59,7 @@ namespace drl
         typename binary_tree_base<T>::pointer elements;
         typename binary_tree_base<T>::size_type max_size;
         typename binary_tree_base<T>::size_type cur_size;
-        void alloc_memory()
-        {
+        void alloc_memory() {
             typename binary_tree_base<T>::pointer *ep = new typename binary_tree_base<T>::value_type[max_size * 2];
             for (size_t i = 0; i < max_size; i++)
                 ep[i] = elements[i];
@@ -76,37 +71,30 @@ namespace drl
 
      public:
         array_binary_tree(typename binary_tree_base<T>::pointer pointer = nullptr,
-                          typename binary_tree_base<T>::size_type size = 0)
-        {
-            if (pointer && size)
-            {
+                          typename binary_tree_base<T>::size_type size = 0) {
+            if (pointer && size) {
                 elements = new T[size * 2];
-                for (size_t i = 0; i < size; i++)
-                {
+                for (size_t i = 0; i < size; i++) {
                     elements[i] = pointer[i];
                 }
                 cur_size = size;
                 max_size = size * 2;
             }
-            else
-            {
+            else {
                 max_size = 0;
                 cur_size = 0;
                 elements = nullptr;
             }
         }
-        ~array_binary_tree()
-        {
+        ~array_binary_tree() {
             max_size = 0;
             cur_size = 0;
             delete[] elements;
         }
-        typename binary_tree_base<T>::size_type size()
-        {
+        typename binary_tree_base<T>::size_type size() {
             return cur_size;
         }
-        bool empty()
-        {
+        bool empty() {
             return !!cur_size;
         }
         template <class FUNC>
@@ -133,12 +121,10 @@ namespace drl
         tree_node(const T &x, tree_node<T> *parent = nullptr, tree_node<T> *left = nullptr, tree_node<T> *right = nullptr)
             : left(left), right(right), parent(parent), element(x) {}
         tree_node(const tree_node<T> &x) : element(x.element), parent(parent), left(x.left), right(x.right) {}
-        void make_lchild(const tree_node<T> &x)
-        {
+        void make_lchild(const tree_node<T> &x) {
             left = new tree_node<T>(x.element, this);
         }
-        void make_rchild(const tree_node<T> &x)
-        {
+        void make_rchild(const tree_node<T> &x) {
             right = new tree_node<T>(x.element, this);
         }
     };
@@ -152,25 +138,20 @@ namespace drl
         value_type *elements;
         bool emptyed;
         size_type size__;
-        ~linked_binary_tree()
-        {
+        ~linked_binary_tree() {
             std::deque<tree_node<T> *> qu1;
             qu1.push_back(elements);
             tree_node<T> *pcur;
-            while (1)
-            {
-                if (qu1.size())
-                {
+            while (1) {
+                if (qu1.size()) {
                     pcur = qu1.front();
                 }
                 else
                     break;
-                if (pcur->left)
-                {
+                if (pcur->left) {
                     qu1.push_back(pcur->left);
                 }
-                if (pcur->right)
-                {
+                if (pcur->right) {
                     qu1.push_back(pcur->right);
                 }
                 {
@@ -179,24 +160,19 @@ namespace drl
                 qu1.pop_front();
             }
         }
-        linked_binary_tree(T *ele = nullptr, size_type size_ = 0)
-        {
-            if (ele && size_)
-            {
+        linked_binary_tree(T *ele = nullptr, size_type size_ = 0) {
+            if (ele && size_) {
                 bool right = false;
                 std::deque<tree_node<T> *> qu1;
                 elements = new value_type(ele[0]);
                 tree_node<T> *cur_node = elements;
                 qu1.push_back(cur_node);
-                for (size_type i = 1; i < size_; i++)
-                {
-                    if (!right)
-                    {
+                for (size_type i = 1; i < size_; i++) {
+                    if (!right) {
                         cur_node->left = new tree_node<T>(ele[i]);
                         qu1.push_back(cur_node->left);
                     }
-                    else
-                    {
+                    else {
                         cur_node->right = new tree_node<T>(ele[i]);
                         qu1.push_back(cur_node->right);
                         qu1.pop_front();
@@ -207,8 +183,7 @@ namespace drl
                 emptyed = false;
                 size__ = size_;
             }
-            else
-            {
+            else {
                 elements = nullptr;
                 emptyed = true;
             }
@@ -225,12 +200,10 @@ namespace drl
 
         template <class FUNC>
         void levelOrder(const FUNC &y);
-        virtual bool empty()
-        {
+        virtual bool empty() {
             return emptyed;
         }
-        virtual size_type size()
-        {
+        virtual size_type size() {
             return size__;
         }
     };
@@ -239,8 +212,7 @@ namespace drl
 #pragma region array_binary_begin
 template <class T>
 template <class FUNC>
-void drl::array_binary_tree<T>::preOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin)
-{
+void drl::array_binary_tree<T>::preOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin) {
     if (begin >= max_size)
         return;
     y(elements[begin]);
@@ -249,8 +221,7 @@ void drl::array_binary_tree<T>::preOrder(const FUNC &y, typename binary_tree_bas
 }
 template <class T>
 template <class FUNC>
-void drl::array_binary_tree<T>::inOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin)
-{
+void drl::array_binary_tree<T>::inOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin) {
     preOrder(y, begin + begin + 1);
     if (begin >= max_size)
         return;
@@ -259,8 +230,7 @@ void drl::array_binary_tree<T>::inOrder(const FUNC &y, typename binary_tree_base
 }
 template <class T>
 template <class FUNC>
-void drl::array_binary_tree<T>::postOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin)
-{
+void drl::array_binary_tree<T>::postOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin) {
     preOrder(y, begin + begin + 1);
     preOrder(y, begin + begin + 2);
     if (begin >= max_size)
@@ -269,16 +239,14 @@ void drl::array_binary_tree<T>::postOrder(const FUNC &y, typename binary_tree_ba
 }
 template <class T>
 template <class FUNC>
-void drl::array_binary_tree<T>::levelOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin)
-{
+void drl::array_binary_tree<T>::levelOrder(const FUNC &y, typename binary_tree_base<T>::size_type begin) {
     for (typename binary_tree_base<T>::size_type i = begin; i < cur_size; i++)
         y(elements[i]);
 }
 #pragma endregion
 template <class T>
 template <class FUNC>
-void drl::linked_binary_tree<T>::preOrder(const FUNC &y)
-{
+void drl::linked_binary_tree<T>::preOrder(const FUNC &y) {
     y(*elements);
     if (elements->left)
         preOrder(elements->left);
@@ -287,8 +255,7 @@ void drl::linked_binary_tree<T>::preOrder(const FUNC &y)
 }
 template <class T>
 template <class FUNC>
-void drl::linked_binary_tree<T>::inOrder(const FUNC &y)
-{
+void drl::linked_binary_tree<T>::inOrder(const FUNC &y) {
     if (elements->left)
         preOrder(elements->left);
     y(*elements);
@@ -297,8 +264,7 @@ void drl::linked_binary_tree<T>::inOrder(const FUNC &y)
 }
 template <class T>
 template <class FUNC>
-void drl::linked_binary_tree<T>::postOrder(const FUNC &y)
-{
+void drl::linked_binary_tree<T>::postOrder(const FUNC &y) {
     if (elements->left)
         preOrder(elements->left);
     if (elements->right)
@@ -307,25 +273,20 @@ void drl::linked_binary_tree<T>::postOrder(const FUNC &y)
 }
 template <class T>
 template <class FUNC>
-void drl::linked_binary_tree<T>::levelOrder(const FUNC &y)
-{
+void drl::linked_binary_tree<T>::levelOrder(const FUNC &y) {
     std::deque<tree_node<T> *> qu1;
     qu1.push_back(elements);
     tree_node<T> *pcur;
-    while (pcur)
-    {
-        if (qu1.size())
-        {
+    while (pcur) {
+        if (qu1.size()) {
             pcur = qu1.front();
         }
         else
             break;
-        if (pcur->left)
-        {
+        if (pcur->left) {
             qu1.push_back(pcur->left);
         }
-        if (pcur->right)
-        {
+        if (pcur->right) {
             qu1.push_back(pcur->right);
         }
         y(*pcur);

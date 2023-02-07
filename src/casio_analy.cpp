@@ -87,8 +87,7 @@ namespace drl_casio
     } // namespace
     const char command_head = '#';
     const char command_head_2 = '-';
-    std::map<std::string, long double> &variables()
-    {
+    std::map<std::string, long double> &variables() {
         static std::map<std::string, long double> vars{
             {"ans", 0.0l},
             {"PI", std::numbers::pi_v<long double>},
@@ -96,8 +95,7 @@ namespace drl_casio
             {"EGAMMA", std::numbers::egamma_v<long double>}};
         return vars;
     }
-    const std::map<std::string, long double (*)(long double)> &functions()
-    {
+    const std::map<std::string, long double (*)(long double)> &functions() {
         static const std::map<std::string, long double (*)(long double)> fun{
             {"sin", std::sin},
             {"cos", std::cos},
@@ -114,39 +112,31 @@ namespace drl_casio
             {"tanh", std::tanh}};
         return fun;
     }
-    std::string casio(const std::string &a_)
-    {
+    std::string casio(const std::string &a_) {
         std::stringstream sout;
-        if (a_[0] != command_head && a_[0] != command_head_2)
-        {
-            try
-            {
+        if (a_[0] != command_head && a_[0] != command_head_2) {
+            try {
                 sout << (variables()["ans"] = calculate(a_)) << endl;
             }
-            catch (...)
-            {
+            catch (...) {
                 sout << messages.at("command_use_error_message") << endl;
             }
         }
-        else
-        {
+        else {
             do_command(a_);
         }
         return sout.str();
     }
-    long double factorial(long double x)
-    {
+    long double factorial(long double x) {
         for (; x > 1;)
             x *= --x;
         return x;
     }
-    long double make_value(const std::string &message)
-    {
+    long double make_value(const std::string &message) {
         static const std::regex t(" *((?:-?[0-9]+.?[0-9]*)|(?:-?[0-9]*.[0-9]+)) *");
         static const std::regex d(" *([A-Za-z_]+[A-Za-z_0-9]*) *");
         std::smatch smd;
-        try
-        {
+        try {
             if (std::regex_match(message, smd, t))
                 return std::stold(smd.str(1));
             else if (std::regex_match(message, smd, d))
@@ -154,32 +144,27 @@ namespace drl_casio
             else
                 return 0;
         }
-        catch (...)
-        {
+        catch (...) {
             cout << messages.at("function/Variable wrong") << endl;
             return 0;
         }
     }
-    long double make_value(const std::string &message, size_t pos)
-    {
+    long double make_value(const std::string &message, size_t pos) {
         static const std::regex t(" *([A-Za-z0-9_]+)\\$ *");
         std::smatch smd;
         std::regex_match(message, smd, t);
-        try
-        {
+        try {
             if (smd.str(1).empty())
                 return stack_of_value[pos];
             else
                 return functions().at(smd.str(1))(stack_of_value[pos]);
         }
-        catch (...)
-        {
+        catch (...) {
             cout << messages.at("function/Variable wrong") << endl;
             return 0;
         }
     }
-    long double double_calcu(long double lhs, long double rhs, short way)
-    {
+    long double double_calcu(long double lhs, long double rhs, short way) {
         if (way == 1)
             return lhs + rhs;
         if (way == 2)
@@ -192,8 +177,7 @@ namespace drl_casio
             return std::pow(lhs, rhs);
         return 0;
     }
-    long double min_calculate(std::string &&message, size_t pos)
-    {
+    long double min_calculate(std::string &&message, size_t pos) {
         static size_t temp2;
         temp2 = 0;
         auto N = [](char a) -> char
@@ -214,89 +198,71 @@ namespace drl_casio
         size_t pos_st = pos;
         stack_of_oper.clear();
         bool n = false;
-        for (size_t i = 0; i < message.size(); i++)
-        {
-            if (N(message[i]) == -1)
-            {
+        for (size_t i = 0; i < message.size(); i++) {
+            if (N(message[i]) == -1) {
                 n = true;
                 if (stack_of_oper.size())
                     (*(stack_of_oper.end() - 1)).stack_aval_r = true;
                 pos_st++;
             }
-            if (N(message[i]) > 0)
-            {
+            if (N(message[i]) > 0) {
                 stack_of_oper.emplace_back(i, pos_st - n, pos_st, false, n, false, 0, N(message[i]));
                 n = false;
                 message[i] = ' ';
             }
         }
         long double temp1;
-        if (!stack_of_oper.size())
-        {
+        if (!stack_of_oper.size()) {
             for (int i = 0; i < message.size(); i++)
-                if (message[i] == '$')
-                {
+                if (message[i] == '$') {
                     temp2++;
                     temp1 = make_value(message, pos);
                 }
             if (!temp2)
                 temp1 = make_value(message);
         }
-        for (size_t i = 0; i < stack_of_oper.size(); i++)
-        {
+        for (size_t i = 0; i < stack_of_oper.size(); i++) {
             auto c = std::max_element(stack_of_oper.begin(), stack_of_oper.end(),
                                       [](value_exp lhs, value_exp rhs)
                                       { return lhs.kind < rhs.kind && ((rhs.kind - lhs.kind) > 1); });
             c->value_aval = true;
-            if (c + 1 != stack_of_oper.end())
-            {
-                if ((c + 1)->value_aval == true)
-                {
+            if (c + 1 != stack_of_oper.end()) {
+                if ((c + 1)->value_aval == true) {
                     c->val = (c + 1)->val;
                 }
-                else if (c->stack_aval_r == true)
-                {
+                else if (c->stack_aval_r == true) {
                     c->val = make_value(std::string(message, c->pos + 1, (c + 1)->pos - c->pos - 1), c->stack_pos_r);
                     temp2++;
                 }
-                else
-                {
+                else {
                     c->val = make_value(std::string(message, c->pos + 1, (c + 1)->pos - c->pos - 1));
                 }
             }
-            else
-            {
-                if (c->stack_aval_r == true)
-                {
+            else {
+                if (c->stack_aval_r == true) {
                     c->val = make_value(std::string(message, c->pos + 1, message.size() - c->pos - 1), c->stack_pos_r);
                     temp2++;
                 }
                 else
                     c->val = make_value(std::string(message, c->pos + 1, message.size() - c->pos - 1));
             }
-            if (c != stack_of_oper.begin())
-            {
-                if ((c - 1)->value_aval == true)
-                {
+            if (c != stack_of_oper.begin()) {
+                if ((c - 1)->value_aval == true) {
                     c->val = double_calcu((c - 1)->val, c->val, c->kind);
                 }
-                else if (c->stack_aval_l == true)
-                {
+                else if (c->stack_aval_l == true) {
                     c->val = double_calcu(
                         make_value(std::string(message, (c - 1)->pos + 1, c->pos - (c - 1)->pos - 1), c->stack_pos_l),
                         c->val, c->kind);
                     temp2++;
                 }
-                else
-                {
+                else {
                     c->val = double_calcu(
                         make_value(std::string(message, (c - 1)->pos + 1, c->pos - (c - 1)->pos - 1)), c->val, c->kind);
                 }
             }
-            else
-            {
-                if (c->stack_aval_l == true)
-                {
+            else {
+                if (c->stack_aval_l == true) {
                     c->val = double_calcu(
                         make_value(std::string(message, 0, c->pos), c->stack_pos_l),
                         c->val, c->kind);
@@ -311,36 +277,29 @@ namespace drl_casio
                 temp1 = c->val;
             c->kind = -50;
         }
-        if (temp2 >= 1)
-        {
+        if (temp2 >= 1) {
             stack_of_value.erase(stack_of_value.begin() + pos + 1, stack_of_value.begin() + pos + temp2);
             stack_of_value[pos] = temp1;
         }
         return temp1;
     }
-    long double calculate(std::string &message, size_t k, size_t y)
-    {
+    long double calculate(std::string &message, size_t k, size_t y) {
         stack_of_value.clear();
         size_t j, stack_pos = y;
-        for (size_t i = k; i != message.size(); i++)
-        {
+        for (size_t i = k; i != message.size(); i++) {
             if (message[i] == '$')
                 stack_pos++;
-            if (message[i] == '(')
-            {
+            if (message[i] == '(') {
                 size_t temp = 0;
-                for (j = i + 1;; j++)
-                {
-                    if (message[j] == '(')
-                    {
+                for (j = i + 1;; j++) {
+                    if (message[j] == '(') {
                         i = j;
                         stack_pos += temp;
                         temp = 0;
                     }
                     if (message[j] == '$')
                         temp++;
-                    if (message[j] == ')')
-                    {
+                    if (message[j] == ')') {
                         auto y = min_calculate(
                             std::string(message.begin() + i + 1, message.begin() + j),
                             stack_pos);
@@ -357,111 +316,89 @@ namespace drl_casio
         }
         return min_calculate(std::move(message), 0);
     }
-    short do_command(const std::string &command)
-    {
+    short do_command(const std::string &command) {
         std::regex reg_com_head("^(?:#|-)[A-Za-z]+");
         std::smatch smd;
-        if (std::regex_search(command, smd, reg_com_head))
-        {
+        if (std::regex_search(command, smd, reg_com_head)) {
             short c;
-            try
-            {
+            try {
                 c = commands.at(smd.str());
             }
-            catch (...)
-            {
+            catch (...) {
                 cout << messages.at("command_name_error") << endl;
                 return -1;
             }
-            if (c == 1)
-            {
+            if (c == 1) {
                 static const std::regex reg_SETV("(?:#|-)[A-Za-z]+"
                                                  " *([A-Za-z_]+[A-Za-z_0-9]*)"
                                                  " *((?:-?[0-9]+.?[0-9]*)|(?:-?[0-9]*.[0-9]+))");
                 static const std::regex reg_SETV_2("(?:#|-)[A-Za-z]+"
                                                    " *([A-Za-z_]+[A-Za-z_0-9]*)"
                                                    " *([A-Za-z_]+[A-Za-z_0-9]*)");
-                if (std::regex_match(command, smd, reg_SETV))
-                {
-                    try
-                    {
+                if (std::regex_match(command, smd, reg_SETV)) {
+                    try {
                         functions().at(smd.str(1))(1.0);
                         cout << messages.at("variable_name_error_message") << endl;
                         return -1;
                     }
-                    catch (...)
-                    {
+                    catch (...) {
                         variables()[smd.str(1)] = std::stold(smd.str(2));
                         return c;
                     }
                 }
-                else if (std::regex_match(command, smd, reg_SETV_2))
-                {
-                    try
-                    {
+                else if (std::regex_match(command, smd, reg_SETV_2)) {
+                    try {
                         functions().at(smd.str(1))(1.0);
                         functions().at(smd.str(2))(1.0);
                         cout << messages.at("variable_name_error_message") << endl;
                         return -1;
                     }
-                    catch (...)
-                    {
-                        try
-                        {
+                    catch (...) {
+                        try {
                             variables()[smd.str(1)] = variables().at(smd.str(2));
                             return c;
                         }
-                        catch (...)
-                        {
+                        catch (...) {
                             cout << messages.at("variable_name_error_message") << endl;
                             return -1;
                         }
                     }
                 }
-                else
-                {
+                else {
                     cout << messages.at("command_use_error_message") << endl;
                     return -1;
                 }
                 return c;
             }
-            if (c == 2)
-            {
+            if (c == 2) {
                 static const std::regex reg_DELV("(?:#|-)[A-Za-z]+"
                                                  " *([A-Za-z_]+[A-Za-z_0-9]*)");
-                if (std::regex_match(command, smd, reg_DELV))
-                {
-                    try
-                    {
+                if (std::regex_match(command, smd, reg_DELV)) {
+                    try {
                         variables().at(smd.str(1));
                         variables().erase(smd.str(1));
                         return c;
                     }
-                    catch (...)
-                    {
+                    catch (...) {
                         cout << messages.at("variable_use_error_message") << endl;
                     }
                 }
-                else
-                {
+                else {
                     cout << messages.at("command_use_error_message") << endl;
                     return -1;
                 }
             }
-            if (c == 3)
-            {
+            if (c == 3) {
                 cout << "------------------------" << endl;
                 cout << "VARS"
                      << "\t\t"
                      << "VALUE" << endl;
-                for (auto i = variables().begin(); i != variables().end(); i++)
-                {
+                for (auto i = variables().begin(); i != variables().end(); i++) {
                     cout << i->first << "\t\t" << i->second << endl;
                 }
                 return c;
             }
-            if (c == 4)
-            {
+            if (c == 4) {
                 cout << "#SET / -DEF / #set / -def <name> <value> to set a variable" << endl
                      << "#DEL / ... <name> \t\t\t to delete a variable" << endl
                      << "#VAR / ... \t\t\t\t to inquire all variables" << endl
@@ -472,22 +409,18 @@ namespace drl_casio
                      << "#QUIT / ... \t\t\t\t to quit" << endl;
                 return c;
             }
-            if (c == 5)
-            {
+            if (c == 5) {
                 cout << "------------------------" << endl;
                 cout << "function table:" << endl;
-                for (auto i = functions().begin(); i != functions().end(); i++)
-                {
+                for (auto i = functions().begin(); i != functions().end(); i++) {
                     cout << i->first << endl;
                 }
             }
-            if (c == 6 || c == 7 || c == 8)
-            {
+            if (c == 6 || c == 7 || c == 8) {
                 static const std::regex reg_fcd("(?:#|-)[A-Za-z]+"
                                                 " *([0-9]*)");
                 std::smatch smd;
-                if (std::regex_match(command, smd, reg_fcd))
-                {
+                if (std::regex_match(command, smd, reg_fcd)) {
                     if (c == 6)
                         cout.setf(std::ios::fixed, std::ios::floatfield);
                     if (c == 7)
@@ -500,34 +433,29 @@ namespace drl_casio
                         cout << "The past precision is " << cout.precision(stod(smd.str(1))) << endl;
                     return c;
                 }
-                else
-                {
+                else {
                     cout << messages.at("command_use_error_message") << endl;
                     return -1;
                 }
             }
-            if (c == 9)
-            {
+            if (c == 9) {
                 system("cls");
                 cout << "CALCULATOR V0.4";
             }
             return 0;
         }
-        else
-        {
+        else {
             cout << messages.at("command_name_error") << endl;
             return -1;
         }
     }
-    std::string to_charstr(const std::wstring &a)
-    {
+    std::string to_charstr(const std::wstring &a) {
         std::string res(a.size(), 0);
         for (std::string::size_type i = 0; i < res.size(); i++)
             res[i] = a[i];
         return res;
     }
-    std::wstring to_wcharstr(const std::string &a)
-    {
+    std::wstring to_wcharstr(const std::string &a) {
         std::wstring res(a.size(), 0);
         for (std::string::size_type i = 0; i < res.size(); i++)
             res[i] = a[i];
