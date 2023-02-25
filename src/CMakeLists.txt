@@ -3,8 +3,9 @@ cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
 set(lsource "./matrix/lib1.cpp;./matrix/lib2.cpp;./matrix/lib3.cpp;./matrix/lib4.cpp")
 set(rsource "gui_signal_module.cpp")
 set(casiosource "casio_analy.cpp")
-# set(das_binary_tree "./drl_data_structures/")
+set(bigint "./drl_bigint/bigint.cpp")
 
+# set(das_binary_tree "./drl_data_structures/")
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_CXX_STANDARD 20)
 include_directories(../include)
@@ -23,8 +24,9 @@ add_definitions(-D_UNICODE)
 add_library(basmar STATIC ${lsource})
 add_library(gui STATIC ${rsource})
 add_library(drl_casio STATIC ${casiosource})
-# add_library(das_binary_tree STATIC ${das_binary_tree})
+add_library(drl_bigint STATIC ${bigint})
 
+# add_library(das_binary_tree STATIC ${das_binary_tree})
 set(LIBRARY_OUTPUT_PATH "../../lib")
 
 target_include_directories(
@@ -34,7 +36,8 @@ target_include_directories(
     PUBLIC "../include/drl_graph"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
     PUBLIC "../include/drl_particle"
-    PUBLIC "../include/drl_data_structures")
+    PUBLIC "../include/drl_data_structures"
+    PUBLIC "../include/drl_bigint")
 target_include_directories(
     gui
     PUBLIC "../include"
@@ -42,7 +45,8 @@ target_include_directories(
     PUBLIC "../include/drl_graph"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
     PUBLIC "../include/drl_particle"
-    PUBLIC "../include/drl_data_structures")
+    PUBLIC "../include/drl_data_structures"
+    PUBLIC "../include/drl_bigint")
 target_include_directories(
     drl_casio
     PUBLIC "../include"
@@ -50,14 +54,25 @@ target_include_directories(
     PUBLIC "../include/drl_graph"
     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
     PUBLIC "../include/drl_particle"
-    PUBLIC "../include/drl_data_structures")
+    PUBLIC "../include/drl_data_structures"
+    PUBLIC "../include/drl_bigint")
+target_include_directories(
+    drl_bigint
+    PUBLIC "../include"
+    PUBLIC "../include/drl_matrix"
+    PUBLIC "../include/drl_graph"
+    PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+    PUBLIC "../include/drl_particle"
+    PUBLIC "../include/drl_data_structures"
+    PUBLIC "../include/drl_bigint")
+
 # target_include_directories(
-#     das_binary_tree
-#     PUBLIC "../include"
-#     PUBLIC "../include/drl_matrix"
-#     PUBLIC "../include/drl_graph"
-#     PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
-#     PUBLIC "../include/drl_particle"
-#     PUBLIC "../include/drl_data_structures")
+# das_binary_tree
+# PUBLIC "../include"
+# PUBLIC "../include/drl_matrix"
+# PUBLIC "../include/drl_graph"
+# PUBLIC "E:/VisualStudio/VC/Auxiliary/VS/include"
+# PUBLIC "../include/drl_particle"
+# PUBLIC "../include/drl_data_structures")
 
 # file(COPY "../lib/libbasmar.a" DESTINATION "D:/Project/VSCode/CMakeMatrixtest")

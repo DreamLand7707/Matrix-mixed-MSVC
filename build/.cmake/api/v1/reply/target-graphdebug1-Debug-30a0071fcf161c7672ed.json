@@ -201,6 +201,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_data_structures"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_bigint"
 				}
 			],
 			"language" : "CXX",
@@ -227,6 +231,10 @@
 		{
 			"backtrace" : 5,
 			"id" : "gui::@fbd4ab375b392918fb6a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drl_casio::@fbd4ab375b392918fb6a"
 		}
 	],
 	"id" : "graphdebug1::@6119c8a7cc6a1c8cf1c2",
@@ -254,7 +262,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "drl_casio.lib",
+				"fragment" : "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\lib\\drl_casio.lib",
 				"role" : "libraries"
 			},
 			{

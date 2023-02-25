@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/graphdebug2.exe"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/graphdebug3.exe"
 		},
 		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/graphdebug2.pdb"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/graphdebug3.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -30,25 +30,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 23,
+				"line" : 24,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 38,
+				"line" : 49,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 39,
+				"line" : 50,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 40,
+				"line" : 51,
 				"parent" : 0
 			},
 			{
@@ -102,7 +102,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 41,
+				"line" : 52,
 				"parent" : 0
 			}
 		]
@@ -195,6 +195,10 @@
 				{
 					"backtrace" : 2,
 					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_data_structures"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/src/../include/drl_bigint"
 				}
 			],
 			"language" : "CXX",
@@ -217,9 +221,13 @@
 		{
 			"backtrace" : 2,
 			"id" : "basmar::@fbd4ab375b392918fb6a"
+		},
+		{
+			"backtrace" : 4,
+			"id" : "drl_casio::@fbd4ab375b392918fb6a"
 		}
 	],
-	"id" : "graphdebug2::@6119c8a7cc6a1c8cf1c2",
+	"id" : "graphdebug3::@6119c8a7cc6a1c8cf1c2",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -244,7 +252,7 @@
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "drl_casio.lib",
+				"fragment" : "D:\\Project\\VSCode\\Project_Test\\Matrix-mixed-MSVC\\lib\\drl_casio.lib",
 				"role" : "libraries"
 			},
 			{
@@ -254,8 +262,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "graphdebug2",
-	"nameOnDisk" : "graphdebug2.exe",
+	"name" : "graphdebug3",
+	"nameOnDisk" : "graphdebug3.exe",
 	"paths" : 
 	{
 		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testgraph",
@@ -276,7 +284,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "testgraph/g2.cpp",
+			"path" : "testgraph/g3.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
