@@ -1,6 +1,6 @@
 ﻿project(matrixs LANGUAGES CXX)
 cmake_minimum_required(VERSION 3.5 FATAL_ERROR)
-set(execute1 "1.cpp;2.cpp")
+set(execute1 "1.cpp")
 set(execute2 "2.cpp")
 set(execute3 "3.cpp")
 
@@ -24,6 +24,7 @@ add_executable(cppdebug2 ${execute2})
 add_executable(cppdebug3 ${execute3})
 
 target_link_libraries(cppdebug1 basmar)
+target_link_libraries(cppdebug1 drl_bigint)
 target_include_directories(
     cppdebug1
     PUBLIC "../include"

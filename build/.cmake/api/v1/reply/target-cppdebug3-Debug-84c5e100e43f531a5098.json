@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug1.exe"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug3.exe"
 		},
 		{
-			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug1.pdb"
+			"path" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/Debug/cppdebug3.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -30,13 +30,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 22,
+				"line" : 24,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 26,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
@@ -90,7 +90,7 @@
 			{
 				"command" : 3,
 				"file" : 0,
-				"line" : 27,
+				"line" : 42,
 				"parent" : 0
 			}
 		]
@@ -196,8 +196,7 @@
 			},
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -208,7 +207,7 @@
 			"id" : "basmar::@fbd4ab375b392918fb6a"
 		}
 	],
-	"id" : "cppdebug1::@44afef7806525cc4badc",
+	"id" : "cppdebug3::@44afef7806525cc4badc",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -233,8 +232,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "cppdebug1",
-	"nameOnDisk" : "cppdebug1.exe",
+	"name" : "cppdebug3",
+	"nameOnDisk" : "cppdebug3.exe",
 	"paths" : 
 	{
 		"build" : "D:/Project/VSCode/Project_Test/Matrix-mixed-MSVC/bin/testbin",
@@ -246,8 +245,7 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0,
-				1
+				0
 			]
 		}
 	],
@@ -256,13 +254,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "test/1.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "test/2.cpp",
+			"path" : "test/3.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
